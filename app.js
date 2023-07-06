@@ -7,9 +7,12 @@ const app = express();
 
 app.use(cors());
 
-app.use('/', (req, res) => {
-  res.send("하이");
-})
+//라우터
+const homeRouter = require('./routes/home');
+const testRouter = require('./routes/test');
+
+app.use('/', homeRouter);
+app.use('/test', testRouter);
 
 app.listen(PORT,()=> {
     console.log(`${PORT} 실행 중`);
