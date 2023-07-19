@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- css 초기화 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/mypage.css" />
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 구글 아이콘 -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <title>SWEG MALL</title>
+    <script defer src="/js/compare.js"></script>
+    <!-- <script defer src="./example.js"></script> -->
+  </head>
+  <body>
+    <div class="main-baaner-wrap" style="background-color: #fff; height: auto">
+      <div class="nav-wrap">
+        <div class="container">
+          <div class="nav-top">
+            <span class="logo">SWEG</span>
+            <ul>
+              <li><a href="#">장바구니</a></li>
+              <li><a href="#">고객센터</a></li>
+              <li><a href="/user">로그인</a></li>
+            </ul>
+          </div>
+          <div class="nav-bottom">
+            <ul class="nav-list">
+              <li class="nav-list-li">
+                <div class="nav-item">냉장고</div>
+                <div class="nav-item-contents">
+                  <div class="nav-item-menu">
+                    <ul class="container">
+                      <li>안녕</li>
+                      <li>안녕1</li>
+                      <li>안녕2</li>
+                      <li>안녕3</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-list-li">
+                <div class="nav-item">커피</div>
+                <div class="nav-item-contents">
+                  <div class="nav-item-menu">
+                    <ul class="container">
+                      <li>안녕</li>
+                      <li>안녕1</li>
+                      <li>안녕2</li>
+                      <li>안녕3</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-list-li">
+                <div class="nav-item">주방/생활</div>
+                <div class="nav-item-contents">
+                  <div class="nav-item-menu">
+                    <ul class="container">
+                      <li>안녕</li>
+                      <li>안녕1</li>
+                      <li>안녕2</li>
+                      <li>안녕3</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-list-li">
+                <div class="nav-item">소형가전</div>
+                <div class="nav-item-contents">
+                  <div class="nav-item-menu">
+                    <ul class="container">
+                      <li>안녕</li>
+                      <li>안녕1</li>
+                      <li>안녕2</li>
+                      <li>안녕3</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-list-li">
+                <div class="nav-item">스메그클래스</div>
+                <div class="nav-item-contents">
+                  <div class="nav-item-menu">
+                    <ul class="container">
+                      <li>안녕</li>
+                      <li>안녕1</li>
+                      <li>안녕2</li>
+                      <li>안녕3</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <span class="material-symbols-outlined"> menu </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mypage_wrap">
+      <div class="container">
+        <div class="mypage-box">
+          <div class="left-info">
+            <div class="mp_title">마이페이지</div>
+            <div class="mp_name">홍길동<span>님</span></div>
+            <div class="mp_grade">totoback</div>
+            <div class="mp_grade">일반회원</div>
+            <div class="mp_btn_area">
+              <a href="#">
+                <img src="/img/list/mp_icon_mem.svg" alt="" />
+                <div class="text">개인정보 수정</div>
+              </a>
+            </div>
+          </div>
+          <div class="right-info">
+            <div class="order_process_area">
+              <div class="order_process">
+                <a href="#">
+                  <div class="item">
+                    <div class="image_area">
+                      <img
+                        src="/img/list/mp_icon_step1.svg"
+                        alt="주문접수 아이콘"
+                      />
+                    </div>
+                    <div class="text">주문접수</div>
+                    <div class="count">0</div>
+                  </div>
+                </a>
+                <div class="arrow">
+                  <img
+                    src="/img/list/mp_icon_arrow1.svg"
+                    alt="화살표 아이콘"
+                  />
+                </div>
+                <a href="#">
+                  <div class="item">
+                    <div class="image_area">
+                      <img
+                        src="/img/list/mp_icon_step2.svg"
+                        alt="주문접수 아이콘"
+                      />
+                    </div>
+                    <div class="text">결제완료</div>
+                    <div class="count">0</div>
+                  </div>
+                </a>
+                <div class="arrow">
+                  <img
+                    src="/img/list/mp_icon_arrow1.svg"
+                    alt="화살표 아이콘"
+                  />
+                </div>
+                <a href="#">
+                  <div class="item">
+                    <div class="image_area">
+                      <img
+                        src="/img/list/mp_icon_step3.svg"
+                        alt="주문접수 아이콘"
+                      />
+                    </div>
+                    <div class="text">상품준비중</div>
+                    <div class="count">0</div>
+                  </div>
+                </a>
+                <div class="arrow">
+                  <img
+                    src="/img/list/mp_icon_arrow1.svg"
+                    alt="화살표 아이콘"
+                  />
+                </div>
+                <a href="#">
+                  <div class="item">
+                    <div class="image_area">
+                      <img
+                        src="/img/list/mp_icon_step1.svg"
+                        alt="주문접수 아이콘"
+                      />
+                    </div>
+                    <div class="text">배송중</div>
+                    <div class="count">0</div>
+                  </div>
+                </a>
+                <div class="arrow">
+                  <img
+                    src="/img/list/mp_icon_arrow1.svg"
+                    alt="화살표 아이콘"
+                  />
+                </div>
+                <a href="#">
+                  <div class="item">
+                    <div class="image_area">
+                      <img
+                        src="/img/list/mp_icon_step1.svg"
+                        alt="주문접수 아이콘"
+                      />
+                    </div>
+                    <div class="text">배송완료</div>
+                    <div class="count">0</div>
+                  </div>
+                </a>
+              </div>
+              <div class="order_process_etc">
+                <a href="#">
+                  <div class="item">
+                    <div class="text">취소·교환·반품</div>
+                    <div class="count">0</div>
+                  </div>
+                </a>
+
+                <a href="#">
+                  <div class="item">
+                    <div class="text">구매확정가능</div>
+                    <div class="count">0</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="mp_membership_info_area">
+              <div class="mp_btn_area">
+                <a href="my_membership_reg.php">
+                  <img
+                    src="/img/list/mp_icon_membership.svg"
+                    alt="정품등록 아이콘"
+                  />
+                  <div class="text">정품등록하기</div>
+                  <img
+                    src="/img/list/mp_icon_arrow2.svg"
+                    alt="화살표 이미지"
+                    style="width: 10px"
+                  />
+                </a>
+              </div>
+              <div class="info_area">
+                <div class="item">혜택1. 기술지원</div>
+                <div class="item">혜택2. 전용악세사리 할인</div>
+                <div class="item">혜택3. 정품등록 이벤트</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mypage_contents_area">
+      <div class="container">
+        <div class="mp_contents_wrap">
+          <div class="mp_menu">
+            <div class="mp_menu_info">
+              <div class="item">
+                <div class="item_title">
+                  <div class="icon_area">
+                    <img
+                      src="/img/list/mp_menu_icon02.svg"
+                      alt="아이콘"
+                    />
+                  </div>
+                  <div class="item_title_text">쿠폰</div>
+                </div>
+                <div class="item_value">0장</div>
+              </div>
+            </div>
+            <div class="mp_menu_item">
+              <a href="my_order_list.php" class="item">
+                <div class="title">MY 주문/배송 현황</div>
+                <div class="icon">
+                  <img
+                    src="/img/list/mp_menu_arrow.png"
+                    alt="아이콘"
+                    style="width: 26px"
+                  />
+                </div>
+              </a>
+              <a href="my_coupon_list.php" class="item">
+                <div class="title">MY 쿠폰</div>
+                <div class="icon">
+                  <img
+                    src="/img/list/mp_menu_arrow.png"
+                    alt="아이콘"
+                    style="width: 26px"
+                  />
+                </div>
+              </a>
+              <div class="blank_div"></div>
+            </div>
+          </div>
+          <div class="mp_contents">
+            <div class="mp_board">
+              <div class="board_title">
+                <div class="title">MY 주문/배송 현황</div>
+              </div>
+            </div>
+            <div class="container_full mp_page_tab_area">
+              <div class="container_fixed page_tab_wrap">
+                <a href="#" class="item active"> 전체 </a>
+                <div class="bar">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="2"
+                    height="12"
+                    viewBox="0 0 2 22"
+                  >
+                    <rect
+                      id="사각형_3595"
+                      data-name="사각형 3595"
+                      width="2"
+                      height="22"
+                      fill="#b2b2b2"
+                    ></rect>
+                  </svg>
+                </div>
+                <a href="#" class="item"> 주문접수 </a>
+                <div class="bar">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="2"
+                    height="12"
+                    viewBox="0 0 2 22"
+                  >
+                    <rect
+                      id="사각형_3595"
+                      data-name="사각형 3595"
+                      width="2"
+                      height="22"
+                      fill="#b2b2b2"
+                    ></rect>
+                  </svg>
+                </div>
+                <a href="#" class="item"> 결제완료 </a>
+                <div class="bar">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="2"
+                    height="12"
+                    viewBox="0 0 2 22"
+                  >
+                    <rect
+                      id="사각형_3595"
+                      data-name="사각형 3595"
+                      width="2"
+                      height="22"
+                      fill="#b2b2b2"
+                    ></rect>
+                  </svg>
+                </div>
+                <a href="#" class="item"> 상품준비중 </a>
+                <div class="bar">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="2"
+                    height="12"
+                    viewBox="0 0 2 22"
+                  >
+                    <rect
+                      id="사각형_3595"
+                      data-name="사각형 3595"
+                      width="2"
+                      height="22"
+                      fill="#b2b2b2"
+                    ></rect>
+                  </svg>
+                </div>
+                <a href="#" class="item"> 배송중 </a>
+                <div class="bar">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="2"
+                    height="12"
+                    viewBox="0 0 2 22"
+                  >
+                    <rect
+                      id="사각형_3595"
+                      data-name="사각형 3595"
+                      width="2"
+                      height="22"
+                      fill="#b2b2b2"
+                    ></rect>
+                  </svg>
+                </div>
+                <a href="#" class="item"> 배송완료 </a>
+                <div class="bar">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="2"
+                    height="12"
+                    viewBox="0 0 2 22"
+                  >
+                    <rect
+                      id="사각형_3595"
+                      data-name="사각형 3595"
+                      width="2"
+                      height="22"
+                      fill="#b2b2b2"
+                    ></rect>
+                  </svg>
+                </div>
+                <a href="#" class="item"> 구매확정 </a>
+                <div class="bar">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="2"
+                    height="12"
+                    viewBox="0 0 2 22"
+                  >
+                    <rect
+                      id="사각형_3595"
+                      data-name="사각형 3595"
+                      width="2"
+                      height="22"
+                      fill="#b2b2b2"
+                    ></rect>
+                  </svg>
+                </div>
+                <a href="#" class="item"> 구매확정 </a>
+              </div>
+            </div>
+            <div class="mp_content1">
+              <div class="mp_order_search_box" style="margin-top: 20px">
+                <span>조회기간</span>
+                <div class="search_date">
+                  <div class="form_row_content" style="width: initial">
+                    <input
+                      id="search_start_date"
+                      name="search_start_date"
+                      class="form_text search_datepicker period_start hasDatepicker"
+                      placeholder="시작일"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                  <div style="display: inline-block">~</div>
+
+                  <div class="form_row_content" style="width: initial">
+                    <input
+                      id="search_end_date"
+                      name="search_end_date"
+                      class="form_text search_datepicker period_end hasDatepicker"
+                      placeholder="종료일"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+                <div class="search_btn_set">
+                  <a href="#" id="search_all" class="period_btn btn active">
+                    전체
+                  </a>
+                  <a href="#" id="search_0" class="period_btn btn"> 오늘 </a>
+                  <a href="#" id="search_7" class="period_btn btn"> 7일 </a>
+                  <a href="#" id="search_14" class="period_btn btn"> 14일 </a>
+                  <a href="#" id="search_30" class="period_btn btn"> 30일 </a>
+                  <a href="#" id="search_90" class="period_btn btn"> 90일 </a>
+                </div>
+                <div class="btn_set">
+                  <a href="#" class="btn_basic positive">조회</a>
+                </div>
+              </div>
+              <div class="line"></div>
+              <div class="text"></div>
+            </div>
+            <div class="mp_content2">
+              <div class="mp_board">
+                <div class="board_title">
+                  <div class="title">MY 쿠폰</div>
+                </div>
+                <div class="board_search no_cate">
+                  <div
+                    class="item_wrap"
+                    style="padding-bottom: 0; border-bottom: initial"
+                  >
+                    <div class="item board_count_area">
+                      사용가능한 쿠폰이 <span class="board_count">0</span>장
+                      있습니다.
+                    </div>
+                    <div class="item"></div>
+                  </div>
+                </div>
+                <div class="mc_board_info">
+                  * 모든 쿠폰은 결제 페이지에서 사용하실 수 있습니다.
+                </div>
+
+                <ul class="mp_coupon_list">
+                  <li class="item header">
+                    <div class="num">No.</div>
+                    <div class="title">쿠폰명</div>
+                    <div class="date">발급일</div>
+                    <div class="date">만료일</div>
+                    <div class="date">사용일</div>
+                  </li>
+                  <li class="item no_item">등록된 쿠폰이 없습니다.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

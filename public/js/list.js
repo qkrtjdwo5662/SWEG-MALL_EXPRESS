@@ -6,7 +6,7 @@ let product = {
       model: "FAB28RCR5",
       color: "크림",
       price: 3350000,
-      img: "./assets/img/list/FAB28-크림.png",
+      img: "/img/list/FAB28-크림.png",
     },
     {
       id: 2,
@@ -14,7 +14,7 @@ let product = {
       model: "FAB28RCR5",
       color: "레드",
       price: 2100000,
-      img: "./assets/img/list/FAB10-레드.png",
+      img: "/img/list/FAB10-레드.png",
     },
     {
       id: 3,
@@ -22,7 +22,7 @@ let product = {
       model: "FAB28RCR5",
       color: "블랙",
       price: 2100000,
-      img: "./assets/img/list/FAB10-블랙.png",
+      img: "/img/list/FAB10-블랙.png",
     },
     {
       id: 4,
@@ -30,7 +30,7 @@ let product = {
       model: "FAB28RCR5",
       color: "크림",
       price: 2100000,
-      img: "./assets/img/list/FAB10-크림.png",
+      img: "/img/list/FAB10-크림.png",
     },
     {
       id: 5,
@@ -38,7 +38,7 @@ let product = {
       model: "FAB28RCR5",
       color: "블랙",
       price: 3350000,
-      img: "./assets/img/list/FAB28-블랙.png",
+      img: "/img/list/FAB28-블랙.png",
     },
     {
       id: 6,
@@ -46,7 +46,7 @@ let product = {
       model: "FAB28RCR5",
       color: "옐로우",
       price: 3350000,
-      img: "./assets/img/list/FAB28-옐로우.png",
+      img: "/img/list/FAB28-옐로우.png",
     },
     {
       id: 7,
@@ -54,7 +54,7 @@ let product = {
       model: "FAB28RCR5",
       color: "유니언잭",
       price: 3350000,
-      img: "./assets/img/list/FAB28-유니언잭.png",
+      img: "/img/list/FAB28-유니언잭.png",
     },
     {
       id: 8,
@@ -62,7 +62,7 @@ let product = {
       model: "FAB28RCR5",
       color: "파스텔그린",
       price: 3350000,
-      img: "./assets/img/list/FAB28-파스텔그린.png",
+      img: "/img/list/FAB28-파스텔그린.png",
     },
     {
       id: 9,
@@ -70,7 +70,7 @@ let product = {
       model: "FAB28RCR5",
       color: "레드",
       price: 3350000,
-      img: "./assets/img/list/FAB5-레드.png",
+      img: "/img/list/FAB5-레드.png",
     },
     {
       id: 10,
@@ -78,7 +78,7 @@ let product = {
       model: "FAB28RCR5",
       color: "블랙",
       price: 3350000,
-      img: "./assets/img/list/FAB5-블랙.png",
+      img: "/img/list/FAB5-블랙.png",
     },
     {
       id: 11,
@@ -86,7 +86,7 @@ let product = {
       model: "FAB28RCR5",
       color: "크림",
       price: 3350000,
-      img: "./assets/img/list/FAB5-크림.png",
+      img: "/img/list/FAB5-크림.png",
     },
   ],
   toast: [
@@ -180,7 +180,7 @@ comparisonSubBtn.forEach(function (btn, index) {
                               <div class="item_name">${selectedProduct.name}</div>
                               <div class="item_model">${selectedProduct.model}</div>
                               <div class="close_compare_box">
-                                <img src="./assets/img/list/icon_compare_box_close.svg" alt="close">
+                                <img src="/img/list/icon_compare_box_close.svg" alt="close">
                               </div>
                             </div>
                           </div>`;

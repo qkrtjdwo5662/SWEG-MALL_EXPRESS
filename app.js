@@ -30,10 +30,12 @@ app.use(
 //라우터
 const homeRouter = require('./routes/home');
 const userRouter = require('./routes/user');
+const productRouter = require('./routes/product');
 // const testRouter = require('./routes/test');
 
 app.use('/', homeRouter);
 app.use('/user', userRouter);
+app.use('/product', productRouter);
 // app.use('/test', testRouter);
 
 app.listen(PORT,()=> {

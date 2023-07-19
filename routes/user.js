@@ -27,6 +27,10 @@ router.post('/login', login);
 router.get('/login-success', (req, res) => {
   res.redirect('/');
 })
+router.get('/mypage', (req, res) => {
+  res.render('mypage.ejs');
+})
+
 
 router.get('/logout', logout);
 
