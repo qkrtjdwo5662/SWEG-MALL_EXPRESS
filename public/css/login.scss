@@ -1,0 +1,278 @@
+// font
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+body {
+  font-family: "Montserrat", sans-serif;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+.container {
+  width: 1000px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+//아이콘
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  opacity: 0.5;
+}
+.line {
+  opacity: 0.5;
+  margin-bottom: 0;
+}
+.form_text{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  width: 100%;
+  padding: 10px;
+}
+
+//nav
+.nav-wrap {
+  .logo {
+    display: inline-block;
+    font-weight: 900;
+    font-size: 26px;
+    // text-align: center;
+    // transform: translate(-50%, -50%);
+    // left: 200px;
+    // 가운데로 왜  안가는거야 ㅡㅡ
+  }
+  .nav-top {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    ul {
+      display: inline-block;
+      li {
+        display: inline-block;
+        font-size: 15px;
+        margin-left: 10px;
+      }
+    }
+  }
+  .nav-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    .nav-list {
+      display: inline-block;
+      .nav-list-li {
+        cursor: pointer;
+        color: #333;
+        display: inline-block;
+        margin-right: 20px;
+        &:hover {
+          border-bottom: 2px solid black;
+          padding-bottom: 10px;
+          .nav-item-contents {
+            display: block;
+          }
+        }
+        .nav-item-contents {
+          position: absolute;
+          top: 138px;
+          left: 0;
+          display: none;
+          .nav-item-menu {
+            background: #fff;
+            padding: 20px 0;
+            width: 100vw;
+          }
+          .container {
+            li {
+              display: inline-block !important;
+              margin-right: 16px;
+              font-size: 14px;
+              color: #555;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.main-banner {
+  text-align: center;
+  top: 130px;
+  position: relative;
+  .title {
+    color: #e5e5e5;
+    font-size: 220px;
+    font-weight: 900;
+    position: absolute;
+    left: 51%;
+    transform: translate(-51%);
+    z-index: 1;
+  }
+  img {
+    width: 520px;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
+
+.login_area{
+  display: flex;
+  width: auto;
+  height: 800px;
+  justify-content: center;
+  .login_form_area{
+    width: 50%;
+    height: auto;
+    // text-align: center;
+
+    .login_form_top{
+      display: flex;
+      justify-content: end;
+      width: 100%;
+      height: 543px;
+        .login_form_wrap{
+          width: 600px;
+          padding-right: 110px;
+          h1{
+            margin-top: 120px;
+            margin-bottom: 40px;
+            font-size: 2.4rem;
+            line-height: 3.2rem;
+            font-weight: normal;
+            text-align: left;
+          }
+          .login_input{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            padding: 5px, 0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #DFDFDF;
+          }
+          .login_button{
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            border: 1px solid black;
+            a{
+              width: 100%;
+              position: relative;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 60px;
+              margin: 0 5px;
+            }
+          }
+          .login_form_func{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            .login_form_func_save{
+              display: flex;
+              align-items: center;
+              min-height: 40px;
+            }
+            .login_form_func_find{
+              display: flex;
+              justify-content: end;
+              align-items: center;
+              span{
+                display: flex;
+                text-align: center;
+                padding: 0 15px;
+              }
+            }
+          }
+        }
+    }
+    .login_form_bottom{
+      display: flex;
+      justify-content: end;
+      width: 100%;
+      height: auto;
+      padding-top: 65px;
+      background-color: #fbfbfb;
+      border-top: 1px solid #DFDFDF;
+      .login_form_wrap{
+        width: 600px;
+        padding-right: 110px;
+        .btn_area{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          margin: 0;
+          margin-bottom: 10px;
+          span{
+            font-size: 1.4rem;
+            letter-spacing: -0.02rem;
+            
+          }
+          .join_button{
+            display: flex;
+            justify-content: center;
+          }
+          a{
+            width: 200px;
+            height: 50px;
+            color: #9a9a9a;
+            border: 1px solid #DFDFDF;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 5px;
+            background-color: #fff;
+            :last-child{
+              margin-right: 0;
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .notice_area{
+    width: 50%;
+    height: auto;
+    background-color: black;
+    .notice_part{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 812px;
+      .notice_area{
+        width: 75%;
+        max-width: 577px;
+        height: 75%;
+        padding: 40px 45px;
+        background-color: #fff;
+        .logo_area{
+          .logo {
+            display: inline-block;
+            font-weight: 900;
+            font-size: 26px;
+        }
+      }
+      .notice_contents_area{
+        margin-top: 100px;
+      }
+    }
+  }
+  }
+}
+.footer{
+  padding-top: 57px;
+  padding-bottom: 100px;
+  background-color: #313131;
+}

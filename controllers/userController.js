@@ -1,6 +1,7 @@
 require('./mongoConnect');
 const User = require('../models/user');
 
+
 const idDuplicateCheck = async (req, res) => {
     try{
         const findUser = await User.findOne({user_id : req.body.user_id});
@@ -18,7 +19,7 @@ const signUp = async (req, res) => {
   try{
      const {user_name, user_gender, user_birth, user_id, user_pw, user_tel, user_email, user_address} = req.body;
 
-     await User.create({
+     const user = await User.create({
          user_name,
          user_gender,
          user_birth,
@@ -28,8 +29,9 @@ const signUp = async (req, res) => {
          user_email,
          user_address
       });
-
-      console.log(res);
+      req.session.login = true; // 로그인 유무
+      req.session.uid = user_id; 
+      req.session.user = user;
       return res.status(200).json('회원가입 성공');
   }catch (err){
     console.log(err);
@@ -44,12 +46,12 @@ const login = async (req, res) => {
     const findUser = await User.findOne({user_id: req.body.user_id});
     if(!findUser) return res.status(400).json('없는 사용자');
     if(user_id !== findUser.user_id || user_pw !== findUser.user_pw) return res.status(401).json('회원 정보 오류');
-    // res.cookie('user', findUser, {
-    //     httpOnly: true,
-    //     signed: true,
-    // });
-    // console.log(req.cookies);
-    return res.status(200).json(findUser);
+    
+    req.session.login = true; // 로그인 유무
+    req.session.uid = user_id; 
+    req.session.user = findUser;
+    console.log(req.session);
+    return res.status(200).json('로그인 성공');
 
   }catch (err){
     console.log(err);
@@ -57,8 +59,15 @@ const login = async (req, res) => {
   }
 }
 
+const logout = async(req, res) => {
+  req.session.destroy((err) => {
+    if(err) throw err;
+    res.redirect('/');
+  })
+}
 module.exports = {
   idDuplicateCheck,
   signUp,
-  login
+  login,
+  logout
 }

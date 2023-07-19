@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38.135" height="93.762" viewBox="0 0 38.135 93.762">
+  <g id="Group_7729" data-name="Group 7729" transform="translate(-601 -828.666)">
+    <path id="Path_1267" data-name="Path 1267" d="M31.618,93.262H6.517A6.132,6.132,0,0,1,.5,87.02V6.742A6.133,6.133,0,0,1,6.517.5h25.1a6.133,6.133,0,0,1,6.017,6.242V87.02a6.132,6.132,0,0,1-6.017,6.241" transform="translate(601 828.666)" fill="#fff"/>
+    <rect id="Rectangle_3539" data-name="Rectangle 3539" width="37.135" height="92.762" rx="6.017" transform="translate(601.5 829.166)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+    <path id="Path_1268" data-name="Path 1268" d="M19.188,24.885,5.5,25.213V22.767l13.688.285Z" transform="translate(601 829.529)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <path id="Path_1269" data-name="Path 1269" d="M19.188,39.331,5.5,39.659V37.213l13.688.285Z" transform="translate(601 830.076)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+    <line id="Line_1208" data-name="Line 1208" x2="37.438" transform="translate(601.5 861.029)"/>
+    <line id="Line_1209" data-name="Line 1209" x2="37.438" transform="translate(601.5 861.029)" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="1"/>
+    <rect id="Rectangle_3540" data-name="Rectangle 3540" width="38.135" height="93.762" transform="translate(601 828.666)" fill="none"/>
+  </g>
+</svg>

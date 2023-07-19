@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- css 초기화 -->
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+  />
+  <link rel="stylesheet" href="/css/login.css" />
+  <!-- 구글폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet"
+  />
+  <!-- 구글 아이콘 -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+  />
+  <title>SWEG MALL</title>
+</head>
+<body>
+  <div class="top">
+    <div class="nav-wrap">
+      <div class="container">
+        <div class="nav-top">
+          <span class="logo">SWEG</span>
+        </div>
+        <div class="nav-bottom">
+          <ul class="nav-list">
+            <li class="nav-list-li">
+              <div class="nav-item">냉장고</div>
+              <div class="nav-item-contents">
+                <div class="nav-item-menu">
+                  <ul class="container">
+                    <li>안녕</li>
+                    <li>안녕1</li>
+                    <li>안녕2</li>
+                    <li>안녕3</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="nav-list-li">
+              <div class="nav-item">커피</div>
+              <div class="nav-item-contents">
+                <div class="nav-item-menu">
+                  <ul class="container">
+                    <li>안녕</li>
+                    <li>안녕1</li>
+                    <li>안녕2</li>
+                    <li>안녕3</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="nav-list-li">
+              <div class="nav-item">주방/생활</div>
+              <div class="nav-item-contents">
+                <div class="nav-item-menu">
+                  <ul class="container">
+                    <li>안녕</li>
+                    <li>안녕1</li>
+                    <li>안녕2</li>
+                    <li>안녕3</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="nav-list-li">
+              <div class="nav-item">소형가전</div>
+              <div class="nav-item-contents">
+                <div class="nav-item-menu">
+                  <ul class="container">
+                    <li>안녕</li>
+                    <li>안녕1</li>
+                    <li>안녕2</li>
+                    <li>안녕3</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li class="nav-list-li">
+              <div class="nav-item">스메그클래스</div>
+              <div class="nav-item-contents">
+                <div class="nav-item-menu">
+                  <ul class="container">
+                    <li>안녕</li>
+                    <li>안녕1</li>
+                    <li>안녕2</li>
+                    <li>안녕3</li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <span class="material-symbols-outlined"> menu </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- menu -->
+  <hr class="line">
+  <div class="login_area">
+
+    <div class="login_form_area">
+      <!-- login top -->
+      <div class="login_form_top">
+        <!-- input & button 추후 form 태그 감싸야 함 -->
+        <div class="login_form_wrap">
+          <h1>
+            반갑습니다.
+            <br>
+            스웨그 고객님! 로그인하세요.
+          </h1>
+          <div class="login_input">
+            <span class="material-symbols-outlined">
+              person
+              </span>
+            <input type="text" placeholder="아이디 입력" class="form_text" name="user_id" id="user_id">
+          </div>
+          <div class="login_input">
+            <span class="material-symbols-outlined">
+              lock_open
+              </span>
+            <input type="password" placeholder="비밀번호 입력" class="form_text" name="user_pw" id="user_pw">
+          </div>
+          <div class="login_button">
+            <a href="#none" onclick=loginUser()>로그인</a>
+          </div>
+          <div class="login_form_func">
+            <div class="login_form_func_save">
+              <input id="logincheck" type="checkbox">
+              <label for="logincheck">아이디 저장</label>
+            </div>
+            <div class="login_form_func_find">
+              <a href="#">아이디 찾기</a>
+              <span> | </span>
+              <a href="#">비밀번호 찾기</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- login bottom -->
+      <div class="login_form_bottom">
+        <div class="login_form_wrap">
+          <div class="btn_area">
+            <span>No SWEG USER ?</span>
+            <div class="join_button">
+              <a href="/user/join">회원가입</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notice_area">
+      <div class="notice_part">
+        <div class="notice_area">
+          <div class="logo_area">
+            <span class="logo">SWEG</span>
+          </div>
+          <div class="notice_contents_area">
+            안녕하세요
+            <br>
+            스웨그 몰 입니다.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="top_anchor"></div>
+  </div>
+
+  </div>
+</body>
+</html>
+
+<script>
+  const user_id = document.getElementById('user_id');
+  const user_pw = document.getElementById('user_pw');
+
+  async function loginUser() {
+    if(user_id.value === ""){
+      alert("아이디를 입력해주세요");
+      user_id.focus();
+      return;
+    }else if(user_pw.value === ""){
+      alert("비밀번호를 입력해주세요");
+      user_pw.focus();
+      return;
+    }
+
+    const res = await fetch(`http://localhost:4000/user/login`, { 
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        user_id: user_id.value,
+        user_pw: user_pw.value,
+      }),
+    });
+    if(res.status===200){
+      const userData = async () => {
+        const data = await res.json();
+        console.log(data);
+        alert("로그인 성공");
+        location.href = "/";
+      }
+      userData();
+    }else if(res.status === 400){ // id X
+      alert("회원정보가 존재하지 않습니다."); // id !== db ID || pw ! == db PW
+      location.reload();
+    }else if(res.status === 401){
+      alert("회원정보를 확인해주세요.");
+      location.reload();
+    }else if(res.staus === 500){
+      alert("알 수 없는 오류");
+      location.reload();
+    }
+  }
+</script>

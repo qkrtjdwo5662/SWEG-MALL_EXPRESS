@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- css 초기화 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 구글 아이콘 -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <title>SWEG MALL</title>
+    <script defer src="./assets/js/list.js"></script>
+    <!-- <script defer src="./example.js"></script> -->
+  </head>
+  <body style="background-color: #f8f8f8">
+    <div class="top-banner"></div>
+    <div class="breadcrumbs" style="bottom: 0px">
+      <div class="container">
+        <div class="bar_area">
+          <div class="location">
+            <!-- <div class="loc_item">
+                  <a href="/product/product_list.php?cate=13">
+                      대형/빌트인                </a>
+              </div> -->
+
+            <div class="loc_item">
+              <div class="form_row_content breadcrumb_select">
+                <select id="1depth_cate" name="1depth_cate" class="form_text">
+                  <option value="PRD001" data-cate_seq="13">대형/빌트인</option>
+                  <option value="PRD002" data-cate_seq="14">소형가전</option>
+                  <option value="PRD003" data-cate_seq="21">홈카페</option>
+                  <option value="PRD004" data-cate_seq="22">쿡웨어</option>
+                  <option value="PRD018" data-cate_seq="202">
+                    푸드서비스(전문가용)
+                  </option>
+                  <option value="PRD006" data-cate_seq="27">
+                    스페셜에디션
+                  </option>
+                  <option value="PRD005" data-cate_seq="23">서비스</option>
+                  <option value="PRD033" data-cate_seq="659">추가구성품</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- <div class="loc_item">
+                  <a href="/product/product_list.php?cate=15">
+                      냉장고                </a>
+              </div> -->
+
+            <div class="loc_item">
+              <div class="form_row_content breadcrumb_select">
+                <select id="2depth_cate" name="2depth_cate" class="form_text">
+                  <option value="" data-cate_seq="13">전체</option>
+                  <option value="PRD001001" data-cate_seq="15">냉장고</option>
+                  <option value="PRD001008" data-cate_seq="629">
+                    와인셀러
+                  </option>
+                  <option value="PRD001003" data-cate_seq="24">인덕션</option>
+                  <option value="PRD001002" data-cate_seq="16">오븐</option>
+                  <option value="PRD001006" data-cate_seq="31">주방후드</option>
+                  <option value="PRD001004" data-cate_seq="28">
+                    식기세척기
+                  </option>
+                  <option value="PRD001005" data-cate_seq="29">
+                    빌트인커피머신
+                  </option>
+                  <option value="PRD001007" data-cate_seq="32">세탁기</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="blank_areaw"></div>
+          <div class="compare_area">
+            <a href="javascript:;">
+              <img src="./assets/img/list/icon_bar_compare.svg" alt="" />
+              <div class="compare_text">
+                <span class="text_info">비교하기</span>
+                <span id="compare_count" class="compare_count">0</span>
+                <span class="compare_unit">개</span>
+              </div>
+              <img class="compare_down" src="" alt="" />
+              <img class="compare_up" src="" alt="" />
+              <div class="circle">
+                <div
+                  id="circle_item"
+                  class="circle_item"
+                  style="width: 5px; height: 5px; opacity: 0"
+                ></div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="compare_item_area">
+          <!-- <div class="compare_title">상품 비교하기</div> -->
+          <div class="item_wrap">
+            <div id="compare_list" class="item_set">
+              <div class="item_box no_item">선택된 상품이 없습니다.</div>
+              <div class="item_box no_item">선택된 상품이 없습니다.</div>
+              <div class="item_box no_item">선택된 상품이 없습니다.</div>
+            </div>
+            <div class="compare_func_area">
+              <div class="compare_func">
+                <a href="#" class="compare_btn" onclick="compare_page_link();">
+                  비교하기
+                </a>
+                <a
+                  href="#"
+                  class="compare_init"
+                  onclick="ajax_compare('init','');"
+                >
+                  <span>초기화</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-title">
+      <div class="container">
+        <h3 class="list-title">냉장고</h3>
+      </div>
+    </div>
+    <div class="filter_bar">
+      <div class="container">
+        <div href="#" class="filter_btn">
+          <div class="title">제품필터</div>
+        </div>
+      </div>
+    </div>
+    <div class="product_filter">
+      <div class="container">
+        <div class="filter_contents">
+          <div class="inner">
+            <div class="item style">
+              <div class="title">사이즈</div>
+              <div class="contents">
+                <div class="unit">단위 (mm)</div>
+                <div class="graph_area">
+                  <div class="step">
+                    <div class="step_num">2,000</div>
+                    <div class="step_num">1,500</div>
+                    <div class="step_num">1,000</div>
+                    <div class="step_num">500</div>
+                    <div class="step_num">0</div>
+                  </div>
+                  <div class="graph">
+                    <a href="#" class="graph_link" data-name="FAB5">
+                      <div class="graph_img">
+                        <img
+                          src="./assets/img/list/img_filter_fab5.svg"
+                          alt="fab5"
+                        />
+                      </div>
+                      <div class="graph_title">FAB5</div>
+                    </a>
+                    <a href="#" class="graph_link" data-name="FAB10">
+                      <div class="graph_img">
+                        <img
+                          src="./assets/img/list/img_filter_fab10.svg"
+                          alt="fab10"
+                        />
+                      </div>
+                      <div class="graph_title">FAB10</div>
+                    </a>
+                    <a href="#" class="graph_link" data-name="FAB28">
+                      <div class="graph_img">
+                        <img
+                          src="./assets/img/list/img_filter_fab28.svg"
+                          alt="fab28"
+                        />
+                      </div>
+                      <div class="graph_title">FAB28</div>
+                    </a>
+                    <a href="#" class="graph_link" data-name="FAB30">
+                      <div class="graph_img">
+                        <img
+                          src="./assets/img/list/img_filter_fab30.svg"
+                          alt="fab30"
+                        />
+                      </div>
+                      <div class="graph_title">FAB30</div>
+                    </a>
+                    <a href="#" class="graph_link" data-name="FAB32">
+                      <div class="graph_img">
+                        <img
+                          src="./assets/img/list/img_filter_fab32.svg"
+                          alt="fab32"
+                        />
+                      </div>
+                      <div class="graph_title">FAB32</div>
+                    </a>
+                    <a href="#" class="graph_link" data-name="FAB50">
+                      <div class="graph_img">
+                        <img
+                          src="./assets/img/list/img_filter_fab50.svg"
+                          alt="fab50"
+                        />
+                      </div>
+                      <div class="graph_title">FAB50</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="item color">
+              <div class="title">컬러</div>
+              <div class="contents">
+                <a
+                  class="color_chip_icon"
+                  data-colorname="화이트"
+                  style="
+                    background-image: url('./assets/img/list/2022012611145442246.png');
+                  "
+                  alt="화이트"
+                  title="화이트"
+                ></a>
+                <a
+                  class="color_chip_icon"
+                  data-colorname="크림"
+                  style="
+                    background-image: url('./assets/img/list/2022012611143572434.png');
+                  "
+                  alt="크림"
+                  title="크림"
+                ></a>
+                <a
+                  class="color_chip_icon"
+                  data-colorname="파스텔그린"
+                  style="
+                    background-image: url('./assets/img/list/2022012611142371156.png');
+                  "
+                  alt="파스텔그린"
+                  title="파스텔그린"
+                ></a>
+                <a
+                  class="color_chip_icon"
+                  data-colorname="파스텔블루"
+                  style="
+                    background-image: url('./assets/img/list/2022012615591338515.png');
+                  "
+                  alt="파스텔블루"
+                  title="파스텔블루"
+                ></a>
+                <a
+                  class="color_chip_icon"
+                  data-colorname="핑크"
+                  style="
+                    background-image: url('./assets/img/list/2022012611135839577.png');
+                  "
+                  alt="핑크"
+                  title="핑크"
+                ></a>
+                <a
+                  class="color_chip_icon"
+                  data-colorname="옐로우"
+                  style="
+                    background-image: url('./assets/img/list/2022012615583792174.png');
+                  "
+                  alt="옐로우"
+                  title="옐로우"
+                ></a>
+                <a
+                  class="color_chip_icon"
+                  data-colorname="라임그린"
+                  style="
+                    background-image: url('./assets/img/list/2022012611132474427.png');
+                  "
+                  alt="라임그린"
+                  title="라임그린"
+                ></a>
+                <a
+                  class="color_chip_icon"
+                  data-colorname="오렌지"
+                  style="
+                    background-image: url('./assets/img/list/2022012611121487441.png');
+                  "
+                  alt="오렌지"
+                  title="오렌지"
+                ></a>
+                <a
+                  class="color_chip_icon"
+                  data-colorname="레드"
+                  style="
+                    background-image: url('./assets/img/list/2022012611134772601.png');
+                  "
+                  alt="레드"
+                  title="레드"
+                ></a>
+                <a
+                  class="color_chip_icon"
+                  data-colorname="블루"
+                  style="
+                    background-image: url('./assets/img/list/2022012611122889571.png');
+                  "
+                  alt="블루"
+                  title="블루"
+                ></a>
+                <a
+                  class="color_chip_icon"
+                  data-colorname="실버"
+                  style="
+                    background-image: url('./assets/img/list/2022012611141170613.png');
+                  "
+                  alt="실버"
+                  title="실버"
+                ></a>
+                <a
+                  class="color_chip_icon"
+                  data-colorname="블랙"
+                  style="
+                    background-image: url('./assets/img/list/2022012611133617369.png');
+                  "
+                  alt="블랙"
+                  title="블랙"
+                ></a>
+                <a
+                  class="color_chip_icon"
+                  data-colorname="유니언잭"
+                  style="
+                    background-image: url('./assets/img/list/2022012611123986092.png');
+                  "
+                  alt="유니언잭"
+                  title="유니언잭"
+                ></a>
+                <a
+                  class="color_chip_icon"
+                  data-colorname="토프"
+                  style="
+                    background-image: url('./assets/img/list/color_chip_special.png');
+                  "
+                  alt="토프"
+                  title="스페셜"
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="product_list-wrap">
+      <div class="container">
+        <div class="item_wrap">
+          <div class="product_item_list">
+            <!-- <div class="item product_item">
+            <div class="image_area">
+              
+              <a href="#">
+                <img src="./assets/img/list/FAB28-크림.png" alt="" />
+              </a>
+              <div class="icon_compare">
+                <div class="icon_text" style="width: 50px">비교하기</div>
+              </div>
+            </div>
+            <div class="info_area">
+              <a href="#">
+                <div class="pro_name">FAB28 크림</div>
+
+                <div class="model_name">FAB28RCR5</div>
+              </a>
+              <div class="price_area">
+                <div class="price_set">
+                  <div class="price_base">3,350,000</div>
+                  <div class="price_sale">2,680,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item product_item">
+            <div class="image_area">
+              
+              <a href="#">
+                <img src="./assets/img/list/FAB10-레드.png" alt="" />
+              </a>
+              <div class="icon_compare">
+                <div class="icon_text" style="width: 50px">비교하기</div>
+              </div>
+            </div>
+            <div class="info_area">
+              <a href="#">
+                <div class="pro_name">FAB10 레드</div>
+
+                <div class="model_name">FAB28RCR5</div>
+              </a>
+              <div class="price_area">
+                <div class="price_set">
+                  <div class="price_base">2,100,000</div>
+                  <div class="price_sale">1,680,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item product_item">
+            <div class="image_area">
+              
+              <a href="#">
+                <img src="./assets/img/list/FAB10-블랙.png" alt="" />
+              </a>
+              <div class="icon_compare">
+                <div class="icon_text" style="width: 50px">비교하기</div>
+              </div>
+            </div>
+            <div class="info_area">
+              <a href="#">
+                <div class="pro_name">FAB10 블랙</div>
+
+                <div class="model_name">FAB28RCR5</div>
+              </a>
+              <div class="price_area">
+                <div class="price_set">
+                  <div class="price_base">2,100,000</div>
+                  <div class="price_sale">1,680,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item product_item">
+            <div class="image_area">
+              
+              <a href="#">
+                <img src="./assets/img/list/FAB10-크림.png" alt="" />
+              </a>
+              <div class="icon_compare">
+                <div class="icon_text" style="width: 50px">비교하기</div>
+              </div>
+            </div>
+            <div class="info_area">
+              <a href="#">
+                <div class="pro_name">FAB10 크림</div>
+
+                <div class="model_name">FAB28RCR5</div>
+              </a>
+              <div class="price_area">
+                <div class="price_set">
+                  <div class="price_base">2,100,000</div>
+                  <div class="price_sale">1,680,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item product_item">
+            <div class="image_area">
+              
+              <a href="#">
+                <img src="./assets/img/list/FAB28-블랙.png" alt="" />
+              </a>
+              <div class="icon_compare">
+                <div class="icon_text" style="width: 50px">비교하기</div>
+              </div>
+            </div>
+            <div class="info_area">
+              <a href="#">
+                <div class="pro_name">FAB28 블랙</div>
+
+                <div class="model_name">FAB28RCR5</div>
+              </a>
+              <div class="price_area">
+                <div class="price_set">
+                  <div class="price_base">3,350,000</div>
+                  <div class="price_sale">2,680,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item product_item">
+            <div class="image_area">
+              
+              <a href="#">
+                <img src="./assets/img/list/FAB28-옐로우.png" alt="" />
+              </a>
+              <div class="icon_compare">
+                <div class="icon_text" style="width: 50px">비교하기</div>
+              </div>
+            </div>
+            <div class="info_area">
+              <a href="#">
+                <div class="pro_name">FAB28 옐로우</div>
+
+                <div class="model_name">FAB28RCR5</div>
+              </a>
+              <div class="price_area">
+                <div class="price_set">
+                  <div class="price_base">3,350,000</div>
+                  <div class="price_sale">2,680,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item product_item">
+            <div class="image_area">
+              
+              <a href="#">
+                <img src="./assets/img/list/FAB28-유니언잭.png" alt="" />
+              </a>
+              <div class="icon_compare">
+                <div class="icon_text" style="width: 50px">비교하기</div>
+              </div>
+            </div>
+            <div class="info_area">
+              <a href="#">
+                <div class="pro_name">FAB28 유니언잭</div>
+
+                <div class="model_name">FAB28RCR5</div>
+              </a>
+              <div class="price_area">
+                <div class="price_set">
+                  <div class="price_base">3,350,000</div>
+                  <div class="price_sale">2,680,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item product_item">
+            <div class="image_area">
+              
+              <a href="#">
+                <img src="./assets/img/list/FAB28-파스텔그린.png" alt="" />
+              </a>
+              <div class="icon_compare">
+                <div class="icon_text" style="width: 50px">비교하기</div>
+              </div>
+            </div>
+            <div class="info_area">
+              <a href="#">
+                <div class="pro_name">FAB28 파스텔그린</div>
+
+                <div class="model_name">FAB28RCR5</div>
+              </a>
+              <div class="price_area">
+                <div class="price_set">
+                  <div class="price_base">3,350,000</div>
+                  <div class="price_sale">2,680,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item product_item">
+            <div class="image_area">
+              
+              <a href="#">
+                <img src="./assets/img/list/FAB5-레드.png" alt="" />
+              </a>
+              <div class="icon_compare">
+                <div class="icon_text" style="width: 50px">비교하기</div>
+              </div>
+            </div>
+            <div class="info_area">
+              <a href="#">
+                <div class="pro_name">FAB5 레드</div>
+
+                <div class="model_name">FAB28RCR5</div>
+              </a>
+              <div class="price_area">
+                <div class="price_set">
+                  <div class="price_base">3,350,000</div>
+                  <div class="price_sale">2,680,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item product_item">
+            <div class="image_area">
+              
+              <a href="#">
+                <img src="./assets/img/list/FAB5-블랙.png" alt="" />
+              </a>
+              <div class="icon_compare">
+                <div class="icon_text" style="width: 50px">비교하기</div>
+              </div>
+            </div>
+            <div class="info_area">
+              <a href="#">
+                <div class="pro_name">FAB5 블랙</div>
+
+                <div class="model_name">FAB28RCR5</div>
+              </a>
+              <div class="price_area">
+                <div class="price_set">
+                  <div class="price_base">3,350,000</div>
+                  <div class="price_sale">2,680,000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item product_item">
+            <div class="image_area">
+              
+              <a href="#">
+                <img src="./assets/img/list/FAB5-크림.png" alt="" />
+              </a>
+              <div class="icon_compare">
+                <div class="icon_text" style="width: 50px">비교하기</div>
+              </div>
+            </div>
+            <div class="info_area">
+              <a href="#">
+                <div class="pro_name">FAB5 크림</div>
+
+                <div class="model_name">FAB28RCR5</div>
+              </a>
+              <div class="price_area">
+                <div class="price_set">
+                  <div class="price_base">3,350,000</div>
+                  <div class="price_sale">2,680,000</div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          </div>
+          <div class="btn_set">
+            <a
+              href="javascript:;"
+              class="btn_basic positive list_more_btn"
+              onclick=""
+              >+ MORE</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

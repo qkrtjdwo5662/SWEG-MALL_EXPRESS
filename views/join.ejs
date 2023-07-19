@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SWEG MALL</title>
+   <!-- css 초기화 -->
+  <link
+   rel="stylesheet"
+   href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+   />
+  <link rel="stylesheet" href="/css/join.css" />
+  <!-- 구글폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet"
+  />
+  <!-- 구글 아이콘 -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+  />
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="nav-wrap">
+        <div class="container">
+          <div class="nav-top">
+            <span class="logo">SWEG</span>
+          </div>
+          <div class="nav-bottom">
+            <ul class="nav-list">
+              <li class="nav-list-li">
+                <div class="nav-item">냉장고</div>
+                <div class="nav-item-contents">
+                  <div class="nav-item-menu">
+                    <ul class="container">
+                      <li>안녕</li>
+                      <li>안녕1</li>
+                      <li>안녕2</li>
+                      <li>안녕3</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-list-li">
+                <div class="nav-item">커피</div>
+                <div class="nav-item-contents">
+                  <div class="nav-item-menu">
+                    <ul class="container">
+                      <li>안녕</li>
+                      <li>안녕1</li>
+                      <li>안녕2</li>
+                      <li>안녕3</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-list-li">
+                <div class="nav-item">주방/생활</div>
+                <div class="nav-item-contents">
+                  <div class="nav-item-menu">
+                    <ul class="container">
+                      <li>안녕</li>
+                      <li>안녕1</li>
+                      <li>안녕2</li>
+                      <li>안녕3</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-list-li">
+                <div class="nav-item">소형가전</div>
+                <div class="nav-item-contents">
+                  <div class="nav-item-menu">
+                    <ul class="container">
+                      <li>안녕</li>
+                      <li>안녕1</li>
+                      <li>안녕2</li>
+                      <li>안녕3</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-list-li">
+                <div class="nav-item">스메그클래스</div>
+                <div class="nav-item-contents">
+                  <div class="nav-item-menu">
+                    <ul class="container">
+                      <li>안녕</li>
+                      <li>안녕1</li>
+                      <li>안녕2</li>
+                      <li>안녕3</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <span class="material-symbols-outlined"> menu </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="line">
+    <div class="contents_area">
+      <div class="page_title_area">
+        <div class="page_title_wrap">
+          회원가입
+        </div>
+      </div>
+      <form id="formData" method="post" action="#">
+      <!-- 추후 form으로 감싸야 하는 부분 -->
+      <div class="join_form_area">
+        <div class="join_form_title_area">
+            <div class="join_form_title">
+              <!-- <span class="material-symbols-outlined">
+                edit_note
+              </span> -->
+              개인정보 입력
+            </div>
+        </div>
+        <div class="form_area">
+          <div class="form_wrap">
+            <div class="form_row">
+              <div class="form_title">
+                <span>이름</span>
+              </div>
+              <div class="form_content">
+                <input type="text" placeholder="이름을 입력해주세요" class="form_text" id="user_name">
+              </div>
+            </div>
+            <div class="form_row">
+              <div class="form_title">
+                <span>성별</span>
+              </div>
+              <div class="form_content">
+                <input type="radio" name="mem_gender" id="mem_gender1" class="form_radio" value="m">
+                <label for="mem_gender1">남자</label>
+                <input type="radio" name="mem_gender" id="mem_gender2" class="form_radio" value="w" checked>
+                <label for="mem_gender2">여자</label>
+              </div>
+            </div>
+            <div class="form_row">
+              <div class="form_title">
+                <span>생년월일</span>
+              </div>
+              <div class="form_content">
+                <div class="form_row_inner">
+                  <input id="mem_birth_date1" name="mem_birth_date1" class="form_text" type="number" inputmode="numeric" pattern="\d*" value="2000">
+                  <span class="unit">년</span>
+                  <select id="mem_birth_date2" name="mem_birth_date2" class="form_text">
+                    <option value="01"> 1 </option>
+                    <option value="02"> 2 </option>
+                    <option value="03"> 3 </option>
+                    <option value="04"> 4 </option>
+                    <option value="05"> 5 </option>
+                    <option value="06"> 6 </option>
+                    <option value="07"> 7 </option>
+                    <option value="08"> 8 </option>
+                    <option value="09"> 9 </option>
+                    <option value="10"> 10 </option>
+                    <option value="11"> 11 </option>
+                    <option value="12"> 12 </option>
+                  </select>
+                  <span class="unit">월</span>
+                  <select id="mem_birth_date3" name="mem_birth_date3" class="form_text">
+                    <option value="01"> 1 </option>
+                    <option value="02"> 2 </option>
+                    <option value="03"> 3 </option>
+                    <option value="04"> 4 </option>
+                    <option value="05"> 5 </option>
+                    <option value="06"> 6 </option>
+                    <option value="07"> 7 </option>
+                    <option value="08"> 8 </option>
+                    <option value="09"> 9 </option>
+                    <option value="10"> 10 </option>
+                    <option value="11"> 11 </option>
+                    <option value="12"> 12 </option>
+                    <option value="13"> 13 </option>
+                    <option value="14"> 14 </option>
+                    <option value="15"> 15 </option>
+                    <option value="16"> 16 </option>
+                    <option value="17"> 17 </option>
+                    <option value="18"> 18 </option>
+                    <option value="19"> 19 </option>
+                    <option value="20"> 20 </option>
+                    <option value="21"> 21 </option>
+                    <option value="22"> 22 </option>
+                    <option value="23"> 23 </option>
+                    <option value="24"> 24 </option>
+                    <option value="25"> 25 </option>
+                    <option value="26"> 26 </option>
+                    <option value="27"> 27 </option>
+                    <option value="28"> 28 </option>
+                    <option value="29"> 29 </option>
+                    <option value="30"> 30 </option>
+                    <option value="31"> 31 </option>
+                  </select>
+                  <span class="unit">일</span>
+                </div>
+              </div>
+            </div>
+            <div class="form_row">
+              <div class="form_title">
+                <span>아이디</span>
+              </div>
+              <div class="form_content">
+                <input type="text" placeholder="6자 이상 15자 이하 영문 혹은 영문과 숫자" class="form_text" name="user_id" id="user_id">
+                <a class="form_inner_btn" id="idDuplicateCheckBtn" onclick=idDuplicateCheck()>중복 확인</a>
+              </div>
+            </div>
+            <div class="form_row">
+              <div class="form_title">
+                <span>비밀번호</span>
+              </div>
+              <div class="form_content">
+                <input type="password" placeholder="영문, 숫자, 특수문자 조합 8~16자리" class="form_text" name="user_pw" id="user_pw">
+              </div>
+            </div>
+            <div class="form_row">
+              <div class="form_title">
+                <span>비밀번호 확인</span>
+              </div>
+              <div class="form_content">
+                <input type="password" placeholder="비밀번호를 한번 더 입력해주세요" class="form_text" name="user_pw2" id="user_pw2">
+                <a class="form_inner_btn" id="pwDoubleCheckBtn" onclick=pwDoubleCheck()>비밀번호 확인</a>
+              </div>
+            </div>
+            <div class="form_row">
+              <div class="form_title">
+                <span>휴대폰 번호</span>
+              </div>
+              <div class="form_content form_phone">
+                <input id="mem_cellphone1" name="mem_cellphone1" class="form_text form-control-success" placeholder="" type="number" inputmode="numeric" pattern="\d*" maxlength="3" oninput=maxLengthCheck(this)>
+                <input id="mem_cellphone2" name="mem_cellphone2" class="form_text" placeholder="" type="number" inputmode="numeric" pattern="\d*" maxlength="4" oninput=maxLengthCheck(this)>
+                <input id="mem_cellphone3" name="mem_cellphone3" class="form_text" placeholder="" type="number" inputmode="numeric" pattern="\d*" maxlength="4" oninput=maxLengthCheck(this)>
+              </div>
+            </div>
+            <div class="form_row">
+              <div class="form_title">
+                <span>이메일</span>
+              </div>
+              <div class="form_content form_mail">
+                <div class="form_row_inner">
+                  <input id="mem_email1" name="mem_email1" class="form_text" placeholder="" type="text">
+                  <span class="mark">@</span>
+                  <input id="mem_email2" name="mem_email2" class="form_text" placeholder="" type="text">
+                </div>
+                <div class="form_row_inner">
+                  <select id="select_mail" name="select_mail" class="form_text">
+                    <option value="" selected="">직접입력</option>
+                    <option value="naver.com">naver.com</option>
+                    <option value="gmail.com">gmail.com</option>
+                    <option value="hanmail.net">hanmail.net</option>
+                    <option value="hotmail.com">hotmail.com</option>
+                    <option value="nate.com">nate.com</option>
+                    <option value="yahoo.co.kr">yahoo.co.kr</option>
+                    <option value="empas.com">empas.com</option>
+                    <option value="dreamwiz.com">dreamwiz.com</option>
+                    <option value="freechal.com">freechal.com</option>
+                    <option value="lycos.co.kr">lycos.co.kr</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form_row">
+              <div class="form_title">
+                <span>주소</span>
+              </div>
+              <div class="form_content">
+                <input type="text" placeholder="주소를 입력해주세요" class="form_text" id="user_address">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 추후 form으로 감싸야 하는 부분 -->
+      </form>
+      <div class="btn_area">
+        <div class="btn_wrap">
+          <div class="btn_set">
+            <a href="#" class="btn_basic" onclick=signUpUser()>회원가입</a>
+            <a href="#" class="btn_basic">취소</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  
+</body>
+</html>
+
+<script>
+  // input 요소
+  const user_name = document.getElementById('user_name');
+
+  const gender = document.getElementsByName('mem_gender');
+  let user_gender = Array.from(gender).find(radio => radio.checked).value;
+
+  const birth_date1 = document.getElementById('mem_birth_date1');
+  const birth_date2 = document.getElementById('mem_birth_date2');
+  const birth_date3 = document.getElementById('mem_birth_date3');
+  let birth_date2_value = "1";
+  let birth_date3_value = "1";
+
+  const user_id = document.getElementById('user_id');
+
+  const user_pw = document.getElementById('user_pw');
+  const user_pw2 = document.getElementById('user_pw2');
+
+  const cellphone1 = document.getElementById('mem_cellphone1');
+  const cellphone2 = document.getElementById('mem_cellphone2');
+  const cellphone3 = document.getElementById('mem_cellphone3');
+
+  const email1 = document.getElementById('mem_email1');
+  const email2 = document.getElementById('mem_email2');
+  const select_mail = document.getElementById('select_mail');
+  
+
+  const user_address = document.getElementById('user_address');
+  
+  // addEventListener
+  select_mail.addEventListener("change", () => {
+    email2.value = select_mail.options[select_mail.selectedIndex].value;
+  });
+  birth_date2.addEventListener("change", () => {
+    birth_date2_value = birth_date2.options[birth_date2.selectedIndex].value;
+  })
+  birth_date3.addEventListener("change", () => {
+    birth_date3_value = birth_date3.options[birth_date3.selectedIndex].value;
+  })
+
+  // 확인 버튼
+  const idDuplicateCheckBtn = document.getElementById('idDuplicateCheckBtn');
+  const pwDoubleCheckBtn = document.getElementById('pwDoubleCheckBtn');
+
+  const idPattern = /^(?!(?:[0-9]+)$)([a-zA-Z]|[0-9a-zA-Z]){6,15}$/; // id 6 ~ 15자리 영문 혹은 영문 + 숫자 정규식
+  const pwPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$/; // pw 8~16 자리 영문 + 숫자 + 특수문자 정규식
+  let idCheck = false; // id duplicate & validation check 
+  let pwCheck = false; // pw validation & double check
+
+  // 검사를 위한 함수
+  async function idDuplicateCheck(){ // id 중복검사
+    if(user_id.value === "") { // 비었는지 체크
+      alert("아이디를 입력해주세요.");
+      user_id.focus();
+      idCheck = false;
+      return;
+    }else if(!idPattern.test(user_id.value)) { // 정규식을 통한 아이디 유효성 검사
+      alert("아이디를 형식에 맞게 입력해주세요.");
+      user_id.focus();
+      idCheck = false;
+      return;
+    }
+    const res = await fetch(`http://localhost:4000/user/duplicate-check`, {
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        user_id: user_id.value,
+      }),
+    });
+    if(res.status === 200){
+      alert("중복 없음 확인");
+      idDuplicateCheckBtn.innerText = "확인 완료";
+      idDuplicateCheckBtn.style.color = "red";
+      idCheck = true;
+      user_pw.focus();
+    }else if(res.status === 409){
+      alert("중복 아이디 발견");
+      user_id.focus();
+      idCheck = false;
+    }
+    
+  }
+
+  function pwDoubleCheck(){ // 비밀번호 형식 및 재확인
+    if(user_pw.value === ""){
+      alert("비밀번호를 입력하세요");
+      pwCheck = false;
+      return;
+    } else if(!pwPattern.test(user_pw.value)){
+      alert("비밀번호 형식을 확인해주세요");
+      pwCheck = false;
+      return;
+    } 
+    
+    if(user_pw2.value === ""){
+      alert("비밀번호를 한번 더 입력해주세요");
+      pwCheck = false;
+      return;
+    } else if(user_pw.value !== user_pw2.value){
+      alert("비밀번호가 일치하지 않습니다.");
+      pwCheck = false;
+      return;
+    }
+
+    alert("비밀번호 확인 성공");
+    pwDoubleCheckBtn.innerText = "확인 완료";
+    pwDoubleCheckBtn.style.color = "red";
+    pwCheck = true;
+  }
+
+  function maxLengthCheck(object){
+    if (object.value.length > object.maxLength){
+        object.value = object.value.slice(0, object.maxLength);
+    }    
+}
+
+  async function signUpUser() {
+    if(user_name.value === ""){
+      alert("이름을 입력해주세요");
+      user_name.focus();
+      return;
+    } // name check
+
+    user_gender = Array.from(gender).find(radio => radio.checked).value; // gender update // 비어있을 일 없고
+    
+    const user_birth = birth_date1.value + "-" + birth_date2_value + "-" + birth_date3_value; // 비어있을 일 없고
+
+    // 로컬스토리지 혹은 쿠키 사용해야함
+    // 이슈 : 중복확인 및 비밀번호 확인이 alert가 되면 날아감
+    if(!idCheck){
+      alert("아이디 중복확인을 해주세요.");
+      return;
+    }
+
+    if(!pwCheck){
+      alert("비밀번호 확인을 해주세요.");
+      return;
+    }
+    // 로컬스토리지 혹은 쿠키 사용해야함
+    
+
+    const user_tel = cellphone1.value + cellphone2.value + cellphone3.value;
+
+    if(user_tel.length !== 11){ // 휴대폰 번호 확인 // 길이만 확인하면 되고
+      alert("휴대폰 번호를 확인해주세요");
+      cellphone1.focus();
+      return;
+    }
+    
+    if(email1.value === "" || email2.value === ""){ // 이메일 확인 // 비어있는지 체크
+      alert("이메일을 확인해주세요");
+      email1.focus();
+      return;
+    }
+    const user_email = email1.value +"@"+ email2.value; // 통과하면 이메일 세팅
+    
+    if(user_address.value === ""){ // 주소 확인 // 비어있는지 체크
+      alert("주소를 확인해주세요");
+      user_address.focus();
+      return;
+    }
+
+    const res = await fetch(`http://localhost:4000/user/signup`, { 
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        user_name: user_name.value,
+        user_gender: user_gender,
+        user_birth: user_birth, 
+        user_id: user_id.value,
+        user_pw: user_pw.value,
+        user_tel: user_tel,
+        user_email: user_email,
+        user_address: user_address.value,
+      }),
+    });
+    if(res.status===200){
+      alert("회원가입 완료");
+      location.href = "/user/join-complete"
+      
+    }else if(res.status===500){
+      alert("오류가 발생하였습니다.");
+      location.reload();
+    } 
+  }
+</script>
