@@ -41,68 +41,6 @@ a {
   font-size: 18px;
 }
 
-.main-baaner-wrap {
-  background-color: #f2f2f2;
-  height: 800px;
-}
-
-.nav-wrap .logo {
-  display: inline-block;
-  font-weight: 900;
-  font-size: 26px;
-}
-.nav-wrap .nav-top {
-  padding-top: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-.nav-wrap .nav-top ul {
-  display: inline-block;
-}
-.nav-wrap .nav-top ul li {
-  display: inline-block;
-  font-size: 15px;
-  margin-left: 10px;
-}
-.nav-wrap .nav-bottom {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 25px;
-}
-.nav-wrap .nav-bottom .nav-list {
-  display: inline-block;
-}
-.nav-wrap .nav-bottom .nav-list .nav-list-li {
-  cursor: pointer;
-  color: #333;
-  display: inline-block;
-  margin-right: 20px;
-}
-.nav-wrap .nav-bottom .nav-list .nav-list-li:hover {
-  border-bottom: 2px solid black;
-  padding-bottom: 10px;
-}
-.nav-wrap .nav-bottom .nav-list .nav-list-li:hover .nav-item-contents {
-  display: block;
-}
-.nav-wrap .nav-bottom .nav-list .nav-list-li .nav-item-contents {
-  position: absolute;
-  top: 138px;
-  left: 0;
-  display: none;
-}
-.nav-wrap .nav-bottom .nav-list .nav-list-li .nav-item-contents .nav-item-menu {
-  background: #fff;
-  padding: 20px 0;
-  width: 100vw;
-}
-.nav-wrap .nav-bottom .nav-list .nav-list-li .nav-item-contents .container li {
-  display: inline-block !important;
-  margin-right: 16px;
-  font-size: 14px;
-  color: #555;
-}
-
 .main-banner {
   text-align: center;
   top: 130px;
@@ -134,8 +72,8 @@ a {
 .contents1 .title {
   display: inline-block;
   margin-bottom: 20px;
-  font-weight: 800;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 16px;
 }
 .contents1 p {
   font-size: 16px;
@@ -145,10 +83,11 @@ a {
 }
 .contents1 .button {
   display: flex !important;
-  font-size: 15px;
+  font-size: 13px;
   margin-bottom: 0px !important;
 }
 .contents1 .contents1-1 {
+  font-size: 16px;
   width: 48.5%;
   box-sizing: border-box;
   padding: 40px 35px;
@@ -161,6 +100,7 @@ a {
   background-position: right;
 }
 .contents1 .contents1-2 {
+  font-size: 16px;
   width: 48.5%;
   box-sizing: border-box;
   padding: 40px 35px;
@@ -181,7 +121,7 @@ a {
   margin-bottom: 40px;
   text-align: center;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 600;
 }
 .contents2 .item-box-wrap {
   display: flex;
@@ -241,7 +181,7 @@ a {
 }
 .contents3 .top-wrap button {
   margin-top: 25px;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 300;
   border: 1px solid black;
   padding: 8px 10px;
@@ -286,7 +226,7 @@ a {
 .contents4 .title {
   margin-bottom: 40px;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 600;
 }
 .contents4 .hot-wrap {
   display: flex;
@@ -763,4 +703,4 @@ a {
   text-align: center;
   border-bottom: 1px solid #d6d6d6;
   padding: 20px 0;
-}/*# sourceMappingURL=style.css.map */
+}

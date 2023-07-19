@@ -1,0 +1,125 @@
+<div class="nav-wrap">
+  <div class="container">
+    <div class="nav-top">
+      <span class="logo">SWEG</span>
+      <ul>
+        <li><a href="#">장바구니</a></li>
+        <li><a href="#">고객센터</a></li>
+        <% if(login) {%>
+        <li><a href="/user/logout">로그아웃</a></li>
+        <li><a href="/user/mypage">마이페이지</a></li>
+        <% }else { %>
+        <li><a href="/user/login">로그인</a></li>  
+        <% } %>
+      </ul>
+    </div>
+    <div class="nav-bottom">
+      <ul class="nav-list">
+        <li class="nav-list-li">
+          <div class="nav-item">PRODUCT</div>
+          <div class="nav-item-contents">
+            <div class="nav-item-menu">
+              <ul class="container">
+                <li>냉장고</li>
+                <li>식기세척기</li>
+                <li>토스트기</li>
+                <li>믹서기</li>
+                <li>반죽기</li>
+                <li>전자동커피머신</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="nav-list-li">
+          <div class="nav-item">COLLECTION</div>
+          <div class="nav-item-contents">
+            <div class="nav-item-menu">
+              <ul class="container">
+                <li>50's Retro</li>
+                <li>Classic</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="nav-list-li">
+          <div class="nav-item">SMEGAZINE</div>
+          <div class="nav-item-contents">
+            <div class="nav-item-menu">
+              <ul class="container">
+                <li>스메그클래스</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<style>
+.main-baaner-wrap {
+  background-color: #f2f2f2;
+  height: 800px;
+}
+.nav-wrap {
+  .logo {
+    display: inline-block;
+    font-weight: 900;
+    font-size: 26px;
+  }
+  .nav-top {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    ul {
+      display: inline-block;
+      li {
+        display: inline-block;
+        font-size: 15px;
+        margin-left: 10px;
+      }
+    }
+  }
+  .nav-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    .nav-list {
+      display: inline-block;
+      .nav-list-li {
+        cursor: pointer;
+        color: #333;
+        display: inline-block;
+        margin-right: 20px;
+        &:hover {
+          border-bottom: 2px solid black;
+          padding-bottom: 10px;
+          .nav-item-contents {
+            opacity: 1;
+          }
+        }
+        .nav-item-contents {
+          position: absolute;
+          top: 138px;
+          left: 0;
+          opacity: 0;
+          .nav-item-menu {
+            background: #fff;
+            padding: 20px 0;
+            width: 100vw;
+          }
+          .container {
+            li {
+              display: inline-block !important;
+              margin-right: 16px;
+              font-size: 14px;
+              color: #555;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+</style>
