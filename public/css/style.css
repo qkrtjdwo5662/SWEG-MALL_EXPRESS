@@ -41,6 +41,68 @@ a {
   font-size: 18px;
 }
 
+.nav-wrap .logo {
+  display: inline-block;
+  font-weight: 900;
+  font-size: 26px;
+}
+.nav-wrap .nav-top {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-wrap .nav-top ul {
+  display: inline-block;
+}
+.nav-wrap .nav-top ul li {
+  display: inline-block;
+  font-size: 15px;
+  margin-left: 10px;
+}
+.nav-wrap .nav-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.nav-wrap .nav-bottom .nav-list {
+  display: inline-block;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li {
+  cursor: pointer;
+  color: #333;
+  display: inline-block;
+  margin-right: 20px;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li:hover {
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li:hover .nav-item-contents {
+  display: block;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li .nav-item-contents {
+  position: absolute;
+  top: 138px;
+  left: 0;
+  display: none;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li .nav-item-contents .nav-item-menu {
+  background: #fff;
+  padding: 20px 0;
+  width: 100vw;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li .nav-item-contents .container li {
+  display: inline-block !important;
+  margin-right: 16px;
+  font-size: 14px;
+  color: #555;
+}
+
+.main-banner-wrap {
+  background-color: #f2f2f2;
+  height: 800px;
+}
+
 .main-banner {
   text-align: center;
   top: 130px;
@@ -703,4 +765,4 @@ a {
   text-align: center;
   border-bottom: 1px solid #d6d6d6;
   padding: 20px 0;
-}/*# sourceMappingURL=style.css.map */
+}

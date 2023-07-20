@@ -37,64 +37,9 @@
       <span class="event-title">신규 이벤트를 확인해보세요!</span>
       <span class="material-symbols-outlined"> close </span>
     </div>
-    <div class="main-baaner-wrap">
-      <div class="nav-wrap">
-        <div class="container">
-          <div class="nav-top">
-            <span class="logo">SWEG</span>
-            <ul>
-              <li><a href="#">장바구니</a></li>
-              <li><a href="#">고객센터</a></li>
-              <% if(login) {%>
-              <li><a href="/user/logout">로그아웃</a></li>
-              <li><a href="/user/mypage">마이페이지</a></li>
-              <% }else { %>
-              <li><a href="/user/login">로그인</a></li>  
-              <% } %>
-            </ul>
-          </div>
-          <div class="nav-bottom">
-            <ul class="nav-list">
-              <li class="nav-list-li">
-                <div class="nav-item">PRODUCT</div>
-                <div class="nav-item-contents">
-                  <div class="nav-item-menu">
-                    <ul class="container">
-                      <li>냉장고</li>
-                      <li>식기세척기</li>
-                      <li>토스트기</li>
-                      <li>믹서기</li>
-                      <li>반죽기</li>
-                      <li>전자동커피머신</li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-              <li class="nav-list-li">
-                <div class="nav-item">COLLECTION</div>
-                <div class="nav-item-contents">
-                  <div class="nav-item-menu">
-                    <ul class="container">
-                      <li>50's Retro</li>
-                      <li>Classic</li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-              <li class="nav-list-li">
-                <div class="nav-item">SMEGAZINE</div>
-                <div class="nav-item-contents">
-                  <div class="nav-item-menu">
-                    <ul class="container">
-                      <li>스메그클래스</li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div class="main-banner-wrap">
+      <!-- nav -->
+      <%-include('./include/nav.ejs')%>
       <div class="main-banner">
         <div class="title">SW&nbsp&nbsp&nbsp&nbsp&nbspEG</div>
         <img src="/img/main-banner.png" alt="" />
