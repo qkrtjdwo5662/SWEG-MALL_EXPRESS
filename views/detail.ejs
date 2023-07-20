@@ -22,6 +22,13 @@
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
   />
+  <!-- swiper -->
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
 </head>
 <body>
   <div class="wrap">
@@ -112,47 +119,96 @@
             <div class="product_image_area">
               <div class="product_view_swiper_wrap">
                 <div class="pro_view_swiper_single">
-
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img src ="/img/contents1-1.png">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src ="/img/contents1-1.png">
+                    </div>
+                    <div class="swiper-slide">
+                      <img src ="/img/contents1-1.png">
+                    </div>
+                  </div>
+                  <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal" style="z-index: 1;"></div>
+                  <div class="pro_thumb_swiper_prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-8116ae3197344a76">
+                    <img src="/img/common/swipe_btn_prev.png" alt="swiper prev button">
+                  </div>
+                  <div class="pro_thumb_swiper_next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-6a819b01c442ea54">
+                    <img src="/img/common/swipe_btn_next.png" alt="swiper next button">
+                  </div>
                 </div>
               </div>
               <script>
-                        var swiper = new Swiper(".pro_view_swiper_single", {
-                        loop: true,
-                        pagination: {
-                            el: ".swiper-pagination",
-                        },
-                        navigation: {
-                            prevEl: ".pro_thumb_swiper_prev",
-                            nextEl: ".pro_thumb_swiper_next",
+                var swiper = new Swiper(".pro_view_swiper_single", {
+                loop: true,
+                pagination: {
+                  el: ".swiper-pagination",
+                },
+                navigation: {
+                  prevEl: ".pro_thumb_swiper_prev",
+                  nextEl: ".pro_thumb_swiper_next",
                         }
-                    });
+                });
               </script>
             </div>
             <div class="purchase_func_area">
               <div class="purchase_func">
                 <div class="total_cost_area">
-
+                  <div class="total_cost_bar">
+                    <div class="open_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13.702" height="7.713" viewBox="0 0 13.702 7.713">
+                            <path id="패스_644" data-name="패스 644" d="M135.812,224.224l-6.5,6.6.392.4,6.108-6.2,6.108,6.2.392-.4Z" transform="translate(-128.961 -223.868)" fill="#fff" stroke="#fff" stroke-width="0.5"></path>
+                        </svg>
+                    </div>
+                    <div class="info_text">Total</div>
+                    <div class="total_cost">￦ 6,700,000</div>
+                  </div>
                 </div>
                 <div class="product_base_info">
                   <div class="pro_name">
                     FAB28 크림                   
                   </div>
                   <div class="state_area">
-                    <div class="model_name">
-                        FAB28RCR5                        
-                    </div>
+                    <div class="model_name">FAB28RCR5</div>
                     <div class="state_wrap">
                         <div class="state_set">                                    
                           <div class="badge">품절</div>
                         </div>
-
                         <div class="price_mobile">
                           <div class="price_sale">3,350,000</div>
                         </div>
                     </div>
                   </div>
-                  
-
+                  <div class="info_area">
+                    <div class="info_set info_quantity">
+                      <div class="title_info">
+                          수량
+                      </div>
+                      <div class="con_info quantity_ui">
+                          <a href="javascript:;" class="count_btn count_minus active">
+                              <img src="/images/common/icon_count_minus.svg" alt="">
+                          </a>
+                          <div class="count_num">2</div>
+                          <a href="javascript:;" class="count_btn count_plus">
+                              <img src="/images/common/icon_count_plus.svg" alt="">
+                          </a>
+                      </div>
+                    </div>
+                    <div class="info_set info_delivery">
+                      <div class="title_info">
+                          배송비
+                      </div>
+                      <div class="con_info info_delivery_btn">
+                          <div>무료</div>                                
+                      </div>
+                    </div>
+                  </div>
+                  <div class="price_area">
+                    <div class="price_pc">                       
+                      <div class="price_sale">￦ 6,700,000</div>
+                    </div>
+                  </div>
                 </div>
                 
                 <div class="btn_set">
