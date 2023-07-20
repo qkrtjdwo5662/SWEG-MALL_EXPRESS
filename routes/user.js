@@ -6,17 +6,26 @@ const router = express.Router();
 
 
 
-
-router.get('/join', (req, res) => {
+// ----- 회원가입 관련 ------ 
+router.get('/join', (req, res) => { // 회원가입 페이지
   res.render('join.ejs');
 })
-router.post('/duplicate-check', idDuplicateCheck);
-router.post('/signup', signUp);
-router.get('/join-complete', (req, res) => {
-  const user = req.session.uid;
-  res.render('join_complete.ejs', { user });
+
+router.post('/duplicate-check', idDuplicateCheck); // 아이디 중복 체크
+router.post('/signup', signUp); // 회원가입 요청
+router.get('/join-complete', (req, res) => { // 회원가입 후
+  const user = req.session.user;
+  if(user === undefined){
+    return res.render('alert');
+  }
+
+  const user_id = user.user_id;
+  const user_name = user.user_name;
+  const user_email = user.user_email;
+  res.render('join_complete.ejs', { user_id, user_name, user_email });
 });
 
+// ----- 로그인 관련 ------
 router.get('/', (req, res) => {
   res.redirect('/user/login');
 })
@@ -27,7 +36,14 @@ router.post('/login', login);
 router.get('/login-success', (req, res) => {
   res.redirect('/');
 })
+
+
 router.get('/mypage', (req, res) => {
+  const user = req.session.user;
+  if(user === undefined){
+    return res.render('alert');
+  }
+
   res.render('mypage.ejs');
 })
 
