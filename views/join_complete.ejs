@@ -110,10 +110,10 @@
         <div class="container_fixed">
           <div class="info_wrap">
             <div class="image_area">
-              <img src="/assets/img/complete_icon.svg" alt="complete">
+              <img src="/img/complete_icon.svg" alt="complete">
             </div>
             <div class="title">
-              <span class="enter_user_name"><% user %></span>
+              <span class="enter_user_name"><%= user_name %></span>
               님의 회원가입이 완료되었습니다.
             </div>
             <div class="info">
@@ -133,7 +133,7 @@
                 가입 아이디
               </div>
               <div class="form_row_content enter_user_id">
-                
+                <%= user_id%>
               </div>
             </div>
             <div class="form_row">
@@ -141,7 +141,7 @@
                 가입 이메일
               </div>
               <div class="form_row_content enter_user_email">
-                
+                <%= user_email%>
               </div>
             </div>
           </div>
@@ -150,8 +150,8 @@
       <div class="btn_area">
         <div class="container_fixed btn_wrap">
           <div class="btn_set">
-            <a href="/index.html" class="btn_basic negative">메인페이지로 이동</a>
-            <a href="#none" class="btn_basic positive">마이페이지로 이동</a>
+            <a href="/" class="btn_basic negative">메인페이지로 이동</a>
+            <a href="/user/mypage" class="btn_basic positive">마이페이지로 이동</a>
           </div>
         </div>
       </div>

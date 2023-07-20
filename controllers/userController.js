@@ -19,7 +19,7 @@ const signUp = async (req, res) => {
   try{
      const {user_name, user_gender, user_birth, user_id, user_pw, user_tel, user_email, user_address} = req.body;
 
-     const user = await User.create({
+     const USER = await User.create({
          user_name,
          user_gender,
          user_birth,
@@ -31,8 +31,10 @@ const signUp = async (req, res) => {
       });
       req.session.login = true; // 로그인 유무
       req.session.uid = user_id; 
-      req.session.user = user;
+      req.session.user = USER;
+
       return res.status(200).json('회원가입 성공');
+
   }catch (err){
     console.log(err);
     res.status(500).json('회원기입 오류');
@@ -50,7 +52,7 @@ const login = async (req, res) => {
     req.session.login = true; // 로그인 유무
     req.session.uid = user_id; 
     req.session.user = findUser;
-    console.log(req.session);
+
     return res.status(200).json('로그인 성공');
 
   }catch (err){
