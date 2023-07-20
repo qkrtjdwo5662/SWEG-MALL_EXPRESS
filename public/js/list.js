@@ -130,7 +130,7 @@ function productView(products) {
     return `<div class="item product_item" data-color="${product.color}" data-name="${product.name}">
     <div class="image_area">
       
-      <a href="#">
+      <a href="/product/detail?pn=${product.name}">
         <img src=${product.img} alt="" />
       </a>
       <div class="icon_compare">
