@@ -1,7 +1,7 @@
 <div class="nav-wrap">
   <div class="container">
     <div class="nav-top">
-      <span class="logo">SWEG</span>
+      <span class="logo"><a href="/">SWEG</a></span>
       <ul>
         <li><a href="#">장바구니</a></li>
         <li><a href="#">고객센터</a></li>
@@ -58,65 +58,61 @@
 
 
 <style>
-
-.nav-wrap {
-  .logo {
-    display: inline-block;
-    font-weight: 900;
-    font-size: 26px;
-  }
-  .nav-top {
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    ul {
-      display: inline-block;
-      li {
-        display: inline-block;
-        font-size: 15px;
-        margin-left: 10px;
-      }
-    }
-  }
-  .nav-bottom {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 25px;
-    .nav-list {
-      display: inline-block;
-      .nav-list-li {
-        cursor: pointer;
-        color: #333;
-        display: inline-block;
-        margin-right: 20px;
-        &:hover {
-          border-bottom: 2px solid black;
-          padding-bottom: 10px;
-          .nav-item-contents {
-            display: block;
-          }
-        }
-        .nav-item-contents {
-          position: absolute;
-          top: 138px;
-          left: 0;
-          display: none;
-          .nav-item-menu {
-            background: #fff;
-            padding: 20px 0;
-            width: 100vw;
-          }
-          .container {
-            li {
-              display: inline-block !important;
-              margin-right: 16px;
-              font-size: 14px;
-              color: #555;
-            }
-          }
-        }
-      }
-    }
-  }
+.nav-wrap .logo {
+  display: inline-block;
+  font-weight: 900;
+  font-size: 26px;
+}
+.nav-wrap .nav-top {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-wrap .nav-top ul {
+  display: inline-block;
+}
+.nav-wrap .nav-top ul li {
+  display: inline-block;
+  font-size: 15px;
+  margin-left: 10px;
+}
+.nav-wrap .nav-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+.nav-wrap .nav-bottom .nav-list {
+  display: inline-block;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li {
+  cursor: pointer;
+  color: #333;
+  display: inline-block;
+  margin-right: 20px;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li:hover {
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li:hover .nav-item-contents {
+  display: block;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li .nav-item-contents {
+  position: absolute;
+  margin-top: 12px;
+  left: 0;
+  display: none;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li .nav-item-contents .nav-item-menu {
+  background: #fff;
+  padding: 20px 0;
+  width: 100vw;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li .nav-item-contents .container li {
+  display: inline-block !important;
+  margin-right: 16px;
+  font-size: 14px;
+  color: #555;
 }
 </style>
