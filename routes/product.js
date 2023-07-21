@@ -1,6 +1,9 @@
 const express = require('express');
 
+const {init} = require('../controllers/productController');
 const router = express.Router();
+
+router.get('/migration', init);
 
 router.get('/list', (req, res) => {
   
