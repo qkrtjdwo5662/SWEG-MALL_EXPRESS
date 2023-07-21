@@ -11,7 +11,7 @@ let product = {
     {
       id: 2,
       name: "FAB10",
-      model: "FAB28RCR5",
+      model: "FAB10RRD5",
       color: "레드",
       price: 2100000,
       img: "/img/list/FAB10-레드.png",
@@ -19,7 +19,7 @@ let product = {
     {
       id: 3,
       name: "FAB10",
-      model: "FAB28RCR5",
+      model: "FAB10RBL5",
       color: "블랙",
       price: 2100000,
       img: "/img/list/FAB10-블랙.png",
@@ -27,7 +27,7 @@ let product = {
     {
       id: 4,
       name: "FAB10",
-      model: "FAB28RCR5",
+      model: "FAB10RCR5",
       color: "크림",
       price: 2100000,
       img: "/img/list/FAB10-크림.png",
@@ -35,7 +35,7 @@ let product = {
     {
       id: 5,
       name: "FAB28",
-      model: "FAB28RCR5",
+      model: "FAB28RBL5",
       color: "블랙",
       price: 3350000,
       img: "/img/list/FAB28-블랙.png",
@@ -43,7 +43,7 @@ let product = {
     {
       id: 6,
       name: "FAB28",
-      model: "FAB28RCR5",
+      model: "FAB28RYW5",
       color: "옐로우",
       price: 3350000,
       img: "/img/list/FAB28-옐로우.png",
@@ -51,7 +51,7 @@ let product = {
     {
       id: 7,
       name: "FAB28",
-      model: "FAB28RCR5",
+      model: "FAB28RDUJ5",
       color: "유니언잭",
       price: 3350000,
       img: "/img/list/FAB28-유니언잭.png",
@@ -59,7 +59,7 @@ let product = {
     {
       id: 8,
       name: "FAB28",
-      model: "FAB28RCR5",
+      model: "FAB28RGR5",
       color: "파스텔그린",
       price: 3350000,
       img: "/img/list/FAB28-파스텔그린.png",
@@ -67,7 +67,7 @@ let product = {
     {
       id: 9,
       name: "FAB5",
-      model: "FAB28RCR5",
+      model: "FAB5RRD5",
       color: "레드",
       price: 3350000,
       img: "/img/list/FAB5-레드.png",
@@ -75,7 +75,7 @@ let product = {
     {
       id: 10,
       name: "FAB5",
-      model: "FAB28RCR5",
+      model: "FAB5RBL5",
       color: "블랙",
       price: 3350000,
       img: "/img/list/FAB5-블랙.png",
@@ -83,7 +83,7 @@ let product = {
     {
       id: 11,
       name: "FAB5",
-      model: "FAB28RCR5",
+      model: "FAB5RCR5",
       color: "크림",
       price: 3350000,
       img: "/img/list/FAB5-크림.png",
@@ -130,7 +130,7 @@ function productView(products) {
     return `<div class="item product_item" data-color="${product.color}" data-name="${product.name}">
     <div class="image_area">
       
-      <a href="/product/detail?pn=${product.name}">
+      <a href="/product/detail/${product.model}">
         <img src=${product.img} alt="" />
       </a>
       <div class="icon_compare">

@@ -1,6 +1,9 @@
 const express = require('express');
 
+const {init, findProductOne} = require('../controllers/productController');
 const router = express.Router();
+
+router.get('/migration', init);
 
 router.get('/list', (req, res) => {
   
@@ -13,7 +16,5 @@ router.get('/compare', (req, res) => {
   res.render('compare.ejs', { product, login : req.session.login });
 })
 
-router.get('/detail', (req, res) => {
-  res.render('detail.ejs', { login : req.session.login});
-})
+router.get('/detail/:model', findProductOne);
 module.exports = router;
