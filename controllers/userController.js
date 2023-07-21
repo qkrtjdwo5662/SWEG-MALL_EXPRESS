@@ -1,6 +1,6 @@
 require('./mongoConnect');
 const User = require('../models/user');
-
+import crypto from "crypto";
 
 const idDuplicateCheck = async (req, res) => {
     try{
@@ -61,6 +61,14 @@ const login = async (req, res) => {
   }
 }
 
+const loginCheck = async(req, res, next) => { // 로그인 여부 확인 미들웨어
+    if(req.session.login){
+        next();
+    } else{
+        return res.render('alert');
+    }
+}
+
 const logout = async(req, res) => {
   req.session.destroy((err) => {
     if(err) throw err;
@@ -68,8 +76,9 @@ const logout = async(req, res) => {
   })
 }
 module.exports = {
-  idDuplicateCheck,
-  signUp,
-  login,
-  logout
+    idDuplicateCheck,
+    signUp,
+    login,
+    logout,
+    loginCheck
 }

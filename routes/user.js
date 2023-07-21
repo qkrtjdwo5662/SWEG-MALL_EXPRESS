@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { idDuplicateCheck, signUp, login, logout } = require('../controllers/userController');
+const { idDuplicateCheck, signUp, login, logout, loginCheck } = require('../controllers/userController');
 
 const router = express.Router();
 
@@ -15,12 +15,8 @@ router.get('/join', (req, res) => { // 회원가입 페이지
 
 router.post('/duplicate-check', idDuplicateCheck); // 아이디 중복 체크
 router.post('/signup', signUp); // 회원가입 요청
-router.get('/join-complete', (req, res) => { // 회원가입 후
+router.get('/join-complete', loginCheck, (req, res) => { // 회원가입 후
   const user = req.session.user;
-  if(user === undefined){
-    return res.render('alert');
-  }
-
   const user_id = user.user_id;
   const user_name = user.user_name;
   const user_email = user.user_email;
@@ -42,12 +38,7 @@ router.get('/login-success', (req, res) => {
 })
 
 
-router.get('/my-page', (req, res) => {
-  const user = req.session.user;
-  if(user === undefined){
-    return res.render('alert');
-  }
-
+router.get('/my-page', loginCheck, (req, res) => {
   res.render('mypage.ejs', {login : req.session.login });
 })
 
