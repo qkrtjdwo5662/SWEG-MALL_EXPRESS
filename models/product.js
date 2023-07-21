@@ -6,32 +6,33 @@ const productSchema = new Schema(
     {
         category:{
             type:String,
-            require: true,
+            required: true,
         },
         name:{
             type:String,
-            require: true,
+            required: true,
         },
         model:{
             type:String,
-            require: true,
+            required: true,
+            unique: true,
         },
         color: {
             type:String,
-            require: true,
+            required: true,
         },
         price : {
             type:String,
-            require: true,
+            required: true,
         },
         img : {
             type:String,
-            require: true,
+            required: true,
         }
 
     },
     {
-        collation: 'product',
+        collation: { locale: 'en_US', strength: 1 },
         versionKey: false,
     }
 );

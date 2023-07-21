@@ -16,7 +16,7 @@ const init = async(req, res) => {
                 {
                     category : "refrigerator",
                     name: "FAB10",
-                    model: "FAB28RCR5",
+                    model: "FAB10RRD5",
                     color: "레드",
                     price: 2100000,
                     img: "/img/list/FAB10-레드.png",
@@ -24,7 +24,7 @@ const init = async(req, res) => {
                 {
                     category : "refrigerator",
                     name: "FAB10",
-                    model: "FAB28RCR5",
+                    model: "FAB10RBL5",
                     color: "블랙",
                     price: 2100000,
                     img: "/img/list/FAB10-블랙.png",
@@ -32,7 +32,7 @@ const init = async(req, res) => {
                 {
                     category : "refrigerator",
                     name: "FAB10",
-                    model: "FAB28RCR5",
+                    model: "FAB10RCR5",
                     color: "크림",
                     price: 2100000,
                     img: "/img/list/FAB10-크림.png",
@@ -40,7 +40,7 @@ const init = async(req, res) => {
                 {
                     category : "refrigerator",
                     name: "FAB28",
-                    model: "FAB28RCR5",
+                    model: "FAB28RBL5",
                     color: "블랙",
                     price: 3350000,
                     img: "/img/list/FAB28-블랙.png",
@@ -48,7 +48,7 @@ const init = async(req, res) => {
                 {
                     category : "refrigerator",
                     name: "FAB28",
-                    model: "FAB28RCR5",
+                    model: "FAB28RYW5",
                     color: "옐로우",
                     price: 3350000,
                     img: "/img/list/FAB28-옐로우.png",
@@ -56,7 +56,7 @@ const init = async(req, res) => {
                 {
                     category : "refrigerator",
                     name: "FAB28",
-                    model: "FAB28RCR5",
+                    model: "FAB28RDUJ5",
                     color: "유니언잭",
                     price: 3350000,
                     img: "/img/list/FAB28-유니언잭.png",
@@ -64,7 +64,7 @@ const init = async(req, res) => {
                 {
                     category : "refrigerator",
                     name: "FAB28",
-                    model: "FAB28RCR5",
+                    model: "FAB28RGR5",
                     color: "파스텔그린",
                     price: 3350000,
                     img: "/img/list/FAB28-파스텔그린.png",
@@ -72,7 +72,7 @@ const init = async(req, res) => {
                 {
                     category : "refrigerator",
                     name: "FAB5",
-                    model: "FAB28RCR5",
+                    model: "FAB5RRD5",
                     color: "레드",
                     price: 3350000,
                     img: "/img/list/FAB5-레드.png",
@@ -80,7 +80,7 @@ const init = async(req, res) => {
                 {
                     category : "refrigerator",
                     name: "FAB5",
-                    model: "FAB28RCR5",
+                    model: "FAB5RBL5",
                     color: "블랙",
                     price: 3350000,
                     img: "/img/list/FAB5-블랙.png",
@@ -88,7 +88,7 @@ const init = async(req, res) => {
                 {
                     category : "refrigerator",
                     name: "FAB5",
-                    model: "FAB28RCR5",
+                    model: "FAB5RCR5",
                     color: "크림",
                     price: 3350000,
                     img: "/img/list/FAB5-크림.png",
@@ -104,4 +104,18 @@ const init = async(req, res) => {
     }
 }
 
-module.exports = {init};
+const findProductOne = async (req, res) => {
+    try{
+        const findProduct = await Product.findOne({
+            model: req.params.model
+        })
+        if(!findProduct) return res.status(400).json('해당 상품은 없어요');
+        console.log(findProduct);
+        res.render('detail.ejs', { login : req.session.login, product : findProduct});
+    }catch (err){
+        console.log(err);
+        res.status(500).json("오류 발생");
+    }
+}
+
+module.exports = {init, findProductOne};

@@ -45,13 +45,13 @@
                 <div class="pro_view_swiper_single">
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                      <img src ="/img/contents1-1.png">
+                      <img src ="<%=product.img%>">
                     </div>
                     <div class="swiper-slide">
-                      <img src ="/img/contents1-1.png">
+                      <img src ="<%=product.img%>">
                     </div>
                     <div class="swiper-slide">
-                      <img src ="/img/contents1-1.png">
+                      <img src ="<%=product.img%>">
                     </div>
                   </div>
                   <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal" style="z-index: 1;"></div>
@@ -86,21 +86,21 @@
                         </svg>
                     </div>
                     <div class="info_text">Total</div>
-                    <div class="total_cost">￦ 6,700,000</div>
+                    <div class="total_cost">￦ </div>
                   </div>
                 </div>
                 <div class="product_base_info">
                   <div class="pro_name">
-                    FAB28 크림                   
+                    <%=product.name%> <%=product.color%>
                   </div>
                   <div class="state_area">
-                    <div class="model_name">FAB28RCR5</div>
+                    <div class="model_name"><%=product.model%></div>
                     <div class="state_wrap">
                         <div class="state_set">                                    
                           <div class="badge">품절</div>
                         </div>
                         <div class="price_mobile">
-                          <div class="price_sale">3,350,000</div>
+                          <div class="price_sale"><%=product.price%></div>
                         </div>
                     </div>
                   </div>
