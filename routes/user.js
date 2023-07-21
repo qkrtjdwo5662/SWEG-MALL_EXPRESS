@@ -29,7 +29,7 @@ router.get('/join-complete', (req, res) => { // 회원가입 후
 
 // ----- 로그인 관련 ------
 router.get('/', (req, res) => {
-  res.redirect('/user/login');
+  res.redirect('/users/login');
 })
 router.get('/login', (req, res) => {
   const login = req.session.login;
@@ -42,7 +42,7 @@ router.get('/login-success', (req, res) => {
 })
 
 
-router.get('/mypage', (req, res) => {
+router.get('/my-page', (req, res) => {
   const user = req.session.user;
   if(user === undefined){
     return res.render('alert');

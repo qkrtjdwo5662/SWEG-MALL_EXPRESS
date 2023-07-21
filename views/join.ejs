@@ -281,7 +281,7 @@
       idCheck = false;
       return;
     }
-    const res = await fetch(`http://localhost:4000/user/duplicate-check`, {
+    const res = await fetch(`http://localhost:4000/users/duplicate-check`, {
       method: 'post',
       headers: {
         'Content-type': 'application/json'
@@ -383,7 +383,7 @@
       return;
     }
 
-    const res = await fetch(`http://localhost:4000/user/signup`, { 
+    const res = await fetch(`http://localhost:4000/users/signup`, {
       method: 'post',
       headers: {
         'Content-type': 'application/json'
@@ -401,7 +401,7 @@
     });
     if(res.status===200){
       alert("회원가입 완료");
-      location.href = "/user/join-complete"
+      location.href = "/users/join-complete"
       
     }else if(res.status===500){
       alert("오류가 발생하였습니다.");
