@@ -8,6 +8,8 @@ const router = express.Router();
 
 // ----- 회원가입 관련 ------ 
 router.get('/join', (req, res) => { // 회원가입 페이지
+  const login = req.session.login;
+  if(login) return res.redirect('/');
   res.render('join.ejs', {login : req.session.login });
 })
 
@@ -30,7 +32,9 @@ router.get('/', (req, res) => {
   res.redirect('/user/login');
 })
 router.get('/login', (req, res) => {
-  res.render('login.ejs', {login : req.session.login });
+  const login = req.session.login;
+  if(login) return res.redirect('/');
+  res.render('login.ejs', {login});
 })
 router.post('/login', login);
 router.get('/login-success', (req, res) => {
