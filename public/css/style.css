@@ -88,10 +88,13 @@ a {
 }
 .contents1 .button {
   display: flex !important;
+  align-items: center;
   font-size: 13px;
   margin-bottom: 0px !important;
+  cursor: pointer;
 }
 .contents1 .contents1-1 {
+  position: relative;
   font-size: 16px;
   width: 48.5%;
   box-sizing: border-box;
@@ -104,7 +107,14 @@ a {
   background-repeat: no-repeat;
   background-position: right;
 }
+.contents1 .contents1-1 img {
+  position: absolute;
+  right: 10px;
+  top: 25px;
+  width: 160px;
+}
 .contents1 .contents1-2 {
+  position: relative;
   font-size: 16px;
   width: 48.5%;
   box-sizing: border-box;
@@ -116,6 +126,12 @@ a {
   background-image: url(/assets/img/contents1-2.png);
   background-repeat: no-repeat;
   background-position: right;
+}
+.contents1 .contents1-2 img {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  height: 100%;
 }
 
 .contents2 {
@@ -130,35 +146,87 @@ a {
 }
 .contents2 .item-box-wrap {
   display: flex;
-  height: 255px;
+  height: 300px;
   box-sizing: border-box;
+}
+.contents2 .item-box-wrap .item-box {
+  position: relative;
+}
+.contents2 .item-box-wrap .item-box .overlay {
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  opacity: 0;
+}
+.contents2 .item-box-wrap .item-box .overlay .overlay-box {
+  height: 300px;
+  text-align: center;
+  width: 100%;
+  background-color: #000;
+  opacity: 0.5;
+  color: #fff;
+}
+.contents2 .item-box-wrap .item-box .overlay .overlay-box .product_name {
+  padding-top: 110px;
+  display: block !important;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.contents2 .item-box-wrap .item-box .overlay .overlay-box .overlay_btn {
+  margin: 0 auto;
+  border: 1px solid #fff;
+  background-color: transparent;
+  font-weight: 200;
+  font-size: 13px;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.contents2 .item-box-wrap .item-box .overlay .overlay-box .overlay_btn a {
+  color: #fff;
+}
+.contents2 .item-box-wrap .item-box .overlay:hover {
+  opacity: 1;
+  transition: ease-in-out 0.5s;
+}
+.contents2 .box-wrap1 .item-box {
+  cursor: pointer;
 }
 .contents2 .box-wrap1 .item-box:nth-child(1) {
   width: 33%;
   background-color: #e6efe6;
+  background-image: url("/img/contents2-1.png");
 }
 .contents2 .box-wrap1 .item-box:nth-child(2) {
   text-align: right;
   width: 67%;
   background-color: #f4e2e2;
-}
-.contents2 .box-wrap2 img {
-  width: 100%;
-  height: 100%;
+  background-image: url("/img/contents2-2.png");
+  background-position-x: right;
+  background-repeat: no-repeat;
 }
 .contents2 .box-wrap2 .item-box:nth-child(1) {
   width: 33%;
   background-color: #f7f7f7;
+  background-image: url("/img/contents2-3.png");
+  background-position-x: right;
+  background-repeat: no-repeat;
 }
 .contents2 .box-wrap2 .item-box:nth-child(2) {
   text-align: right;
   width: 33%;
   background-color: #d9d9d9;
+  background-image: url("/img/contents2-4.png");
+  background-position-x: right;
+  background-repeat: no-repeat;
 }
 .contents2 .box-wrap2 .item-box:nth-child(3) {
   text-align: right;
   width: 34%;
   background-color: #ededed;
+  background-image: url("/img/contents2-5.png");
+  background-position-x: right;
+  background-repeat: no-repeat;
 }
 
 .contents3 {
@@ -204,7 +272,8 @@ a {
   top: 400px;
   box-shadow: 3px 3px 12px rgba(177, 177, 177, 0.1803921569);
 }
-.contents3 .bottom-wrap img {
+.contents3 .bottom-wrap .item-box img {
+  width: 110px;
   margin: 0 auto;
 }
 .contents3 .bottom-wrap .item-box {
@@ -241,11 +310,12 @@ a {
   width: 50%;
 }
 .contents4 .hot-wrap .left {
-  height: 600px;
+  height: 590px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fbfbfb;
+  background-color: #f7f7f7;
+  margin-right: 20px;
 }
 .contents4 .hot-wrap .left .hot-item {
   text-align: center;
@@ -253,12 +323,23 @@ a {
 .contents4 .hot-wrap .left .hot-item span {
   display: block;
 }
-.contents4 .hot-wrap .flex-box {
+.contents4 .hot-wrap .right .flex-box {
   display: flex;
 }
+.contents4 .hot-wrap .right .flex-box .hot-item {
+  width: 100%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.contents4 .hot-wrap .right .flex-box .hot-item img {
+  display: block;
+  margin: 0 auto;
+  height: 115px;
+}
 .contents4 .hot-wrap .hot-item {
-  background-color: #fbfbfb;
+  background-color: #f7f7f7;
   padding: 40px;
+  cursor: pointer;
 }
 .contents4 .hot-wrap .hot-item span {
   margin-top: 24px;
@@ -268,6 +349,11 @@ a {
 }
 .contents4 .hot-wrap .hot-item p {
   margin-top: 10px;
+}
+
+.contents5 img {
+  width: 100%;
+  max-width: 100vw;
 }
 
 .top-banner {
