@@ -111,11 +111,11 @@
                       </div>
                       <div class="con_info quantity_ui">
                           <a href="javascript:;" class="count_btn count_minus active">
-                              <img src="/images/common/icon_count_minus.svg" alt="">
+                              <img src="/img/common/icon_count_minus.svg" alt="">
                           </a>
-                          <div class="count_num">2</div>
+                          <div class="count_num">1</div>
                           <a href="javascript:;" class="count_btn count_plus">
-                              <img src="/images/common/icon_count_plus.svg" alt="">
+                              <img src="/img/common/icon_count_plus.svg" alt="">
                           </a>
                       </div>
                     </div>
@@ -130,19 +130,52 @@
                   </div>
                   <div class="price_area">
                     <div class="price_pc">                       
-                      <div class="price_sale">￦ 6,700,000</div>
+                      <div class="price_sale">￦ <%=product.price%></div>
                     </div>
                   </div>
                 </div>
                 
                 <div class="btn_set">
-
+                  <a href="javascript:;" class="btn_basic positive" onclick="restock_notice()" style="width:100%;">재입고 알림 신청</a>
+                </div>
+                <div class="blank_div"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product_detail_area_wrap">
+          <div class="product_detail_bar">
+            <div class="product_detail_bar_wrap">
+              <div class="pro_name_area">
+                FAB28 크림            
+              </div>
+              <div class="anchor_area">
+                <div class="anchor_item_set">
+                  <a href="javascript:;" class="item anchor_pro_detail" >
+                        제품상세
+                      <div class="red_bar"></div>
+                  </a>
+                  <a href="javascript:;" class="item anchor_pro_notice" >
+                        상품 정보 고시
+                      <div class="red_bar"></div>
+                  </a>
+                  <a href="javascript:;" class="item anchor_pro_shipping">
+                        배송안내
+                      <div class="red_bar"></div>
+                  </a>
+                  <a href="javascript:;" class="item anchor_pro_ordercancel">
+                        교환/반품/취소 안내
+                      <div class="red_bar"></div>
+                  </a>
+                  <a href="javascript:;" class="item anchor_pro_as" onclick="scroll_move('product_as_info');">
+                        A/S 안내
+                      <div class="red_bar"></div>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>

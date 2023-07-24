@@ -151,9 +151,16 @@ a {
                 width: 100%;
                 max-width: 600px;
                 overflow: hidden;
-                .swiper_wrapper {
+                .swiper-wrapper {
                   height: auto;
-                  .swiper_slide{
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                  z-index: 1;
+                  display: flex;
+                  transition-property: transform;
+                  box-sizing: content-box;
+                  .swiper-slide{
                     position: relative;
                     height: 0;
                     padding-bottom: 100%;
@@ -248,21 +255,131 @@ a {
                   }
                 }
                 .info_area{
+                  .info_set{
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    margin-top: 20px;
+                    .title_info{
+                      width: 130px;
+                    }
+                    .con_info{
+                      width: calc(100% - 130px);
+                      display: flex;
+                      justify-content: flex-start;
+                      align-items: center;
+                      .count_btn{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 15px;
+                        border: 1px solid #DEDEDE;
+                        background-color: #ffffff;
+                      }
+                      .count_num{
+                        margin: 0 10px;
+                      }
+                    }
+                  }
 
                 }
                 .price_area{
-                  flex-direction: column;
-                  align-items: flex-end;
                   display: flex;
                   justify-content: space-between;
                   align-items: center;
                   margin-top: 30px;
                   padding-top: 30px;
                   border-top: 1px solid #DFDFDF;
+                  .price_pc{
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    .price_sale{
+                      font-size: 4rem;
+                      letter-spacing: -0.02rem;
+                    }
+                  }
                 }
+              }
+              .btn_set{
+                justify-content: space-between;
+                margin-top: 60px;
+                display: flex;
+                .btn_basic{
+                  position: relative;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  width: 265px;
+                  height: 60px;
+                  margin: 0 5px;
+                  overflow: hidden;
+                  background-color: #ffffff;
+                  border: 1px solid #000000;
+                  color: #000000;
+                  transition: all 0.3s ease-in-out;
+                }
+              }
+              .blank_div{
+                height: 200px;
               }
             }
             
+          }
+        }
+      }
+      .product_detail_area_wrap{
+        .product_detail_bar{
+          position: sticky;
+          top: 0;
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: 67px;
+          background-color: #000000;
+          z-index: 2;
+          .product_detail_bar_wrap{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            .pro_name_area{
+              font-size: 1.8rem;
+              font-weight: 400;
+              color: #ffffff;
+            }
+            .anchor_area{
+              display: flex;
+              justify-content: flex-end;
+              align-items: center;
+              overflow-x: scroll;
+              -ms-overflow-style: none;
+              scrollbar-width: none;
+              scroll-behavior: smooth;
+              .anchor_item_set{
+                position: relative;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                width: 600px;
+                min-width: 600px;
+                .item{
+                  position: relative;
+                  display: flex;
+                  align-items: center;
+                  height: 67px;
+                  color: #ffffff;
+                }
+                .item:not(:first-child){
+                  margin-left: 50px;
+                }
+              
+              }
+            }
           }
         }
       }
