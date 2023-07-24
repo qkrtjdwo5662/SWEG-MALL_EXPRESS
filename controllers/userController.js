@@ -1,6 +1,7 @@
 require('./mongoConnect');
 const User = require('../models/user');
-import crypto from "crypto";
+const crypto =  require("crypto");
+const util = require("util");
 
 const idDuplicateCheck = async (req, res) => {
     try{
@@ -15,19 +16,36 @@ const idDuplicateCheck = async (req, res) => {
     }
 }
 
+const randomBytesPromise = util.promisify(crypto.randomBytes);
+const pbkdf2Promise = util.promisify(crypto.pbkdf2);
+
+const createSalt = async () => {
+    const buf = await randomBytesPromise(64);
+    return buf.toString("base64");
+}
+const createHashedPassword = async (password) => {
+    const salt = await createSalt();
+    const key = await pbkdf2Promise(password, salt, 5555, 64, "sha512");
+    const hashedPassword = key.toString("base64");
+
+    return { hashedPassword, salt };
+};
+
 const signUp = async (req, res) => {
   try{
      const {user_name, user_gender, user_birth, user_id, user_pw, user_tel, user_email, user_address} = req.body;
+     const {hashedPassword, salt} = await createHashedPassword(user_pw);
 
      const USER = await User.create({
          user_name,
          user_gender,
          user_birth,
          user_id,
-         user_pw,
+         user_pw: hashedPassword,
          user_tel,
          user_email,
-         user_address
+         user_address,
+         salt: salt
       });
       req.session.login = true; // 로그인 유무
       req.session.uid = user_id; 
@@ -41,13 +59,21 @@ const signUp = async (req, res) => {
   }
 };
 
+const verifyPW = async (pw, user_salt, user_pw) => {
+    const key = await pbkdf2Promise(pw, user_salt, 5555, 64, "sha512");
+    const hashedPassword = key.toString("base64");
+
+    if(hashedPassword === user_pw) return true;
+    return false;
+}
 
 const login = async (req, res) => {
   try{
     const {user_id, user_pw} = req.body;
     const findUser = await User.findOne({user_id: req.body.user_id});
     if(!findUser) return res.status(400).json('없는 사용자');
-    if(user_id !== findUser.user_id || user_pw !== findUser.user_pw) return res.status(401).json('회원 정보 오류');
+    const verified = await verifyPW(user_pw, findUser.salt, findUser.user_pw);
+    if(user_id !== findUser.user_id || !verified) return res.status(401).json('회원 정보 오류');
     
     req.session.login = true; // 로그인 유무
     req.session.uid = user_id; 
