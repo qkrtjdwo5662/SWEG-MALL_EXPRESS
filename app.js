@@ -34,8 +34,8 @@ const productRouter = require('./routes/product');
 // const testRouter = require('./routes/test');
 
 app.use('/', homeRouter);
-app.use('/user', userRouter);
-app.use('/product', productRouter);
+app.use('/users', userRouter);
+app.use('/products', productRouter);
 // app.use('/test', testRouter);
 
 app.listen(PORT,()=> {

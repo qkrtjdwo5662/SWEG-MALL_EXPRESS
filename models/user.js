@@ -36,6 +36,10 @@ const userSchema = new Schema(
       user_address : {
           type: String,
           required: true,
+      },
+      salt : {
+          type: String,
+          required: true,
       }
   },
   {
