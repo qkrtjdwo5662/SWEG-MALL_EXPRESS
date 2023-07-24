@@ -43,36 +43,53 @@ a {
 
 .main-banner-wrap {
   background-color: #f2f2f2;
-  height: 800px;
+  height: 750px;
 }
-
-.main-banner {
+.main-banner-wrap .swiper {
+  width: 100%;
+  height: 100%;
+}
+.main-banner-wrap .swiper-slide {
+  text-align: center;
+  height: 300px !important;
+}
+.main-banner-wrap .swiper-button-next,
+.main-banner-wrap .swiper-button-prev {
+  top: var(--swiper-navigation-top-offset, 32%);
+  color: #000;
+  width: calc(var(--swiper-navigation-size) / 44 * 700);
+}
+.main-banner-wrap .main-banner {
   text-align: center;
   top: 130px;
+  height: 100%;
   position: relative;
 }
-.main-banner .title {
+.main-banner-wrap .main-banner .title {
+  text-align: center;
   color: #e5e5e5;
   font-size: 220px;
   font-weight: 900;
-  position: absolute;
-  left: 51%;
-  transform: translate(-51%);
   z-index: 1;
-}
-.main-banner img {
-  width: 520px;
   position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+}
+.main-banner-wrap .main-banner img {
+  width: 520px;
+  height: 300px;
   z-index: 2;
-  top: 50%;
+  position: absolute;
   left: 50%;
-  transform: translate(-50%);
+  right: 50%;
+  transform: translateX(-50%);
+  top: -24px;
 }
 
 .contents1 {
   display: flex;
   position: relative;
-  top: 550px;
+  top: -100px;
 }
 .contents1 .title {
   display: inline-block;
@@ -135,7 +152,7 @@ a {
 }
 
 .contents2 {
-  margin-top: 270px;
+  margin-top: 150px;
   margin-bottom: 250px;
 }
 .contents2 .sweg-title {
@@ -794,4 +811,4 @@ a {
   text-align: center;
   border-bottom: 1px solid #d6d6d6;
   padding: 20px 0;
-}/*# sourceMappingURL=style.css.map */
+}

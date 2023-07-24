@@ -40,34 +40,52 @@ a {
 
 .main-banner-wrap {
   background-color: #f2f2f2;
-  height: 800px;
-}
-.main-banner {
-  text-align: center;
-  top: 130px;
-  position: relative;
-  .title {
-    color: #e5e5e5;
-    font-size: 220px;
-    font-weight: 900;
-    position: absolute;
-    left: 51%;
-    transform: translate(-51%);
-    z-index: 1;
+  height: 750px;
+  .swiper {
+    width: 100%;
+    height: 100%;
   }
-  img {
-    width: 520px;
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%);
+  .swiper-slide {
+    text-align: center;
+    height: 300px !important;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: var(--swiper-navigation-top-offset, 32%);
+    color: #000;
+    width: calc(var(--swiper-navigation-size)/ 44 * 700);
+  }
+  .main-banner {
+    text-align: center;
+    top: 130px;
+    height: 100%;
+    position: relative;
+    .title {
+      text-align: center;
+      color: #e5e5e5;
+      font-size: 220px;
+      font-weight: 900;
+      z-index: 1;
+      position: absolute;
+      right: 50%;
+      transform: translateX(50%);
+    }
+    img {
+      width: 520px;
+      height: 300px;
+      z-index: 2;
+      position: absolute;
+      left: 50%;
+      right: 50%;
+      transform: translateX(-50%);
+      top: -24px;
+    }
   }
 }
 .contents1 {
   display: flex;
   position: relative;
-  top: 550px;
+  top: -100px;
   .title {
     display: inline-block;
     margin-bottom: 20px;
@@ -129,7 +147,7 @@ a {
   }
 }
 .contents2 {
-  margin-top: 270px;
+  margin-top: 150px;
   margin-bottom: 250px;
   .sweg-title {
     margin-bottom: 40px;
@@ -170,7 +188,7 @@ a {
             color: #fff;
             padding: 10px 20px;
             cursor: pointer;
-            a{
+            a {
               color: #fff;
             }
           }
