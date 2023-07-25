@@ -122,7 +122,7 @@ const findProductOne = async (req, res) => {
 const compareProducts = async(req, res) => {
     try{
         const data = req.query;
-    
+        console.log(req.query);
         const key = Object.keys(data);
         const len = Object.keys(data).length;
         let products = [];

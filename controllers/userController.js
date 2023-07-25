@@ -45,7 +45,8 @@ const signUp = async (req, res) => {
          user_tel,
          user_email,
          user_address,
-         salt: salt
+         salt: salt,
+         coupon : [ "join congraturation"]
       });
       req.session.login = true; // 로그인 유무
       req.session.uid = user_id; 

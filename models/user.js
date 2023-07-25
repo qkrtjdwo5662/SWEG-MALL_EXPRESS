@@ -40,6 +40,10 @@ const userSchema = new Schema(
       salt : {
           type: String,
           required: true,
+      },
+      coupon : {
+        type: Object,
+        required: true,
       }
   },
   {
