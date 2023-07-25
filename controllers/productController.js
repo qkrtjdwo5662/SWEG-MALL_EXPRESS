@@ -121,9 +121,21 @@ const findProductOne = async (req, res) => {
 
 const compareProducts = async(req, res) => {
     try{
-        const q = req.query;
-        console.log(q);
-        
+        const data = req.query;
+    
+        const key = Object.keys(data);
+        const len = Object.keys(data).length;
+        let products = [];
+
+        for(let i=0; i<len; i++){
+            const product = await Product.findOne({
+                model: data[key[i]],
+            })
+            products.push(product);
+        }
+        console.log(products);
+        res.render('compare', {login : req.session.login, products});
+
     }catch (err){
         console.log(err);
         res.status(500).json("오류 발생");

@@ -301,8 +301,8 @@ const compareBtn = document.querySelector('.compare_btn');
     let s = "";
     for(let i=0; i< selectedProducts.length; i++){
         if(i === 0){
-          s = s + "?" + i + "="+ selectedProducts[i].model;
-        }else s = s + "&" + i + "="+ selectedProducts[i].model;
+          s = s + "?product" + i + "="+ selectedProducts[i].model;
+        }else s = s + "&product" + i + "="+ selectedProducts[i].model;
         
     }
     console.log(s);
