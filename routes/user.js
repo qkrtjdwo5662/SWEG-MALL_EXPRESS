@@ -39,7 +39,7 @@ router.get('/login-success', (req, res) => {
 
 
 router.get('/my-page', loginCheck, (req, res) => {
-  res.render('mypage.ejs', {login : req.session.login });
+  res.render('mypage.ejs', {login : req.session.login, user:req.session.user });
 })
 
 
