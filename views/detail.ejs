@@ -86,7 +86,7 @@
                         </svg>
                     </div>
                     <div class="info_text">Total</div>
-                    <div class="total_cost">￦ </div>
+                    <div class="total_cost">￦ <%= product.price%></div>
                   </div>
                 </div>
                 <div class="product_base_info">
@@ -147,7 +147,7 @@
           <div class="product_detail_bar">
             <div class="product_detail_bar_wrap">
               <div class="pro_name_area">
-                FAB28 크림            
+                <%=product.name%> <%=product.color%>            
               </div>
               <div class="anchor_area">
                 <div class="anchor_item_set">
@@ -180,3 +180,24 @@
     </div>
   </div>
 </body>
+
+<script defer>
+  const count_minus_btn = document.querySelector('.count_minus');
+  const count_plus_btn = document.querySelector('.count_plus');
+  const count_num = document.querySelector('.count_num');
+  const total_cost = document.querySelector('.total_cost');
+  let total = 1;
+  count_minus_btn.addEventListener("click", (e) => {
+    if(total !== 1){
+      total = total - 1;
+      count_num.textContent = total;
+      total_cost.textContent = total * <%=product.price%>;
+    }
+  })
+  count_plus_btn.addEventListener("click", (e) => {
+    total = total +1;
+    count_num.textContent = total;
+    total_cost.textContent = total * <%=product.price%>;
+  })
+
+</script>
