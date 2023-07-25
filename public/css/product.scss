@@ -124,7 +124,6 @@ a {
   }
   .contents_area_wrap{
     min-height: 500px;
-    padding-top: 152px;
     .product_view_wrap_div{
       .product_view{
         width: 100%;
@@ -165,6 +164,11 @@ a {
                     height: 0;
                     padding-bottom: 100%;
                     overflow: hidden;
+                    img{
+                      width: 500px;
+                      display: block;
+                      margin: 0 auto;
+                    }
                   }
                 }
                 .pro_thumb_swiper_prev{

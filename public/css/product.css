@@ -119,7 +119,6 @@ a {
 }
 .wrap .contents_area_wrap {
   min-height: 500px;
-  padding-top: 152px;
 }
 .wrap .contents_area_wrap .product_view_wrap_div .product_view {
   width: 100%;
@@ -166,6 +165,11 @@ a {
   height: 0;
   padding-bottom: 100%;
   overflow: hidden;
+}
+.wrap .contents_area_wrap .product_view_wrap_div .product_view .product_view_top_area .product_image_area .product_view_swiper_wrap .pro_view_swiper_single .swiper-wrapper .swiper-slide img {
+  width: 500px;
+  display: block;
+  margin: 0 auto;
 }
 .wrap .contents_area_wrap .product_view_wrap_div .product_view .product_view_top_area .product_image_area .product_view_swiper_wrap .pro_view_swiper_single .pro_thumb_swiper_prev {
   position: absolute;
