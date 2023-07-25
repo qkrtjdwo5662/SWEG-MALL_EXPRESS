@@ -1,4 +1,5 @@
 require('./mongoConnect');
+const { query } = require('express');
 const Product = require('../models/product');
 
 const init = async(req, res) => {
@@ -118,4 +119,15 @@ const findProductOne = async (req, res) => {
     }
 }
 
-module.exports = {init, findProductOne};
+const compareProducts = async(req, res) => {
+    try{
+        const q = req.query;
+        console.log(q);
+        
+    }catch (err){
+        console.log(err);
+        res.status(500).json("오류 발생");
+    }
+}
+
+module.exports = {init, findProductOne, compareProducts};

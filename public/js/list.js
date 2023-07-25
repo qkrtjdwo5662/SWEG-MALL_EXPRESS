@@ -1,3 +1,4 @@
+
 let product = {
   refrigerator: [
     {
@@ -121,6 +122,7 @@ function comparison() {
     // 비교하기를 클릭했을 때 토글버튼
     bottomBox.classList.toggle("active");
     //클래스에 이름을 추가하고 삭제하는 방법의 toggle로 작업
+    console.log(comparisonWrap);
   }
 }
 comparisonBtn.addEventListener("click", comparison);
@@ -160,6 +162,7 @@ productView(product.refrigerator);
 
 //비교하기 버튼 기능
 let comparisonWrap = [];
+let selectedProducts = [];
 
 const comparisonSubBtn = document.querySelectorAll(".icon_compare");
 const comparisonItemBox = document.querySelectorAll(
@@ -171,7 +174,9 @@ comparisonSubBtn.forEach(function (btn, index) {
   btn.addEventListener("click", function () {
     const selectedProduct = product.refrigerator[index];
     //내가 선택한 제품의 객체정보
-
+    
+    // console.log(selectedProducts);
+    
     const itemBoxHTML = `<div class="width-box">
                             <div class="item_img">
                               <img src=${selectedProduct.img} alt="" />
@@ -192,6 +197,7 @@ comparisonSubBtn.forEach(function (btn, index) {
     if (!isDuplicate) {
       //isDuplicate 변수가 중복되지 않은 경우
       comparisonWrap.push(itemBoxHTML);
+      selectedProducts.push(selectedProduct);
       //comparisonWrap배열에 itemBoxHTMl추가
       if (comparisonWrap.length < 4) {
         itemCount.textContent++;
@@ -220,6 +226,7 @@ comparisonSubBtn.forEach(function (btn, index) {
       //comparisonClose 반복되고 있는 요소의 인덱스를 매게변수로 받아옴
       closeBtn.addEventListener("click", function (e) {
         comparisonWrap.splice(index, 1);
+        selectedProducts.splice(index, 1);
         //comparisonWrap와 comparisonClose가 동일한 인덱스를 가지면 삭제
         comparisonItemBox[index].innerHTML = "선택된 상품이 없습니다.";
         // comparisonItemBox의 배열의 Index와 comparisonClose 같은경우 내용 변경
@@ -237,8 +244,11 @@ comparisonSubBtn.forEach(function (btn, index) {
     // comparisonWrap안에 3개만 담기
     if (comparisonWrap.length > 3) {
       comparisonWrap.shift(); // 가장 처음에 추가한 상품 삭제
+      selectedProducts.shift();
     }
+    console.log(selectedProducts);
   });
+  
 });
 
 const colorBtns = document.querySelectorAll(".color_chip_icon");
@@ -283,3 +293,18 @@ imgBtns.forEach(function (imgBtn) {
     });
   });
 });
+
+
+const compareBtn = document.querySelector('.compare_btn');
+  
+  compareBtn.addEventListener("click", () => {
+    let s = "";
+    for(let i=0; i< selectedProducts.length; i++){
+        if(i === 0){
+          s = s + "?" + i + "="+ selectedProducts[i].model;
+        }else s = s + "&" + i + "="+ selectedProducts[i].model;
+        
+    }
+    console.log(s);
+    location.href="/products/compare/" + s;
+  })
