@@ -43,7 +43,7 @@ const userSchema = new Schema(
       }
   },
   {
-    collection: 'user',
+    collection: 'users',
     versionKey: false,
   }
 );

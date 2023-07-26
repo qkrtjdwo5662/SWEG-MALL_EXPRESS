@@ -1,3 +1,4 @@
+const { Int32 } = require('mongodb');
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
@@ -28,7 +29,13 @@ const productSchema = new Schema(
         img : {
             type:String,
             required: true,
+        },
+        count : {
+            type: Number,
+            required: true,
+            default: 0,
         }
+        
 
     },
     {

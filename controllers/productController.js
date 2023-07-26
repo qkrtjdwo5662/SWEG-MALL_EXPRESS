@@ -12,6 +12,7 @@ const init = async(req, res) => {
                     color: "크림",
                     price: 3350000,
                     img: "/img/list/FAB28-크림.png",
+                    count : 2,
                 },
                 {
                     category : "refrigerator",
@@ -20,6 +21,7 @@ const init = async(req, res) => {
                     color: "레드",
                     price: 2100000,
                     img: "/img/list/FAB10-레드.png",
+                    count : 3,
                 },
                 {
                     category : "refrigerator",
@@ -28,6 +30,7 @@ const init = async(req, res) => {
                     color: "블랙",
                     price: 2100000,
                     img: "/img/list/FAB10-블랙.png",
+                    count : 1,
                 },
                 {
                     category : "refrigerator",
