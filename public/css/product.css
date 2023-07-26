@@ -322,6 +322,9 @@ a {
   color: #000000;
   transition: all 0.3s ease-in-out;
 }
+.wrap .contents_area_wrap .product_view_wrap_div .product_view .product_view_top_area .purchase_func_area .purchase_func .btn_set .btn_basic a {
+  width: calc((100% - 10px) / 2);
+}
 .wrap .contents_area_wrap .product_view_wrap_div .product_view .product_view_top_area .purchase_func_area .purchase_func .blank_div {
   height: 200px;
 }

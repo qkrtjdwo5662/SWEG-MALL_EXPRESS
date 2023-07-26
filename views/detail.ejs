@@ -97,7 +97,8 @@
                     <div class="model_name"><%=product.model%></div>
                     <div class="state_wrap">
                         <div class="state_set">                                    
-                          <div class="badge">품절</div>
+                          <% if(product.count == 0) {%> <div class="badge">품절</div>
+                          <%} %>
                         </div>
                         <div class="price_mobile">
                           <div class="price_sale"><%=product.price%></div>
@@ -136,7 +137,12 @@
                 </div>
                 
                 <div class="btn_set">
-                  <a href="javascript:;" class="btn_basic positive" onclick="restock_notice()" style="width:100%;">재입고 알림 신청</a>
+                  <%if(product.count == 0) {%>
+                    <a href="javascript:;" class="btn_basic positive" onclick="" style="width:100%;">재입고 알림 신청</a>
+                  <%} else {%>
+                    <a href="javascript:;" class="btn_basic positive" onclick="">바로 구매</a>
+                    <a href="javascript:;" class="btn_basic positive" onclick="">쇼핑백 담기</a>
+                  <% } %>
                 </div>
                 <div class="blank_div"></div>
               </div>
@@ -195,6 +201,10 @@
     }
   })
   count_plus_btn.addEventListener("click", (e) => {
+    if(total >= <%= product.count %>){
+      alert('재고가 부족합니다');
+      return;
+    }
     total = total +1;
     count_num.textContent = total;
     total_cost.textContent = total * <%=product.price%>;

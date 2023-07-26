@@ -324,6 +324,9 @@ a {
                   border: 1px solid #000000;
                   color: #000000;
                   transition: all 0.3s ease-in-out;
+                  a{
+                    width: calc((100% - 10px) / 2);
+                  }
                 }
               }
               .blank_div{
