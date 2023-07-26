@@ -10,6 +10,7 @@
    href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
    />
    <link rel="stylesheet" href="/css/style.css" />
+   <link rel="stylesheet" href="/css/cart.css" />
   <!-- 구글폰트 -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,6 +30,83 @@
       <%-include('./include/nav.ejs')%>
     </div>
     <hr class="line">
+    <div class="contents_area_wrap">
+      <div class="container_full page_title_area">
+        <div class="container_fixed page_title_wrap">
+            쇼핑백
+        </div>
+      </div>
+      <div class="container_full cart_table_area">
+        <div class="container_fixed">
+            <div class="title_area">
+              <div class="area_title">
+                    배송상품
+              </div>
+              <div class="line"></div>
+              <div class="title_contents">
+                    총 <span>0</span>개의 상품이 있습니다.
+              </div>
+            </div>
+
+            <div class="info_area" style="color:#666666; margin-top:5px; font-weight:300;">
+                배송비는 최종 주문서에서 확인 가능하며, 결제 금액 확인부탁드립니다.
+            </div>
+
+            <div class="cart_table">
+              <div class="header">
+                    <div class="check_box_area">
+                        <div class="check_box">
+                            <input id="cartAll1" class="form_check cart_select cart1_seq" type="checkbox" onclick="cart1_all('cart1_seq');"> 
+                            <label for="cartAll1" class="">배송상품 전체 선택</label>
+                        </div>
+                    </div>
+                    <div class="info_wrap">
+                        <div class="info_set">
+                            <div class="pro_info_area">
+                                상품정보
+                            </div>
+                            <div class="quantity_area">
+                                수량 옵션
+                            </div>
+                            <div class="price_area">
+                                상품금액
+                            </div>
+                            <div class="delivery_fee_area">
+                                배송비
+                            </div>
+                        </div>
+                    </div>
+                    <div class="func_area">
+                        선택
+                    </div>
+                </div>
+                <div class="table_body">
+                </div>
+            </div>
+          </div>
+      </div>
+      <div class="container_full cart_check_area">
+        <div class="container_fixed">
+            <div class="item_wrap">
+                <div class="check_box" style="display:none;">
+                    <input id="cartAll0" name="cartAll0" class="form_check cart_all" type="checkbox" onclick="cart_all('cart_select');"> 
+                    <label for="cartAll0" class="">전체선택</label>
+                </div>
+                <div class="btn_set">
+                    <a href="javascript:;" class="btn_basic negative" onclick="cart_del();">선택상품 삭제</a>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="container_full btn_area">
+        <div class="container_fixed btn_wrap">
+            <div class="btn_set">
+                <a href="javascript:;" class="btn_basic positive" onclick="order('n')"><span id="order_cnt">0</span>건 주문하기</a>
+            </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </body>
 
