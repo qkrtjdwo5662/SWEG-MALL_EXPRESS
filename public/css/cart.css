@@ -1,48 +1,48 @@
-.wrap .contents_area_wrap {
+body .wrap .contents_area_wrap {
   min-height: 500px;
 }
-.wrap .contents_area_wrap .page_title_area {
+body .wrap .contents_area_wrap .page_title_area {
   margin-top: 80px;
   transition: 0.3s;
 }
-.wrap .contents_area_wrap .page_title_area .page_title_wrap {
+body .wrap .contents_area_wrap .page_title_area .page_title_wrap {
   display: flex;
   justify-content: center;
   font-size: 5rem;
   font-weight: 300;
   transition: 0.3s;
 }
-.wrap .contents_area_wrap .page_title_area .container_fixed {
+body .wrap .contents_area_wrap .page_title_area .container_fixed {
   max-width: 1200px;
   margin: 0 auto;
 }
-.wrap .contents_area_wrap .cart_table_area {
+body .wrap .contents_area_wrap .cart_table_area {
   margin-top: 80px;
 }
-.wrap .contents_area_wrap .cart_table_area .container_fixed {
+body .wrap .contents_area_wrap .cart_table_area .container_fixed {
   max-width: 1200px;
   margin: 0 auto;
 }
-.wrap .contents_area_wrap .cart_table_area .container_fixed .title_area {
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .title_area {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   font-size: 2.4rem;
   font-weight: 300;
 }
-.wrap .contents_area_wrap .cart_table_area .container_fixed .title_area .line {
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .title_area .line {
   width: 1px;
   height: 25px;
   margin: 0 15px;
   background-color: #D6D6D6;
 }
-.wrap .contents_area_wrap .cart_table_area .container_fixed .title_area .title_contents span {
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .title_area .title_contents span {
   font-weight: 600;
 }
-.wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table {
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table {
   margin-top: 20px;
 }
-.wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .header {
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,7 +51,7 @@
   border-top: 1px solid #000000;
   border-bottom: 1px solid #D6D6D6;
 }
-.wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .header .check_box_area {
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .header .check_box_area {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,85 +59,214 @@
   text-align: center;
   padding: 20px;
 }
-.wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .header .check_box_area .form_check + label:last-child {
-  margin-right: 0;
-  width: 0;
-  margin-left: 0;
-  overflow: hidden;
-}
-.wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .header .check_box_area .form_check + label {
-  display: flex;
-  align-items: center;
-  background: url(/images/common/check_default.svg) 0 0 no-repeat;
-  cursor: pointer;
-  height: 20px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-right: 20px;
-  padding-left: 20px;
-  color: #858585;
-}
-.wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .header .info_wrap {
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .header .info_wrap {
   width: calc(100% - 212px);
 }
-.wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .header .info_wrap .info_set {
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .header .info_wrap .info_set {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .header .func_area {
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .header .info_wrap .info_set .pro_info_area {
+  width: calc((100% - 283px) / 3 * 2);
+  padding: 20px;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .header .info_wrap .info_set .quantity_area {
+  width: 133px;
+  padding: 20px;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .header .info_wrap .info_set .price_area {
+  width: calc((100% - 283px) / 3 * 1);
+  padding: 20px;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .header .info_wrap .info_set .delivery_fee_area {
+  width: 150px;
+  padding: 20px;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .header .func_area {
   width: 147px;
   padding: 20px;
 }
-.wrap .contents_area_wrap .cart_check_area {
-  margin-top: 20px;
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap {
+  border-bottom: 1px solid #D6D6D6;
 }
-.wrap .contents_area_wrap .cart_check_area .container_fixed {
-  max-width: 1200px;
-  margin: 0 auto;
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item {
+  display: flex;
+  justify-content: space-between;
 }
-.wrap .contents_area_wrap .cart_check_area .container_fixed .item_wrap {
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .check_box_area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65px;
+  text-align: center;
+  padding: 20px;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap {
+  width: calc(100% - 212px);
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap .info_set {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap .info_set .pro_info_area {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: calc((100% - 283px) / 3 * 2);
+  padding: 20px;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap .info_set .pro_info_area a .image_area {
+  position: relative;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap .info_set .pro_info_area a .image_area img {
+  width: 94px;
+  height: 94px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap .info_set .pro_info_area a .image_area .state_set {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  width: 94px;
+  height: 94px;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap .info_set .pro_info_area .cart_pro_info {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.wrap .contents_area_wrap .cart_check_area .container_fixed .item_wrap .btn_set {
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap .info_set .pro_info_area .cart_pro_info .contents_area {
+  margin-left: 20px;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap .info_set .pro_info_area .cart_pro_info .contents_area .model_name {
+  color: #9A9A9A;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap .info_set .pro_info_area .cart_pro_info .contents_area .pro_price {
+  margin-top: 10px;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap .info_set .quantity_area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 133px;
+  padding: 20px;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap .info_set .quantity_area .quantity_ui {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap .info_set .quantity_area .quantity_ui .count_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid #DEDEDE;
+  background-color: #ffffff;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap .info_set .quantity_area .quantity_ui .count_num {
+  margin: 0 10px;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap .info_set .price_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc((100% - 283px) / 3 * 1);
+  padding: 20px;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap .info_set .price_area .price {
+  font-size: 1.5rem;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .info_wrap .info_set .delivery_fee_area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  padding: 20px;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .func_area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 147px;
+  padding: 20px;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .func_area .btn_set {
+  display: block;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .func_area .btn_set a {
+  width: 107px;
+  height: 49px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  color: #000000;
+  transition: all 0.3s ease-in-out;
+  margin-left: 0;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .func_area .btn_set a:not(:first-child) {
+  margin-top: 10px;
+}
+body .wrap .contents_area_wrap .cart_table_area .container_fixed .cart_table .table_body .item_wrap .item .func_area .btn_set .btn_basic.negative {
+  border: 1px solid #DFDFDF;
+}
+body .wrap .contents_area_wrap .cart_check_area {
+  margin-top: 20px;
+}
+body .wrap .contents_area_wrap .cart_check_area .container_fixed {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+body .wrap .contents_area_wrap .cart_check_area .container_fixed .item_wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+body .wrap .contents_area_wrap .cart_check_area .container_fixed .item_wrap .btn_set {
   display: flex;
   justify-content: center;
   margin-left: 30px;
 }
-.wrap .contents_area_wrap .cart_check_area .container_fixed .item_wrap .btn_set a {
+body .wrap .contents_area_wrap .cart_check_area .container_fixed .item_wrap .btn_set a {
   width: 114px;
   height: 35px;
-  font-size: 1.4rem;
-  letter-spacing: -0.04rem;
   border: 1px solid #DFDFDF;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 265px;
-  height: 60px;
   margin: 0 5px;
   overflow: hidden;
   background-color: #ffffff;
-  border: 1px solid #000000;
   color: #000000;
   transition: all 0.3s ease-in-out;
 }
-.wrap .contents_area_wrap .btn_area {
+body .wrap .contents_area_wrap .btn_area {
   margin-top: 60px;
   margin-bottom: 150px;
 }
-.wrap .contents_area_wrap .btn_area .container_fixed {
+body .wrap .contents_area_wrap .btn_area .container_fixed {
   max-width: 1200px;
   margin: 0 auto;
 }
-.wrap .contents_area_wrap .btn_area .container_fixed .btn_set {
+body .wrap .contents_area_wrap .btn_area .container_fixed .btn_set {
   display: flex;
   justify-content: center;
 }
-.wrap .contents_area_wrap .btn_area .container_fixed .btn_set .btn_basic {
+body .wrap .contents_area_wrap .btn_area .container_fixed .btn_set .btn_basic {
   position: relative;
   display: flex;
   justify-content: center;
@@ -150,4 +279,7 @@
   border: 1px solid #000000;
   color: #000000;
   transition: all 0.3s ease-in-out;
+}
+body .wrap .contents_area_wrap .btn_area .container_fixed .btn_set .btn_basic span {
+  margin-left: 11px;
 }/*# sourceMappingURL=cart.css.map */
