@@ -141,7 +141,7 @@
                     <a href="javascript:;" class="btn_basic positive" onclick="" style="width:100%;">재입고 알림 신청</a>
                   <%} else {%>
                     <a href="javascript:;" class="btn_basic positive" onclick="">바로 구매</a>
-                    <a href="javascript:;" class="btn_basic positive" onclick="">쇼핑백 담기</a>
+                    <a id="btn_add_cart" class="btn_basic positive" onclick="">쇼핑백 담기</a>
                   <% } %>
                 </div>
                 <div class="blank_div"></div>
@@ -210,4 +210,40 @@
     total_cost.textContent = total * <%=product.price%>;
   })
 
+
+  const add_cart_btn = document.querySelector('#btn_add_cart');
+  add_cart_btn.addEventListener("click", (e) => {
+    console.log(document.cookie.split('; ')); // 쿠키 별 자르기
+    let cartIndex = -1; // 기본 -1
+    const findCartindex = document.cookie.split('; ').map((item, idx) => {
+      if(item.includes('cart')){
+        cartIndex = idx;
+        return; // 찾으면 끝냄
+      }
+    });
+    console.log(cartIndex);
+
+  
+    if(cartIndex == -1){ // 쿠키 없으면
+      console.log('cart 쿠키 생성');
+      document.cookie = `cart=<%=product.model%>;`
+    }else{ // 쿠키 존재하면
+      console.log('cart 쿠키에 추가');
+      // console.log(document.cookie.split('; ')[cartIndex].split('=')); // cart 쿠키 key, value로 분리
+      let cartCookie = document.cookie.split('; ')[cartIndex].split('=');
+      let cartCookieValue =cartCookie[1];
+      cartCookie.map((item, idx) => {
+        if(idx!=0){
+          cartCookieValue = cartCookieValue + `/<%=product.model%>`;
+        }
+      })
+      console.log(cartCookie);
+      console.log(cartCookieValue);
+      document.cookie = `cart=${cartCookieValue};`
+    }
+    
+  
+    
+   
+  })
 </script>
