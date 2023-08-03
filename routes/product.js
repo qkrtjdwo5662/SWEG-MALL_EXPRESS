@@ -17,4 +17,5 @@ router.get('/compare', (req, res) => {
 })
 
 router.get('/detail/:model', findProductOne);
+
 module.exports = router;
