@@ -1,6 +1,6 @@
 const express = require('express');
 
-const {init, findProductOne, addCart} = require('../controllers/productController');
+const {init, findProductOne} = require('../controllers/productController');
 const router = express.Router();
 
 router.get('/migration', init);
@@ -17,5 +17,5 @@ router.get('/compare', (req, res) => {
 })
 
 router.get('/detail/:model', findProductOne);
-router.get('/cart/:model', addCart);
+
 module.exports = router;

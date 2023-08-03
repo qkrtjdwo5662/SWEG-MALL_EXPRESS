@@ -1,10 +1,8 @@
 const express = require('express');
 
+const {findProductFromCookie} = require('../controllers/productController');
 const router = express.Router();
 
-router.get('/cart', (req, res) => {
-  const login = req.session.login;
-  res.render('cart.ejs', {login});
-})
+router.get('/cart', findProductFromCookie);
 
 module.exports = router;

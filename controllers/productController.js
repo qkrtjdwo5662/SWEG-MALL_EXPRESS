@@ -121,4 +121,42 @@ const findProductOne = async (req, res) => {
     }
 }
 
-module.exports = {init, findProductOne};
+const findProductFromCookie = async (req, res) => {
+    try{
+        const allCookies = req.cookies;
+        const cartCookie = allCookies.cart;
+        const cartCookieArr = cartCookie.split('/');
+
+        const map = async() => {
+            let cart = [];
+            
+            await cartCookieArr.map(async(item, idx) => {
+                
+                const findProduct = await Product.findOne({
+                    model: item
+                })
+                const obj = {
+                    name : findProduct.name,
+                    model : findProduct.model,
+                    color : findProduct.color,
+                    img : findProduct.img,
+                    price : findProduct.price,
+                    count : findProduct.count,
+                };
+                
+                cart.push(obj);
+                console.log(cart);
+                if(idx == cartCookieArr.length-1){
+                    await res.render('cart.ejs', {login : req.session.login, cart});
+                }
+            })
+        }
+        map();
+        
+    }catch (err){
+        console.log(err);
+        res.status(500).json("오류 발생");
+    }
+}
+
+module.exports = {init, findProductOne, findProductFromCookie};
