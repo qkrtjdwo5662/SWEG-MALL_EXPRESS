@@ -107,6 +107,18 @@ const init = async(req, res) => {
     }
 }
 
+const findProductAll = async (req, res) => {
+    try {
+        const products = await Product.find({});
+        console.log(products)
+        res.render('list.ejs', { login: req.session.login, products });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json('오류 발생');
+    }
+};
+
+
 const findProductOne = async (req, res) => {
     try{
         const findProduct = await Product.findOne({
@@ -159,4 +171,4 @@ const findProductFromCookie = async (req, res) => {
     }
 }
 
-module.exports = {init, findProductOne, findProductFromCookie};
+module.exports = {init, findProductOne, findProductFromCookie, findProductAll};

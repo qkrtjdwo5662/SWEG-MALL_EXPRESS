@@ -25,7 +25,7 @@
     />
 
     <title>SWEG MALL</title>
-    <script defer src="/js/list.js"></script>
+    <!-- <script defer src="/js/list.js"></script> -->
     <style>
       .nav-wrap .logo a{
         color: #fff;
@@ -370,30 +370,33 @@
       <div class="container">
         <div class="item_wrap">
           <div class="product_item_list">
-            <!-- <div class="item product_item">
+          <%products.map(function (product) {%>
+             <div class="item product_item" data-color="<%=product.color%>" data-name="<%=product.name%>">
             <div class="image_area">
               
-              <a href="#">
-                <img src="/img/list/FAB28-크림.png" alt="" />
+              <a href="/products/detail/${product.model}">
+                <img src="<%=product.img%>" alt="" />
               </a>
               <div class="icon_compare">
                 <div class="icon_text" style="width: 50px">비교하기</div>
               </div>
             </div>
             <div class="info_area">
-              <a href="/product/detail">
-                <div class="pro_name">FAB28 크림</div>
-
-                <div class="model_name">FAB28RCR5</div>
+              <a href="#">
+                <div class="pro_name"><%=product.name%> <%=product.color%></div>
+        
+                <div class="model_name"><%=product.model%></div>
               </a>
               <div class="price_area">
                 <div class="price_set">
-                  <div class="price_base">3,350,000</div>
+                  <div class="price_base"><%=product.price%></div>
                   <div class="price_sale">2,680,000</div>
                 </div>
               </div>
             </div>
-          </div>-->
+          </div>
+          <%})%>
+          
           </div>
           <div class="btn_set">
             <a
@@ -409,3 +412,9 @@
     <%-include('./include/footer.ejs')%>
   </body>
 </html>
+
+<script>
+  const comparisonSubBtn = document.querySelectorAll(".icon_compare");
+  console.log(comparisonSubBtn)
+  
+</script>
