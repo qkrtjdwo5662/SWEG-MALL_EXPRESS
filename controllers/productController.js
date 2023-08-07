@@ -110,7 +110,7 @@ const init = async(req, res) => {
 const findProductAll = async (req, res) => {
     try {
         const products = await Product.find({});
-        console.log(products)
+        // console.log(products)
         res.render('list.ejs', { login: req.session.login, products });
     } catch (err) {
         console.log(err);
