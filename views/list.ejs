@@ -127,7 +127,7 @@
             </div>
             <div class="compare_func_area">
               <div class="compare_func">
-                <a href="/products/compare" class="compare_btn"> 비교하기 </a>
+                <a class="compare_btn"> 비교하기 </a>
                 <a
                   href="#"
                   class="compare_init"
@@ -362,9 +362,12 @@
                 </a>
                 <div class="icon_compare">
                   <div
-                    class="icon_text" style="width: 50px"
-                    data-model="<%= product.model %>"
+                    class="icon_text"
+                    style="width: 50px"
                     data-name="<%= product.name %>"
+                    data-model="<%= product.model %>"
+                    data-color="<%=product.color%>"
+                    data-price="<%= product.price %>"
                     data-img="<%= product.img %>"
                   >
                     비교하기
@@ -421,6 +424,7 @@
 
   //비교하기 버튼 기능
   let comparisonWrap = [];
+  let selectedProducts = [];
 
   const comparisonSubBtn = document.querySelectorAll(".icon_text");
   const comparisonItemBox = document.querySelectorAll(
@@ -431,10 +435,20 @@
   comparisonSubBtn.forEach(function (btn, index) {
     btn.addEventListener("click", function () {
       //ejs에 미리 map으로 데이터를 버튼에 저장한 data-set을 이용해 변수에 저장함
-      const productModel = btn.dataset.model;
       const productName = btn.dataset.name;
+      const productModel = btn.dataset.model;
+      const productColor = btn.dataset.color;
+      const productPrice = btn.dataset.price;
       const productImg = btn.dataset.img;
-      console.log(productModel, productName, productImg);
+      // console.log(productModel, productName, productImg);
+
+      const product = {
+        name: productName,
+        model: productModel,
+        color: productColor,
+        price: productPrice,
+        img: productImg,
+      };
 
       //변수로 저장한 데이터를
       const itemBoxHTML = `<div class="width-box">
@@ -456,6 +470,8 @@
       if (!isDuplicate) {
         //isDuplicate 변수가 중복되지 않은 경우
         comparisonWrap.push(itemBoxHTML);
+        selectedProducts.push(product);
+        console.log(selectedProducts);
         //comparisonWrap배열에 itemBoxHTMl추가
         if (comparisonWrap.length < 4) {
           itemCount.textContent++;
@@ -484,6 +500,7 @@
         //comparisonClose 반복되고 있는 요소의 인덱스를 매게변수로 받아옴
         closeBtn.addEventListener("click", function (e) {
           comparisonWrap.splice(index, 1);
+          selectedProducts.splice(index, 1);
           //comparisonWrap와 comparisonClose가 동일한 인덱스를 가지면 삭제
           comparisonItemBox[index].innerHTML = "선택된 상품이 없습니다.";
           // comparisonItemBox의 배열의 Index와 comparisonClose 같은경우 내용 변경
@@ -501,6 +518,7 @@
       // comparisonWrap안에 3개만 담기
       if (comparisonWrap.length > 3) {
         comparisonWrap.shift(); // 가장 처음에 추가한 상품 삭제
+        selectedProducts.shift();
       }
     });
   });
@@ -545,5 +563,23 @@
         }
       });
     });
+  });
+
+  //쿼리작업
+  const productCompareBtn = document.querySelector(".compare_btn"); //비교하기버튼
+
+  productCompareBtn.addEventListener("click", () => {
+    const query = selectedProducts.map((product, index) => {
+        let item = "";
+        if (index === 0) {
+          item = "?product";
+        } else {
+          item = "&product";
+        }
+        return `${item}${index}=${product.model}`;
+        //?product0=FAB28RCR5&product1=FAB10RCR5
+      }).join("")
+    console.log(query);
+    location.href = "/products/compare/" + query;
   });
 </script>
