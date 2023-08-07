@@ -171,4 +171,25 @@ const findProductFromCookie = async (req, res) => {
     }
 }
 
-module.exports = {init, findProductOne, findProductFromCookie, findProductAll};
+const compareProducts = async(req, res) => {
+    try{
+        let products = []
+        const data = req.query;
+        const models = Object.values(data);
+
+        for (let i = 0; i < models.length; i++) {
+            const product = await Product.findOne({ model: models[i] });
+            // model(값)과 동일한 product를 찾음
+            products.push(product);
+            //빈배열 추가
+        }
+        console.log(products)
+        res.render('compare', {login : req.session.login, products});
+
+    }catch (err){
+        console.log(err);
+        res.status(500).json("오류 발생");
+    }
+}
+
+module.exports = {init, findProductOne, findProductFromCookie, findProductAll, compareProducts};
