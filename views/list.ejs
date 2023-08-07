@@ -27,21 +27,19 @@
     <title>SWEG MALL</title>
     <!-- <script defer src="/js/list.js"></script> -->
     <style>
-      .nav-wrap .logo a{
+      .nav-wrap .logo a {
         color: #fff;
       }
-      .nav-wrap ul>li>a{
+      .nav-wrap ul > li > a {
         color: #fff;
       }
-      .nav-wrap .nav-item{
+      .nav-wrap .nav-item {
         color: #fff !important;
       }
     </style>
   </head>
   <body style="background-color: #f8f8f8">
-    <div class="top-banner">
-      <%-include('./include/nav.ejs')%>
-    </div>
+    <div class="top-banner"><%-include('./include/nav.ejs')%></div>
     <div class="breadcrumbs" style="bottom: 0px">
       <div class="container">
         <div class="bar_area">
@@ -129,7 +127,7 @@
             </div>
             <div class="compare_func_area">
               <div class="compare_func">
-                <a href="/product/compare" class="compare_btn"> 비교하기 </a>
+                <a href="/products/compare" class="compare_btn"> 비교하기 </a>
                 <a
                   href="#"
                   class="compare_init"
@@ -174,55 +172,37 @@
                   <div class="graph">
                     <a href="#" class="graph_link" data-name="FAB5">
                       <div class="graph_img">
-                        <img
-                          src="/img/list/img_filter_fab5.svg"
-                          alt="fab5"
-                        />
+                        <img src="/img/list/img_filter_fab5.svg" alt="fab5" />
                       </div>
                       <div class="graph_title">FAB5</div>
                     </a>
                     <a href="#" class="graph_link" data-name="FAB10">
                       <div class="graph_img">
-                        <img
-                          src="/img/list/img_filter_fab10.svg"
-                          alt="fab10"
-                        />
+                        <img src="/img/list/img_filter_fab10.svg" alt="fab10" />
                       </div>
                       <div class="graph_title">FAB10</div>
                     </a>
                     <a href="#" class="graph_link" data-name="FAB28">
                       <div class="graph_img">
-                        <img
-                          src="/img/list/img_filter_fab28.svg"
-                          alt="fab28"
-                        />
+                        <img src="/img/list/img_filter_fab28.svg" alt="fab28" />
                       </div>
                       <div class="graph_title">FAB28</div>
                     </a>
                     <a href="#" class="graph_link" data-name="FAB30">
                       <div class="graph_img">
-                        <img
-                          src="/img/list/img_filter_fab30.svg"
-                          alt="fab30"
-                        />
+                        <img src="/img/list/img_filter_fab30.svg" alt="fab30" />
                       </div>
                       <div class="graph_title">FAB30</div>
                     </a>
                     <a href="#" class="graph_link" data-name="FAB32">
                       <div class="graph_img">
-                        <img
-                          src="/img/list/img_filter_fab32.svg"
-                          alt="fab32"
-                        />
+                        <img src="/img/list/img_filter_fab32.svg" alt="fab32" />
                       </div>
                       <div class="graph_title">FAB32</div>
                     </a>
                     <a href="#" class="graph_link" data-name="FAB50">
                       <div class="graph_img">
-                        <img
-                          src="/img/list/img_filter_fab50.svg"
-                          alt="fab50"
-                        />
+                        <img src="/img/list/img_filter_fab50.svg" alt="fab50" />
                       </div>
                       <div class="graph_title">FAB50</div>
                     </a>
@@ -370,33 +350,44 @@
       <div class="container">
         <div class="item_wrap">
           <div class="product_item_list">
-          <%products.map(function (product) {%>
-             <div class="item product_item" data-color="<%=product.color%>" data-name="<%=product.name%>">
-            <div class="image_area">
-              
-              <a href="/products/detail/<%=product.model%>">
-                <img src="<%=product.img%>" alt="" />
-              </a>
-              <div class="icon_compare">
-                <div class="icon_text" style="width: 50px">비교하기</div>
+            <%products.map(function (product) {%>
+            <div
+              class="item product_item"
+              data-color="<%=product.color%>"
+              data-name="<%=product.name%>"
+            >
+              <div class="image_area">
+                <a href="/products/detail/<%=product.model%>">
+                  <img src="<%=product.img%>" alt="" />
+                </a>
+                <div class="icon_compare">
+                  <div
+                    class="icon_text" style="width: 50px"
+                    data-model="<%= product.model %>"
+                    data-name="<%= product.name %>"
+                    data-img="<%= product.img %>"
+                  >
+                    비교하기
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="info_area">
-              <a href="#">
-                <div class="pro_name"><%=product.name%> <%=product.color%></div>
-        
-                <div class="model_name"><%=product.model%></div>
-              </a>
-              <div class="price_area">
-                <div class="price_set">
-                  <div class="price_base"><%=product.price%></div>
-                  <div class="price_sale">2,680,000</div>
+              <div class="info_area">
+                <a href="#">
+                  <div class="pro_name">
+                    <%=product.name%> <%=product.color%>
+                  </div>
+
+                  <div class="model_name"><%=product.model%></div>
+                </a>
+                <div class="price_area">
+                  <div class="price_set">
+                    <div class="price_base"><%=product.price%></div>
+                    <div class="price_sale">2,680,000</div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <%})%>
-          
+            <%})%>
           </div>
           <div class="btn_set">
             <a
@@ -413,8 +404,146 @@
   </body>
 </html>
 
-<script>
-  const comparisonSubBtn = document.querySelectorAll(".icon_compare");
-  console.log(comparisonSubBtn)
-  
+<script defer>
+  const comparisonBtn = document.querySelector(".compare_area");
+  const bottomBox = document.querySelector(".compare_item_area");
+  const productList = document.querySelector(".product_item_list");
+
+  //비교하기 드롭 토글버튼
+  function comparison() {
+    if (comparisonBtn) {
+      // 비교하기를 클릭했을 때 토글버튼
+      bottomBox.classList.toggle("active");
+      //클래스에 이름을 추가하고 삭제하는 방법의 toggle로 작업
+    }
+  }
+  comparisonBtn.addEventListener("click", comparison);
+
+  //비교하기 버튼 기능
+  let comparisonWrap = [];
+
+  const comparisonSubBtn = document.querySelectorAll(".icon_text");
+  const comparisonItemBox = document.querySelectorAll(
+    ".compare_item_area .item_box"
+  );
+  const itemCount = document.querySelector(".compare_count");
+
+  comparisonSubBtn.forEach(function (btn, index) {
+    btn.addEventListener("click", function () {
+      //ejs에 미리 map으로 데이터를 버튼에 저장한 data-set을 이용해 변수에 저장함
+      const productModel = btn.dataset.model;
+      const productName = btn.dataset.name;
+      const productImg = btn.dataset.img;
+      console.log(productModel, productName, productImg);
+
+      //변수로 저장한 데이터를
+      const itemBoxHTML = `<div class="width-box">
+                              <div class="item_img">
+                                <img src="${productImg}" alt="" />
+                              </div>
+                              <div class="item_info">
+                                <div class="item_name">${productName}</div>
+                                <div class="item_model">${productModel}</div>
+                                <div class="close_compare_box">
+                                  <img src="/img/list/icon_compare_box_close.svg" alt="close">
+                                </div>
+                              </div>
+                            </div>`;
+
+      //중복제거
+      const isDuplicate = comparisonWrap.includes(itemBoxHTML);
+      // comparisonWrap 배열에 itemBoxHTML이 있는지 체크
+      if (!isDuplicate) {
+        //isDuplicate 변수가 중복되지 않은 경우
+        comparisonWrap.push(itemBoxHTML);
+        //comparisonWrap배열에 itemBoxHTMl추가
+        if (comparisonWrap.length < 4) {
+          itemCount.textContent++;
+          // itemCount 값을 1 증가시킴
+        }
+      }
+
+      //item_box안에 하나씩 itemBoxHTML를 추가하는 작업
+      comparisonItemBox.forEach(function (itemBox, index) {
+        //comparisonItemBox의 div와 index 값을 받아온다.
+        // console.log(itemBox); //".compare_item_area .item_box"를 뜻함
+        // console.log(index);//itemBox의 요소 0,1,2
+        if (index < comparisonWrap.length) {
+          //comparisonWrap 배열의 길이가 comparisonItemBox 요소의 개수보다 크다면 즉 일치한다면
+          itemBox.innerHTML = comparisonWrap[index];
+          //itemBox 안에 html을 comparisonWrap 요소를 담아줌
+        } else {
+          itemBox.innerText = "선택된 상품이 없습니다.";
+        }
+      });
+
+      // 삭제기능
+      const comparisonClose = document.querySelectorAll(".close_compare_box");
+
+      comparisonClose.forEach(function (closeBtn, index) {
+        //comparisonClose 반복되고 있는 요소의 인덱스를 매게변수로 받아옴
+        closeBtn.addEventListener("click", function (e) {
+          comparisonWrap.splice(index, 1);
+          //comparisonWrap와 comparisonClose가 동일한 인덱스를 가지면 삭제
+          comparisonItemBox[index].innerHTML = "선택된 상품이 없습니다.";
+          // comparisonItemBox의 배열의 Index와 comparisonClose 같은경우 내용 변경
+          if (itemCount.textContent > 1) {
+            // 1보다 큰 경우에는 1을 감소
+            itemCount.textContent--;
+            //클릭 될 때 마다 itemCount 숫자 감소
+          } else {
+            itemCount.textContent = "0";
+            // 1 이하인 경우에는 0으로, 항상 0으로 유지
+          }
+        });
+      });
+
+      // comparisonWrap안에 3개만 담기
+      if (comparisonWrap.length > 3) {
+        comparisonWrap.shift(); // 가장 처음에 추가한 상품 삭제
+      }
+    });
+  });
+
+  const colorBtns = document.querySelectorAll(".color_chip_icon");
+  const productItems = document.querySelectorAll(".product_item");
+
+  // 컬러 필터 기능
+  colorBtns.forEach(function (colorBtn) {
+    colorBtn.addEventListener("click", function (e) {
+      const clickedColor = e.target.dataset.colorname;
+      console.log(clickedColor);
+      //colorBtns의 dataset.colorname속성을 clickedColor 변수에 저장
+      productItems.forEach(function (item) {
+        const itemColor = item.dataset.color;
+        console.log(itemColor);
+        if (itemColor === clickedColor) {
+          //컬러버튼을 클릭했을때 컬러랑 item컬러랑 일치할경우
+          item.style.display = "inline-block";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    });
+  });
+
+  //사이즈 필터기능
+  const imgBtns = document.querySelectorAll(".graph_link");
+  const imgs = document.querySelectorAll(".graph_img");
+
+  imgBtns.forEach(function (imgBtn) {
+    imgBtn.addEventListener("click", function (e) {
+      const clickedLink = e.target.parentNode.parentNode.dataset.name;
+      console.log(clickedLink);
+
+      productItems.forEach(function (item) {
+        const itemImg = item.dataset.name;
+        if (clickedLink === itemImg) {
+          item.style.display = "inline-block";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    });
+  });
 </script>
