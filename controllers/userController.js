@@ -102,10 +102,41 @@ const logout = async(req, res) => {
     res.redirect('/');
   })
 }
+
+const findCartFromUser = async(req, res) => {
+  
+}
+
+const addCart = async(req, res) => {
+  if(!req.session.uid){
+    res.status(400).json("로그인 정보 오류");
+  }
+  const findUser = await User.findOne({user_id: req.session.uid});
+  console.log(findUser);
+  const model = req.params.model;
+  await User.updateOne(
+      {
+        user_id: req.session.uid
+      },
+      {
+        $set: {
+          cart : [
+            ...findUser.cart,
+            model 
+          ],
+        },
+      },
+    );
+  console.log("잘 넣어짐");
+  res.redirect(`/products/detail/${req.params.model}`);
+
+}
 module.exports = {
     idDuplicateCheck,
     signUp,
     login,
     logout,
-    loginCheck
+    loginCheck,
+    addCart,
+    findCartFromUser
 }

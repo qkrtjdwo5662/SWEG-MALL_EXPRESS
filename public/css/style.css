@@ -696,7 +696,19 @@ a {
   letter-spacing: -0.02rem;
   margin-bottom: 16px;
 }
-.product_list-wrap .product_item_list .product_item .price_area .price_base {
+.product_list-wrap .product_item_list .product_item .price_area {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.product_list-wrap .product_item_list .product_item .price_area .price_set {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+}
+.product_list-wrap .product_item_list .product_item .price_area .price_set .price_base {
   margin-right: 10px;
   font-size: 13px;
   display: inline-block;
@@ -704,10 +716,26 @@ a {
   color: #707070;
   text-decoration: line-through;
 }
-.product_list-wrap .product_item_list .product_item .price_area .price_sale {
-  display: inline-block;
+.product_list-wrap .product_item_list .product_item .price_area .price_set .price_sale {
   padding-right: 30px;
   font-size: 16px;
+  color: #000000;
+}
+.product_list-wrap .product_item_list .product_item .price_area .state_set {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding-right: 30px;
+}
+.product_list-wrap .product_item_list .product_item .price_area .state_set .badge {
+  margin: 5px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px solid #000000;
   color: #000000;
 }
 
@@ -812,4 +840,4 @@ a {
   text-align: center;
   border-bottom: 1px solid #d6d6d6;
   padding: 20px 0;
-}
+}/*# sourceMappingURL=style.css.map */

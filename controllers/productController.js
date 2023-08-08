@@ -1,5 +1,8 @@
 require('./mongoConnect');
 const Product = require('../models/product');
+const User = require('../models/user');
+
+const {findCartFromUser} = require('../controllers/userController');
 
 const init = async(req, res) => {
     try{
@@ -110,7 +113,8 @@ const init = async(req, res) => {
 const findProductAll = async (req, res) => {
     try {
         const products = await Product.find({});
-        // console.log(products)
+        if(!products) res.status(400).json('product list 가져오기 실패');
+        console.log(products);
         res.render('list.ejs', { login: req.session.login, products });
     } catch (err) {
         console.log(err);
@@ -133,16 +137,29 @@ const findProductOne = async (req, res) => {
     }
 }
 
+const loginCheck = async(req, res, next) => { // 로그인 여부 확인 미들웨어
+    console.log("시발뭐여");
+    if(req.session.login){
+        next();
+    } else{
+        findProductFromCookie();
+    }
+  }
+
 const findProductFromCookie = async (req, res) => {
     try{
+        if(Object.keys(req.cookies).length == 0){
+            res.render('cart.ejs', {login : req.session.login, cart:[]});
+            return;
+        }
         const allCookies = req.cookies;
         const cartCookie = allCookies.cart;
         const cartCookieArr = cartCookie.split('/');
-
-        const map = async() => {
+        
+        const map = () => {
             let cart = [];
             
-            await cartCookieArr.map(async(item, idx) => {
+            cartCookieArr.map(async (item, idx) => {
                 
                 const findProduct = await Product.findOne({
                     model: item
@@ -156,16 +173,57 @@ const findProductFromCookie = async (req, res) => {
                     count : findProduct.count,
                 };
                 
-                cart.push(obj);
-                console.log(cart);
+                await cart.push(obj);
+                
                 if(idx == cartCookieArr.length-1){
-                    await res.render('cart.ejs', {login : req.session.login, cart});
+                    res.render('cart.ejs', {login : req.session.login, cart});
+                    console.log(cart);
                 }
             })
         }
         map();
         
     }catch (err){
+        console.log(err);
+        res.status(500).json("오류 발생");
+    }
+}
+
+const findProductFromUserCart = async (req, res) => {
+    try{
+        if(!req.session.uid){
+            res.status(400).json("로그인 정보 오류");
+        }
+        const findUser = await User.findOne({user_id: req.session.uid});
+        const cartArr = findUser.cart;
+        console.log(cartArr);
+        const map = () => {
+            let cart = [];
+            
+            cartArr.map(async (item, idx) => {
+                
+                const findProduct = await Product.findOne({
+                    model: item
+                })
+                const obj = {
+                    name : findProduct.name,
+                    model : findProduct.model,
+                    color : findProduct.color,
+                    img : findProduct.img,
+                    price : findProduct.price,
+                    count : findProduct.count,
+                };
+                
+                await cart.push(obj);
+                
+                if(idx == cartArr.length-1){
+                    res.render('cart.ejs', {login : req.session.login, cart});
+                    console.log(cart);
+                }
+            })
+        }
+        map();
+    }catch(err){
         console.log(err);
         res.status(500).json("오류 발생");
     }
@@ -192,4 +250,4 @@ const compareProducts = async(req, res) => {
     }
 }
 
-module.exports = {init, findProductOne, findProductFromCookie, findProductAll, compareProducts};
+module.exports = {init, findProductOne, findProductFromCookie, findProductAll, compareProducts, findProductFromUserCart, loginCheck};
