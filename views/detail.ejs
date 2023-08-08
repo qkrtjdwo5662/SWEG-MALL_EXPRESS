@@ -213,12 +213,12 @@
 
   const add_cart_btn = document.querySelector('#btn_add_cart');
   add_cart_btn.addEventListener("click", (e) => {
-    if(`<%=login%>`){
+    if(`<%=login%>`){ // 로그인 되어있으면 user db에
       console.log("로그인 유저");
       location.href="/order/addcart/" + `<%=product.model%>`;
       alert("쇼핑백에 상품이 담겼습니다.");
       return;
-    }
+    } // 로그인 안되어있으면 cookie로 저장
     console.log(document.cookie.split('; ')); // 쿠키 별 자르기
     let cartIndex = -1; // 기본 -1
     const findCartindex = document.cookie.split('; ').map((item, idx) => {

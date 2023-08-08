@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.container {
+  width: 1000px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  opacity: 0.5;
+}
+
+.line {
+  opacity: 0.5;
+  margin-bottom: 0;
+}
+
+.form_text {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  width: 100%;
+  padding: 10px;
+}
+
+.nav-wrap .logo {
+  display: inline-block;
+  font-weight: 900;
+  font-size: 26px;
+}
+.nav-wrap .nav-top {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-wrap .nav-top ul {
+  display: inline-block;
+}
+.nav-wrap .nav-top ul li {
+  display: inline-block;
+  font-size: 15px;
+  margin-left: 10px;
+}
+.nav-wrap .nav-bottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.nav-wrap .nav-bottom .nav-list {
+  display: inline-block;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li {
+  cursor: pointer;
+  color: #333;
+  display: inline-block;
+  margin-right: 20px;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li:hover {
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li:hover .nav-item-contents {
+  display: block;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li .nav-item-contents {
+  position: absolute;
+  top: 138px;
+  left: 0;
+  display: none;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li .nav-item-contents .nav-item-menu {
+  background: #fff;
+  padding: 20px 0;
+  width: 100vw;
+}
+.nav-wrap .nav-bottom .nav-list .nav-list-li .nav-item-contents .container li {
+  display: inline-block !important;
+  margin-right: 16px;
+  font-size: 14px;
+  color: #555;
+}
+
+.coupon_wrap {
+  margin-top: 100px;
+  text-align: center;
+}
+.coupon_wrap .coupon {
+  font-size: 50px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.coupon_wrap .coupon a {
+  border: 1px solid black;
+}/*# sourceMappingURL=coupon.css.map */

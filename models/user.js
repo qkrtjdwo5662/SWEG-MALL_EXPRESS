@@ -42,7 +42,7 @@ const userSchema = new Schema(
           required: true,
       },
       coupon : {
-        type: Array,
+        type: Object,
         required: true,
       },
       cart: {
