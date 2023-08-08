@@ -46,7 +46,19 @@ const signUp = async (req, res) => {
          user_email,
          user_address,
          salt: salt,
-         coupon: ["join-congraturation"]
+         coupon: { 
+          "join-congraturation" : 
+          {
+            category : "percent",
+            content : "10",
+          },
+          "test" : 
+          {
+            category : "minus",
+            content : "10000",
+          }
+        },  
+        cart:[],
       });
       req.session.login = true; // 로그인 유무
       req.session.uid = user_id; 
@@ -103,10 +115,6 @@ const logout = async(req, res) => {
   })
 }
 
-const findCartFromUser = async(req, res) => {
-  
-}
-
 const addCart = async(req, res) => {
   if(!req.session.uid){
     res.status(400).json("로그인 정보 오류");
@@ -138,5 +146,4 @@ module.exports = {
     logout,
     loginCheck,
     addCart,
-    findCartFromUser
 }

@@ -137,51 +137,79 @@ const findProductOne = async (req, res) => {
     }
 }
 
-const loginCheck = async(req, res, next) => { // 로그인 여부 확인 미들웨어
-    console.log("시발뭐여");
-    if(req.session.login){
-        next();
-    } else{
-        findProductFromCookie();
-    }
-  }
 
-const findProductFromCookie = async (req, res) => {
+const findProductFromCookieOrUserDB = async (req, res) => {
     try{
-        if(Object.keys(req.cookies).length == 0){
-            res.render('cart.ejs', {login : req.session.login, cart:[]});
-            return;
-        }
-        const allCookies = req.cookies;
-        const cartCookie = allCookies.cart;
-        const cartCookieArr = cartCookie.split('/');
-        
-        const map = () => {
-            let cart = [];
-            
-            cartCookieArr.map(async (item, idx) => {
+        if(req.session.login){
+            if(!req.session.uid){
+                res.status(400).json("로그인 정보 오류");
+            }
+            const findUser = await User.findOne({user_id: req.session.uid});
+            const cartArr = findUser.cart;
+            console.log(cartArr);
+            const map = () => {
+                let cart = [];
                 
-                const findProduct = await Product.findOne({
-                    model: item
+                cartArr.map(async (item, idx) => {
+                    
+                    const findProduct = await Product.findOne({
+                        model: item
+                    })
+                    const obj = {
+                        name : findProduct.name,
+                        model : findProduct.model,
+                        color : findProduct.color,
+                        img : findProduct.img,
+                        price : findProduct.price,
+                        count : findProduct.count,
+                    };
+                    
+                    await cart.push(obj);
+                    
+                    if(idx == cartArr.length-1){
+                        res.render('cart.ejs', {login : req.session.login, cart});
+                        console.log(cart);
+                    }
                 })
-                const obj = {
-                    name : findProduct.name,
-                    model : findProduct.model,
-                    color : findProduct.color,
-                    img : findProduct.img,
-                    price : findProduct.price,
-                    count : findProduct.count,
-                };
+            }
+            map();
+        }else{
+            if(Object.keys(req.cookies).length == 0){
+                res.render('cart.ejs', {login : req.session.login, cart:[]});
+                return;
+            }
+            const allCookies = req.cookies;
+            const cartCookie = allCookies.cart;
+            const cartCookieArr = cartCookie.split('/');
+            
+            const map = () => {
+                let cart = [];
                 
-                await cart.push(obj);
-                
-                if(idx == cartCookieArr.length-1){
-                    res.render('cart.ejs', {login : req.session.login, cart});
-                    console.log(cart);
-                }
-            })
+                cartCookieArr.map(async (item, idx) => {
+                    
+                    const findProduct = await Product.findOne({
+                        model: item
+                    })
+                    const obj = {
+                        name : findProduct.name,
+                        model : findProduct.model,
+                        color : findProduct.color,
+                        img : findProduct.img,
+                        price : findProduct.price,
+                        count : findProduct.count,
+                    };
+                    
+                    await cart.push(obj);
+                    
+                    if(idx == cartCookieArr.length-1){
+                        res.render('cart.ejs', {login : req.session.login, cart});
+                        console.log(cart);
+                    }
+                })
+            }
+            map();
         }
-        map();
+        
         
     }catch (err){
         console.log(err);
@@ -189,45 +217,6 @@ const findProductFromCookie = async (req, res) => {
     }
 }
 
-const findProductFromUserCart = async (req, res) => {
-    try{
-        if(!req.session.uid){
-            res.status(400).json("로그인 정보 오류");
-        }
-        const findUser = await User.findOne({user_id: req.session.uid});
-        const cartArr = findUser.cart;
-        console.log(cartArr);
-        const map = () => {
-            let cart = [];
-            
-            cartArr.map(async (item, idx) => {
-                
-                const findProduct = await Product.findOne({
-                    model: item
-                })
-                const obj = {
-                    name : findProduct.name,
-                    model : findProduct.model,
-                    color : findProduct.color,
-                    img : findProduct.img,
-                    price : findProduct.price,
-                    count : findProduct.count,
-                };
-                
-                await cart.push(obj);
-                
-                if(idx == cartArr.length-1){
-                    res.render('cart.ejs', {login : req.session.login, cart});
-                    console.log(cart);
-                }
-            })
-        }
-        map();
-    }catch(err){
-        console.log(err);
-        res.status(500).json("오류 발생");
-    }
-}
 
 const compareProducts = async(req, res) => {
     try{
@@ -250,4 +239,4 @@ const compareProducts = async(req, res) => {
     }
 }
 
-module.exports = {init, findProductOne, findProductFromCookie, findProductAll, compareProducts, findProductFromUserCart, loginCheck};
+module.exports = {init, findProductOne, findProductFromCookieOrUserDB, findProductAll, compareProducts};
