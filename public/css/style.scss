@@ -488,6 +488,7 @@ a {
           align-items: center;
           justify-content: center;
           .compare_btn {
+            cursor: pointer;
             display: flex;
             font-size: 13px;
             justify-content: center;
@@ -750,7 +751,7 @@ a {
     }
     .item_area {
       display: flex;
-      justify-content: space-between;
+      // justify-content: space-between;
       width: calc(100% - 203px);
       select {
         width: 100%;
@@ -763,8 +764,9 @@ a {
       }
       .item {
         width: 32%;
+        margin-right: 20px;
         .pro_box {
-          height: 300px;
+          height: 320px;
           padding: 35px;
           margin-top: 30px;
           background-color: #fff;
@@ -814,17 +816,18 @@ a {
         justify-content: space-between;
         align-items: center;
         .title {
-          width: 203px;
+          width: 120px;
           border-bottom: 1px solid #d6d6d6;
           padding: 20px;
           margin-right: 20px;
         }
         .contents_set {
           display: flex;
-          justify-content: space-between;
+          // justify-content: space-between;
           align-items: center;
-          width: calc(100% - 203px);
+          width: calc(100% - 80px);
           .contents {
+            margin-right: 15px;
             width: 32%;
             font-size: 13px;
             color: #555;
