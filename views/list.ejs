@@ -364,6 +364,12 @@
                     <div class="price_base"><%=product.price%></div>
                     <div class="price_sale">2,680,000</div>
                   </div>
+                  <%if(product.count == 0){%>
+                    <div class="state_set">                              
+                      <div class="badge">품절</div>                        
+                    </div>
+                 
+                  <% } %>
                 </div>
               </div>
             </div>

@@ -1,8 +1,12 @@
 const express = require('express');
 
-const {findProductFromCookie} = require('../controllers/productController');
+const {addCart, findCartFromUser} = require("../controllers/userController");
+const {findProductFromCookie, findProductFromUserCart, loginCheck} = require('../controllers/productController');
 const router = express.Router();
 
-router.get('/cart', findProductFromCookie);
+
+
+router.get('/cart', loginCheck, findProductFromUserCart);
+router.get('/addcart/:model', addCart);
 
 module.exports = router;
