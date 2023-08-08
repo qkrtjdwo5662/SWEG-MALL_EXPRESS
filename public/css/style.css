@@ -482,6 +482,7 @@ a {
   justify-content: center;
 }
 .breadcrumbs .compare_item_area .item_wrap .compare_func_area .compare_func .compare_btn {
+  cursor: pointer;
   display: flex;
   font-size: 13px;
   justify-content: center;
@@ -730,7 +731,6 @@ a {
 }
 .list_compare_wrap .compare_top_wrap .item_area {
   display: flex;
-  justify-content: space-between;
   width: calc(100% - 203px);
 }
 .list_compare_wrap .compare_top_wrap .item_area select {
@@ -744,9 +744,10 @@ a {
 }
 .list_compare_wrap .compare_top_wrap .item_area .item {
   width: 32%;
+  margin-right: 20px;
 }
 .list_compare_wrap .compare_top_wrap .item_area .item .pro_box {
-  height: 300px;
+  height: 320px;
   padding: 35px;
   margin-top: 30px;
   background-color: #fff;
@@ -793,18 +794,18 @@ a {
   align-items: center;
 }
 .compare_data_area .depth_wrap .depth2 .item .title {
-  width: 145px;
+  width: 120px;
   border-bottom: 1px solid #d6d6d6;
   padding: 20px;
   margin-right: 20px;
 }
 .compare_data_area .depth_wrap .depth2 .item .contents_set {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   width: calc(100% - 80px);
 }
 .compare_data_area .depth_wrap .depth2 .item .contents_set .contents {
+  margin-right: 15px;
   width: 32%;
   font-size: 13px;
   color: #555;

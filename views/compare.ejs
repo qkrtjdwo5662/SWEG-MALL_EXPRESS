@@ -87,7 +87,7 @@
             <div class="form_row_inner">
               <select class="form_text select_product">
                 <option value="">상품선택</option>
-                <option
+                <option class="active_selected"
                   value="<%=product.id%>"
                   data-proImg="<%=product.img%>"
                   data-proName="<%=product.name%>"
@@ -194,9 +194,14 @@
   const selectBoxDefault = document.querySelectorAll(".select_product");
   const itemBox = document.querySelectorAll(".item_area .item");
   const itemCount = document.querySelector(".info span");
-
+  const selectedOption = document.querySelectorAll(".active_selected")
   //총 개수 카운트
   if (itemBox) {
     itemCount.innerText = itemBox.length;
+
+    //itemBox일때 select박스 option으로 active
+    selectedOption.forEach((btn)=>{
+      btn.setAttribute("selected", true);
+    })
   }
 </script>
