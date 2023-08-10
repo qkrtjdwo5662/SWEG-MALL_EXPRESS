@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- css 초기화 -->
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+  />
+  <link rel="stylesheet" href="/css/admin_userInfo.css" />
+  <!-- 구글폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet"
+  /> 
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrap">
+    <div class="menu">
+      <ul>
+        <li><a class="clicked" href="#">홈</a></li>
+        <li><a href="#">회원 관리</a></li>
+        <li><a href="#">상품 관리</a></li>
+        <li><a href="#">결제 관리</a></li>
+      </ul>
+    </div>
+    <div class="contents_area_wrap">
+      <div class="container_full page_title_area">
+        <div class="container_fixed page_title_wrap">
+            회원정보
+        </div>
+      </div>
+      <div class="container_full cart_table_area">
+        <div class="container_fixed">
+            <div class="cart_table">
+              <div class="header">
+                    <div class="check_box_area">
+                        <div class="check_box">
+                            <input id="cartAll1" class="form_check cart_select cart1_seq" type="checkbox"> 
+                            <!-- <label for="cartAll1" class="">배송상품 전체 선택</label> -->
+                        </div>
+                    </div>
+                    <div class="info_wrap">
+                        <div class="info_set">
+                            <div class="pro_info_area">
+                                아이디
+                            </div>
+                            <div class="quantity_area">
+                                이름
+                            </div>
+                            <div class="price_area">
+                                이메일
+                            </div>
+                            <!-- <div class="delivery_fee_area">
+                              나이
+                            </div>
+                            <div class="delivery_fee_area">
+                                성별
+                            </div>
+                            <div class="delivery_fee_area">
+                                주소
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="func_area">
+                        선택
+                    </div>
+                </div>
+                <div class="table_body">
+
+                  <!-- 여기가 이제 그 장바구니 담은 만큼 -->
+                    <div class="item_wrap">
+                        <div class="item">
+                          <div class="check_box_area">
+                              <div class="check_box">
+                                  <input type="checkbox" name="cart1_seq" class="form_check cart_select cart_item" value="79551" data-cseq="79551" data-cpseq="3001" data-cgroup="">
+                              </div>
+                          </div>
+    
+                          <div class="info_wrap"> 
+                              <div class="info_set">
+                                  <div class="user_id">
+                                      qkrtjdwo5662
+                                  </div>
+                                   
+                                  <div class="user_name">
+                                      박성재
+                                  </div>
+                                  <div class="user_email">
+                                      qkrtjdwo5662@naver.com
+                                  </div>
+                              </div>
+                          </div>
+    
+                          <div class="func_area">
+                              <div class="btn_set">
+                                <a href="javascript:;" class="btn_basic positive">상세 정보</a>
+                                <a href="javascript:;" class="btn_basic negative">삭제</a>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                  
+                  <!-- 여기가 이제 그 장바구니 담은 만큼 -->
+
+                </div>
+            </div>
+          </div>
+      </div>
+      <div class="container_full cart_check_area">
+        <div class="container_fixed">
+            <div class="item_wrap">
+                <div class="check_box" style="display:none;">
+                    <input id="cartAll0" name="cartAll0" class="form_check cart_all" type="checkbox"> 
+                    <label for="cartAll0" class="">전체선택</label>
+                </div>
+                <!-- <div class="btn_set">
+                    <a href="javascript:;" class="btn_basic negative" onclick="cart_del();">선택상품 삭제</a>
+                </div> -->
+            </div>
+        </div>
+      </div>
+      <div class="container_full btn_area">
+        <div class="container_fixed btn_wrap">
+            <!-- <div class="btn_set">
+                <a href="javascript:;" class="btn_basic positive" onclick="order('n')"><span id="order_cnt">0</span>건 주문하기</a>
+            </div> -->
+        </div>
+      </div>
+
+    </div>
+  </div> 
+</body>
+</html>

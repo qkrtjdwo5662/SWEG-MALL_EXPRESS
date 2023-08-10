@@ -88,6 +88,10 @@ const login = async (req, res) => {
     const verified = await verifyPW(user_pw, findUser.salt, findUser.user_pw);
     if(user_id !== findUser.user_id || !verified) return res.status(401).json('회원 정보 오류');
     
+    // if(findUser.user_id == "admin"){
+    //   res.render("관리자페이지");
+    //   return;
+    // }
     req.session.login = true; // 로그인 유무
     req.session.uid = user_id; 
     req.session.user = findUser;
