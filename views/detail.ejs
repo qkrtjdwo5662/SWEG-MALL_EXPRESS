@@ -140,7 +140,7 @@
                   <%if(product.count == 0) {%>
                     <a href="javascript:;" class="btn_basic positive" onclick="" style="width:100%;">재입고 알림 신청</a>
                   <%} else {%>
-                    <a href="javascript:;" class="btn_basic positive" onclick="">바로 구매</a>
+                    <a href="/order/order/<%=product.model%>" class="btn_basic positive" onclick="">바로 구매</a>
                     <a id="btn_add_cart" class="btn_basic positive" onclick="">쇼핑백 담기</a>
                   <% } %>
                 </div>
