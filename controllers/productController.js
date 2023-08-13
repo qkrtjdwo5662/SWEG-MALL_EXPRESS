@@ -114,7 +114,7 @@ const findProductAll = async (req, res) => {
     try {
         const products = await Product.find({});
         if(!products) res.status(400).json('product list 가져오기 실패');
-        console.log(products);
+        // console.log(products);
         res.render('list.ejs', { login: req.session.login, products });
     } catch (err) {
         console.log(err);
@@ -230,7 +230,7 @@ const compareProducts = async(req, res) => {
             products.push(product);
             //빈배열 추가
         }
-        console.log(products)
+        // console.log(products)
         res.render('compare', {login : req.session.login, products});
 
     }catch (err){
@@ -239,4 +239,18 @@ const compareProducts = async(req, res) => {
     }
 }
 
-module.exports = {init, findProductOne, findProductFromCookieOrUserDB, findProductAll, compareProducts};
+const findProductOrder = async (req,res)=>{
+    try{
+        // console.log("req.params",req.params.model)
+        const productOrder = await Product.findOne({ model: req.params.model });
+        if (!productOrder) return res.status(400).json('해당 상품은 없어요');
+
+        res.render('order.ejs', { login : req.session.login, product : productOrder});
+
+    }catch(err){
+        console.log(err);
+        res.status(500).json("오류 발생");
+    }
+}
+
+module.exports = {init, findProductOne, findProductFromCookieOrUserDB, findProductAll, compareProducts, findProductOrder};
