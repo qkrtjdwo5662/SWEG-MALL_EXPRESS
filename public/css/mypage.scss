@@ -209,7 +209,7 @@
         padding-top: 20px;
         padding-bottom: 20px;
         border-bottom: 1px solid #e4e4e4;
-        a {
+        .item {
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -326,16 +326,19 @@
             }
           }
         }
-        .line {
-          border-bottom: 2px solid #000;
-          margin-top: 20px;
-        }
-        .text {
-          font-size: 15px;
-          color: #777;
+        .mp_order_area_wrap{
+          padding-top: 30px;
+          margin-top: 25px;
+          text-align: center;
+          border-top: 2px solid #000;
+          .mp_order_nolist{
+            font-size: 12px;
+            font-weight: 400;
+          }
         }
       }
       .mp_content2 {
+        display: none;
         .mp_board {
           .board_title{
             .title{

@@ -63,10 +63,7 @@
                   </div>
                 </a>
                 <div class="arrow">
-                  <img
-                    src="/img/list/mp_icon_arrow1.svg"
-                    alt="화살표 아이콘"
-                  />
+                  <img src="/img/list/mp_icon_arrow1.svg" alt="화살표 아이콘" />
                 </div>
                 <a href="#">
                   <div class="item">
@@ -81,10 +78,7 @@
                   </div>
                 </a>
                 <div class="arrow">
-                  <img
-                    src="/img/list/mp_icon_arrow1.svg"
-                    alt="화살표 아이콘"
-                  />
+                  <img src="/img/list/mp_icon_arrow1.svg" alt="화살표 아이콘" />
                 </div>
                 <a href="#">
                   <div class="item">
@@ -99,10 +93,7 @@
                   </div>
                 </a>
                 <div class="arrow">
-                  <img
-                    src="/img/list/mp_icon_arrow1.svg"
-                    alt="화살표 아이콘"
-                  />
+                  <img src="/img/list/mp_icon_arrow1.svg" alt="화살표 아이콘" />
                 </div>
                 <a href="#">
                   <div class="item">
@@ -117,10 +108,7 @@
                   </div>
                 </a>
                 <div class="arrow">
-                  <img
-                    src="/img/list/mp_icon_arrow1.svg"
-                    alt="화살표 아이콘"
-                  />
+                  <img src="/img/list/mp_icon_arrow1.svg" alt="화살표 아이콘" />
                 </div>
                 <a href="#">
                   <div class="item">
@@ -184,10 +172,7 @@
               <div class="item">
                 <div class="item_title">
                   <div class="icon_area">
-                    <img
-                      src="/img/list/mp_menu_icon02.svg"
-                      alt="아이콘"
-                    />
+                    <img src="/img/list/mp_menu_icon02.svg" alt="아이콘" />
                   </div>
                   <div class="item_title_text">쿠폰</div>
                 </div>
@@ -195,7 +180,7 @@
               </div>
             </div>
             <div class="mp_menu_item">
-              <a href="my_order_list.php" class="item">
+              <div class="item-order item" onclick="mypageListToggle('order')">
                 <div class="title">MY 주문/배송 현황</div>
                 <div class="icon">
                   <img
@@ -204,8 +189,11 @@
                     style="width: 26px"
                   />
                 </div>
-              </a>
-              <a href="my_coupon_list.php" class="item">
+              </div>
+              <div
+                class="item-coupon item"
+                onclick="mypageListToggle('coupon')"
+              >
                 <div class="title">MY 쿠폰</div>
                 <div class="icon">
                   <img
@@ -214,141 +202,141 @@
                     style="width: 26px"
                   />
                 </div>
-              </a>
+              </div>
               <div class="blank_div"></div>
             </div>
           </div>
           <div class="mp_contents">
-            <div class="mp_board">
-              <div class="board_title">
-                <div class="title">MY 주문/배송 현황</div>
-              </div>
-            </div>
-            <div class="container_full mp_page_tab_area">
-              <div class="container_fixed page_tab_wrap">
-                <a href="#" class="item active"> 전체 </a>
-                <div class="bar">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="2"
-                    height="12"
-                    viewBox="0 0 2 22"
-                  >
-                    <rect
-                      id="사각형_3595"
-                      data-name="사각형 3595"
-                      width="2"
-                      height="22"
-                      fill="#b2b2b2"
-                    ></rect>
-                  </svg>
-                </div>
-                <a href="#" class="item"> 주문접수 </a>
-                <div class="bar">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="2"
-                    height="12"
-                    viewBox="0 0 2 22"
-                  >
-                    <rect
-                      id="사각형_3595"
-                      data-name="사각형 3595"
-                      width="2"
-                      height="22"
-                      fill="#b2b2b2"
-                    ></rect>
-                  </svg>
-                </div>
-                <a href="#" class="item"> 결제완료 </a>
-                <div class="bar">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="2"
-                    height="12"
-                    viewBox="0 0 2 22"
-                  >
-                    <rect
-                      id="사각형_3595"
-                      data-name="사각형 3595"
-                      width="2"
-                      height="22"
-                      fill="#b2b2b2"
-                    ></rect>
-                  </svg>
-                </div>
-                <a href="#" class="item"> 상품준비중 </a>
-                <div class="bar">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="2"
-                    height="12"
-                    viewBox="0 0 2 22"
-                  >
-                    <rect
-                      id="사각형_3595"
-                      data-name="사각형 3595"
-                      width="2"
-                      height="22"
-                      fill="#b2b2b2"
-                    ></rect>
-                  </svg>
-                </div>
-                <a href="#" class="item"> 배송중 </a>
-                <div class="bar">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="2"
-                    height="12"
-                    viewBox="0 0 2 22"
-                  >
-                    <rect
-                      id="사각형_3595"
-                      data-name="사각형 3595"
-                      width="2"
-                      height="22"
-                      fill="#b2b2b2"
-                    ></rect>
-                  </svg>
-                </div>
-                <a href="#" class="item"> 배송완료 </a>
-                <div class="bar">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="2"
-                    height="12"
-                    viewBox="0 0 2 22"
-                  >
-                    <rect
-                      id="사각형_3595"
-                      data-name="사각형 3595"
-                      width="2"
-                      height="22"
-                      fill="#b2b2b2"
-                    ></rect>
-                  </svg>
-                </div>
-                <a href="#" class="item"> 구매확정 </a>
-                <div class="bar">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="2"
-                    height="12"
-                    viewBox="0 0 2 22"
-                  >
-                    <rect
-                      id="사각형_3595"
-                      data-name="사각형 3595"
-                      width="2"
-                      height="22"
-                      fill="#b2b2b2"
-                    ></rect>
-                  </svg>
-                </div>
-                <a href="#" class="item"> 구매확정 </a>
-              </div>
-            </div>
             <div class="mp_content1">
+              <div class="mp_board">
+                <div class="board_title">
+                  <div class="title">MY 주문/배송 현황</div>
+                </div>
+              </div>
+              <div class="container_full mp_page_tab_area">
+                <div class="container_fixed page_tab_wrap">
+                  <a href="#" class="item active"> 전체 </a>
+                  <div class="bar">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="2"
+                      height="12"
+                      viewBox="0 0 2 22"
+                    >
+                      <rect
+                        id="사각형_3595"
+                        data-name="사각형 3595"
+                        width="2"
+                        height="22"
+                        fill="#b2b2b2"
+                      ></rect>
+                    </svg>
+                  </div>
+                  <a href="#" class="item"> 주문접수 </a>
+                  <div class="bar">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="2"
+                      height="12"
+                      viewBox="0 0 2 22"
+                    >
+                      <rect
+                        id="사각형_3595"
+                        data-name="사각형 3595"
+                        width="2"
+                        height="22"
+                        fill="#b2b2b2"
+                      ></rect>
+                    </svg>
+                  </div>
+                  <a href="#" class="item"> 결제완료 </a>
+                  <div class="bar">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="2"
+                      height="12"
+                      viewBox="0 0 2 22"
+                    >
+                      <rect
+                        id="사각형_3595"
+                        data-name="사각형 3595"
+                        width="2"
+                        height="22"
+                        fill="#b2b2b2"
+                      ></rect>
+                    </svg>
+                  </div>
+                  <a href="#" class="item"> 상품준비중 </a>
+                  <div class="bar">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="2"
+                      height="12"
+                      viewBox="0 0 2 22"
+                    >
+                      <rect
+                        id="사각형_3595"
+                        data-name="사각형 3595"
+                        width="2"
+                        height="22"
+                        fill="#b2b2b2"
+                      ></rect>
+                    </svg>
+                  </div>
+                  <a href="#" class="item"> 배송중 </a>
+                  <div class="bar">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="2"
+                      height="12"
+                      viewBox="0 0 2 22"
+                    >
+                      <rect
+                        id="사각형_3595"
+                        data-name="사각형 3595"
+                        width="2"
+                        height="22"
+                        fill="#b2b2b2"
+                      ></rect>
+                    </svg>
+                  </div>
+                  <a href="#" class="item"> 배송완료 </a>
+                  <div class="bar">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="2"
+                      height="12"
+                      viewBox="0 0 2 22"
+                    >
+                      <rect
+                        id="사각형_3595"
+                        data-name="사각형 3595"
+                        width="2"
+                        height="22"
+                        fill="#b2b2b2"
+                      ></rect>
+                    </svg>
+                  </div>
+                  <a href="#" class="item"> 구매확정 </a>
+                  <div class="bar">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="2"
+                      height="12"
+                      viewBox="0 0 2 22"
+                    >
+                      <rect
+                        id="사각형_3595"
+                        data-name="사각형 3595"
+                        width="2"
+                        height="22"
+                        fill="#b2b2b2"
+                      ></rect>
+                    </svg>
+                  </div>
+                  <a href="#" class="item"> 구매확정 </a>
+                </div>
+              </div>
               <div class="mp_order_search_box" style="margin-top: 20px">
                 <span>조회기간</span>
                 <div class="search_date">
@@ -389,8 +377,9 @@
                   <a href="#" class="btn_basic positive">조회</a>
                 </div>
               </div>
-              <div class="line"></div>
-              <div class="text"></div>
+              <div class="mp_order_area_wrap">
+                <div class="mp_order_nolist">주문 내역이 없습니다.</div>
+              </div>
             </div>
             <div class="mp_content2">
               <div class="mp_board">
@@ -431,3 +420,19 @@
     </div>
   </body>
 </html>
+<script defer>
+  const mypageOrder = document.querySelector(".mp_menu_item .item-order");
+  const mypageCoupon = document.querySelector(".mp_menu_item .item-coupon");
+  const mypageOrderDetail = document.querySelector(".mp_content1");
+  const mypageCouponDetail = document.querySelector(".mp_content2");
+
+  function mypageListToggle(type) {
+    if (type === "order") {
+      mypageOrderDetail.style.display = "block";
+      mypageCouponDetail.style.display = "none";
+    } else if (type === "coupon") {
+      mypageOrderDetail.style.display = "none";
+      mypageCouponDetail.style.display = "block";
+    }
+  }
+</script>
