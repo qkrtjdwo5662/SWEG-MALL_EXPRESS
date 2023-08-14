@@ -2,6 +2,7 @@ require('./mongoConnect');
 const User = require('../models/user');
 const crypto =  require("crypto");
 const util = require("util");
+const user = require('../models/user');
 
 const idDuplicateCheck = async (req, res) => {
     try{
@@ -143,6 +144,28 @@ const addCart = async(req, res) => {
   res.redirect(`/products/detail/${req.params.model}`);
 
 }
+
+// -----------------------------------------------------------------
+// admin
+
+const getAllUsers = async(req, res) => {
+  let users = [];
+
+  const findAllUsers = await User.find({});
+  
+  findAllUsers.map((findUser, idx) => {
+    let info = {};
+    info.name = findUser.user_name;
+    info.id = findUser.user_id;
+    info.email = findUser.user_email;
+    users.push(info);
+
+    if(idx == findAllUsers.length-1){
+      res.render('admin_userInfo.ejs', {users});
+    }
+  })  
+
+}
 module.exports = {
     idDuplicateCheck,
     signUp,
@@ -150,4 +173,5 @@ module.exports = {
     logout,
     loginCheck,
     addCart,
+    getAllUsers
 }
