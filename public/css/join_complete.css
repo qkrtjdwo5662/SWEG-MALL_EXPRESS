@@ -198,7 +198,6 @@ a {
   margin-bottom: 150px;
 }
 .wrap .contents_area_wrap .btn_area .btn_wrap {
-  max-width: 1200px;
   padding-left: 20px !important;
   padding-right: 20px !important;
 }
@@ -219,4 +218,4 @@ a {
   border: 1px solid #000000;
   color: #000000;
   transition: all 0.3s ease-in-out;
-}/*# sourceMappingURL=join_complete.css.map */
+}
