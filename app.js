@@ -32,12 +32,14 @@ const homeRouter = require('./routes/home');
 const userRouter = require('./routes/user');
 const productRouter = require('./routes/product');
 const orderRouter = require('./routes/order');
+const adminRouter = require('./routes/admin');
 // const testRouter = require('./routes/test');
 
 app.use('/', homeRouter);
 app.use('/users', userRouter);
 app.use('/products', productRouter);
 app.use('/order', orderRouter);
+app.use('/admin', adminRouter);
 // app.use('/test', testRouter);
 
 app.listen(PORT,()=> {

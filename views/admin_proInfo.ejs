@@ -8,7 +8,7 @@
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
   />
-  <link rel="stylesheet" href="/css/admin_userInfo.css" />
+  <link rel="stylesheet" href="/css/admin_proInfo.css" />
   <!-- 구글폰트 -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,7 +25,7 @@
     <div class="contents_area_wrap">
       <div class="container_full page_title_area">
         <div class="container_fixed page_title_wrap">
-            회원 관리
+            상품 관리
         </div>
       </div>
       <div class="container_full table_area">
@@ -57,9 +57,7 @@
                 <div class="table_body">
 
                   <!-- 회원 수 만큼 -->
-                  <%if(users.length > 0) {%>
-                    <% users.map((user, idx) => { %>
-                      <div class="item_wrap">
+                    <div class="item_wrap">
                         <div class="item">
                           <div class="check_box_area">
                               <div class="check_box">
@@ -70,14 +68,14 @@
                           <div class="info_wrap"> 
                               <div class="info_set">
                                   <div class="user_id">
-                                      <%=user.id%>
+                                      qkrtjdwo5662
                                   </div>
                                    
                                   <div class="user_name">
-                                      <%=user.name%>
+                                      박성재
                                   </div>
                                   <div class="user_email">
-                                      <%=user.email%>
+                                      qkrtjdwo5662@naver.com
                                   </div>
                               </div>
                           </div>
@@ -90,9 +88,7 @@
                           </div>
                         </div>
                       </div>
-                    <% }) %>
-                    
-                  <% } %>
+                  
                   <!-- 회원 수 만큼 -->
 
                 </div>
