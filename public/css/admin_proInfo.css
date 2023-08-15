@@ -48,8 +48,27 @@ body .wrap .contents_area_wrap .page_title_area .container_fixed {
   max-width: 1200px;
   margin: 0 auto;
 }
-body .wrap .contents_area_wrap .table_area {
+body .wrap .contents_area_wrap .btn {
+  display: flex;
+  justify-content: end;
   margin-top: 80px;
+  margin-right: 400px;
+}
+body .wrap .contents_area_wrap .btn a {
+  width: 100px;
+  height: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  color: #000000;
+  transition: all 0.3s ease-in-out;
+  margin-left: 0;
+  text-decoration: none;
 }
 body .wrap .contents_area_wrap .table_area .container_fixed {
   max-width: 1200px;
@@ -134,13 +153,25 @@ body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .
   align-items: center;
   text-align: center;
 }
-body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .item_wrap .item .info_wrap .info_set .user_id {
+body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .item_wrap .item .info_wrap .info_set .pro_info {
+  width: 33.3%;
+  display: flex;
+  align-items: center;
+}
+body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .item_wrap .item .info_wrap .info_set .pro_info .image_area {
+  position: relative;
+  margin-left: 20px;
+}
+body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .item_wrap .item .info_wrap .info_set .pro_info .image_area img {
+  width: 94px;
+  height: 94px;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .item_wrap .item .info_wrap .info_set .pro_category {
   width: 33.3%;
 }
-body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .item_wrap .item .info_wrap .info_set .user_name {
-  width: 33.3%;
-}
-body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .item_wrap .item .info_wrap .info_set .user_email {
+body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .item_wrap .item .info_wrap .info_set .pro_price {
   width: 33.3%;
 }
 body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .item_wrap .item .func_area {

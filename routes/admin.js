@@ -1,6 +1,7 @@
 const express = require('express');
 
 const{ getAllUsers } = require('../controllers/userController');
+const{getAllProducts} = require('../controllers/productController');
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -9,8 +10,6 @@ router.get('/', (req, res) => {
 
 router.get('/users', getAllUsers);
 
-router.get('/products', (req, res) => {
-  res.render('admin_proInfo.ejs');
-})
+router.get('/products', getAllProducts);
 
 module.exports = router;

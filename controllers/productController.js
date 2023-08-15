@@ -253,4 +253,30 @@ const findProductOrder = async (req,res)=>{
     }
 }
 
-module.exports = {init, findProductOne, findProductFromCookieOrUserDB, findProductAll, compareProducts, findProductOrder};
+// -----------------------------------------------------------------
+// admin
+
+const getAllProducts = async(req, res) => {
+    let products = [];
+
+    const findAllProducts = await Product.find({});
+
+    findAllProducts.map((findProduct, idx) =>{
+        let info = {};
+        info.category = findProduct.category;
+        info.name = findProduct.name;
+        info.model = findProduct.model;
+        info.color = findProduct.color;
+        info.price = findProduct.price;
+        info.img = findProduct.img;
+        info.count = findProduct.count;
+
+        products.push(info);
+        if(idx == findAllProducts.length-1){
+            res.render('admin_proInfo.ejs', {products})
+        }
+    })
+}
+
+
+module.exports = {init, findProductOne, findProductFromCookieOrUserDB, findProductAll, compareProducts, findProductOrder, getAllProducts};
