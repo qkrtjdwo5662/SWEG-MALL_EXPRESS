@@ -46,7 +46,7 @@ body{
         
         display: flex;
         justify-content: center;
-        // margin-top: 80px;
+        margin-top: 15px;
         .info_wrap{
           width: 700px;
           .info_row{
@@ -65,8 +65,41 @@ body{
               align-items: center;
               width: calc(100% - 140px);
               min-height: 40px;
+              .form_text{
+                width: 80%;
+                height: 40px;
+                padding: 0 15px;
+                border: 1px solid #dfdfdf;
+                border-radius: 5px;
+              }
             }
           } 
+        }
+      }
+      .btn_area{
+        margin-top: 60px;
+        margin-bottom: 150px;
+        .btn_wrap{
+          max-width: 1200px;
+          margin: 0 auto;
+          .btn_set{
+            display: flex;
+            justify-content: center;
+            
+            .btn_basic{
+              position: relative;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 265px;
+              height: 60px;
+              margin: 0 5px;
+              overflow: hidden;
+              background-color: #fff;
+              border: 1px solid #000;
+              color: #000;
+            }
+          }
         }
       }
     }

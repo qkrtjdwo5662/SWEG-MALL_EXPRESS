@@ -124,7 +124,7 @@ body{
                     justify-content: center;
                     align-items: center;
                     .area{
-                      width: 33.3%;
+                      width: 25%;
                       text-align: center;
                     }
                   }
@@ -159,14 +159,14 @@ body{
                         align-items: center;
                         text-align: center;
                         .pro_info{
-                          width: 33.3%;
+                          width: 25%;
                           display: flex;
                           // justify-content: start;
                           align-items: center;
                           
                             .image_area{
                               position: relative;
-                              margin-left: 20px;
+                              margin-left: 40px;
                               img{
                                 width: 94px;
                                 height: 94px;
@@ -180,10 +180,13 @@ body{
                           
                         }
                         .pro_category{
-                          width: 33.3%;
+                          width: 25%;
                         }
                         .pro_price{
-                          width: 33.3%;
+                          width: 25%;
+                        }
+                        .pro_count{
+                          width: 25%;
                         }
                       }
                     }

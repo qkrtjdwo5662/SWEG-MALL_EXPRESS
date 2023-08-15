@@ -278,5 +278,27 @@ const getAllProducts = async(req, res) => {
     })
 }
 
+const getProduct = async(req, res) => {
+    const selectedProduct = await Product.findOne({
+        model : req.params.model
+    });
+    if(!selectedProduct) return res.status(200).json("해당 상품은 없어요");
 
-module.exports = {init, findProductOne, findProductFromCookieOrUserDB, findProductAll, compareProducts, findProductOrder, getAllProducts};
+    res.render("admin_products_modify", {selectedProduct});
+}
+
+const registerProduct = async(req, res) => {
+    const {category, name, model, color, price, img, count} = req.body;
+
+    const PRODUCT = await Product.create({
+        category,
+        name,
+        model,
+        color,
+        price,
+        img,
+        count
+    })
+}
+
+module.exports = {init, findProductOne, findProductFromCookieOrUserDB, findProductAll, compareProducts, findProductOrder, getAllProducts, getProduct};
