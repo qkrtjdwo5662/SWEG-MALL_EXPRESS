@@ -164,6 +164,15 @@ const getAllUsers = async(req, res) => {
       res.render('admin_userInfo.ejs', {users});
     }
   })  
+}
+
+const getUser = async(req, res) => {
+  const selectedUser = await User.findOne({
+    user_id : req.params.id
+  })
+  if(!selectedUser) return res.status(400).json('없는 사용자');
+  console.log(selectedUser);
+  res.render('admin_user_detail', {selectedUser});
 
 }
 module.exports = {
@@ -173,5 +182,6 @@ module.exports = {
     logout,
     loginCheck,
     addCart,
-    getAllUsers
+    getAllUsers,
+    getUser
 }

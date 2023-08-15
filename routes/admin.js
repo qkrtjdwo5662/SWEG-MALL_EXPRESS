@@ -1,6 +1,6 @@
 const express = require('express');
 
-const{ getAllUsers } = require('../controllers/userController');
+const{ getAllUsers, getUser } = require('../controllers/userController');
 const{getAllProducts} = require('../controllers/productController');
 const router = express.Router();
 
@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/users', getAllUsers);
+router.get('/users/detail/:id', getUser);
 
 router.get('/products', getAllProducts);
 
