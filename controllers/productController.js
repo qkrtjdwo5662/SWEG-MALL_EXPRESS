@@ -102,7 +102,7 @@ const init = async(req, res) => {
 
             ]
         );
-        console.log(PRODUCT);
+        // console.log(PRODUCT);
         return res.status(200).json('마이그레이션 성공');
     }catch (err){
         console.log(err);
@@ -129,7 +129,7 @@ const findProductOne = async (req, res) => {
             model: req.params.model
         })
         if(!findProduct) return res.status(400).json('해당 상품은 없어요');
-        console.log(findProduct);
+        // console.log(findProduct);
         res.render('detail.ejs', { login : req.session.login, product : findProduct});
     }catch (err){
         console.log(err);
@@ -146,7 +146,7 @@ const findProductFromCookieOrUserDB = async (req, res) => {
             }
             const findUser = await User.findOne({user_id: req.session.uid});
             const cartArr = findUser.cart;
-            console.log(cartArr);
+            // console.log(cartArr);
             const map = () => {
                 let cart = [];
                 
@@ -168,7 +168,7 @@ const findProductFromCookieOrUserDB = async (req, res) => {
                     
                     if(idx == cartArr.length-1){
                         res.render('cart.ejs', {login : req.session.login, cart});
-                        console.log(cart);
+                        // console.log(cart);
                     }
                 })
             }
@@ -203,7 +203,7 @@ const findProductFromCookieOrUserDB = async (req, res) => {
                     
                     if(idx == cartCookieArr.length-1){
                         res.render('cart.ejs', {login : req.session.login, cart});
-                        console.log(cart);
+                        // console.log(cart);
                     }
                 })
             }
@@ -223,7 +223,7 @@ const compareProducts = async(req, res) => {
         let products = []
         const data = req.query;
         const models = Object.values(data);
-
+        console.log(models)
         for (let i = 0; i < models.length; i++) {
             const product = await Product.findOne({ model: models[i] });
             // model(값)과 동일한 product를 찾음
@@ -241,11 +241,30 @@ const compareProducts = async(req, res) => {
 
 const findProductOrder = async (req,res)=>{
     try{
-        // console.log("req.params",req.params.model)
+        let userOrderInfo = []
+        
+        if(req.session.login){
+            const loginData = req.session.uid
+            const loginUser = Object.values(loginData)
+            const loginUserJoin = [loginUser.join("")]
+
+            for(let i = 0; i<loginUserJoin.length; i++){
+                const findUser = await User.findOne({user_id: loginUserJoin[i]})
+                const obj = {
+                    name: findUser.user_name,
+                    address : findUser.user_address,
+                    tel : findUser.user_tel,
+                    emailFirst: findUser.user_email.split('@')[0],
+                    emailLast: findUser.user_email.split('@')[1],
+                }
+                userOrderInfo.push(obj)
+            }
+            console.log(userOrderInfo)
+        }
         const productOrder = await Product.findOne({ model: req.params.model });
         if (!productOrder) return res.status(400).json('해당 상품은 없어요');
 
-        res.render('order.ejs', { login : req.session.login, product : productOrder});
+        res.render('order.ejs', { login : req.session.login, product : productOrder, user:userOrderInfo});
 
     }catch(err){
         console.log(err);
