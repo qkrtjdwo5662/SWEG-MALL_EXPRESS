@@ -241,30 +241,24 @@ const compareProducts = async(req, res) => {
 
 const findProductOrder = async (req,res)=>{
     try{
-        let userOrderInfo = []
-        
         if(req.session.login){
             const loginData = req.session.uid
-            const loginUser = Object.values(loginData)
-            const loginUserJoin = [loginUser.join("")]
 
-            for(let i = 0; i<loginUserJoin.length; i++){
-                const findUser = await User.findOne({user_id: loginUserJoin[i]})
-                const obj = {
-                    name: findUser.user_name,
-                    address : findUser.user_address,
-                    tel : findUser.user_tel,
-                    emailFirst: findUser.user_email.split('@')[0],
-                    emailLast: findUser.user_email.split('@')[1],
-                }
-                userOrderInfo.push(obj)
+            const findUser = await User.findOne({user_id: loginData})
+            console.log(findUser)
+            const userInfo = {
+                name: findUser.user_name,
+                address : findUser.user_address,
+                tel : findUser.user_tel,
+                emailFirst: findUser.user_email.split('@')[0],
+                emailLast: findUser.user_email.split('@')[1],
             }
-            console.log(userOrderInfo)
-        }
-        const productOrder = await Product.findOne({ model: req.params.model });
-        if (!productOrder) return res.status(400).json('해당 상품은 없어요');
 
-        res.render('order.ejs', { login : req.session.login, product : productOrder, user:userOrderInfo});
+            const productOrder = await Product.findOne({ model: req.params.model });
+            if (!productOrder) return res.status(400).json('해당 상품은 없어요');
+    
+            res.render('order.ejs', { login : req.session.login, product : productOrder, user:userInfo});
+        }
 
     }catch(err){
         console.log(err);
