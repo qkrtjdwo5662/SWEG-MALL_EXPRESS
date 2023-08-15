@@ -53,7 +53,7 @@
               <span>스메그코리아의 회원이시면 로그인을 해주세요.</span>
               <div class="btn_set">
                 <a
-                  href="/member/login.php?returnUrl=/order/order.php"
+                  href="/users/login"
                   class="btn_basic positive"
                   >로그인</a
                 >
@@ -62,7 +62,7 @@
             <div class="btn_area">
               <span>아직 스메그코리아 회원이 아니신가요?</span>
               <div class="btn_set">
-                <a href="/member/join.php" class="btn_basic positive">회원가입</a>
+                <a href="/users/joinp" class="btn_basic positive">회원가입</a>
               </div>
             </div>
           </div>
@@ -138,6 +138,7 @@
           <div class="order_sheet">
             <div class="sheet_item">
               <div class="area_title">주문자 정보</div>
+              <% if (user.length > 0) { %>
               <div class="table_area">
                 <div class="form_row">
                   <div class="form_row_title">
@@ -148,7 +149,7 @@
                       id="ord_s_name"
                       name="ord_s_name"
                       class="form_text"
-                      placeholder="이름을 입력해주세요."
+                      placeholder="<%=user[0].name%>"
                       type="text"
                       value=""
                     />
@@ -187,7 +188,7 @@
                       id="ord_s_address1"
                       name="ord_s_address1"
                       class="form_text"
-                      placeholder=""
+                      placeholder="<%=user[0].address%>"
                       type="text"
                       value=""
                     />
@@ -217,7 +218,7 @@
                       id="ord_s_cellphone1"
                       name="ord_s_cellphone1"
                       class="form_text"
-                      placeholder=""
+                      placeholder="<%=user[0].tel.slice(0, 3)%>"
                       type="number"
                       inputmode="numeric"
                       pattern="\d*"
@@ -229,7 +230,7 @@
                       id="ord_s_cellphone2"
                       name="ord_s_cellphone2"
                       class="form_text"
-                      placeholder=""
+                      placeholder="<%=user[0].tel.slice(3, 7)%>"
                       type="number"
                       inputmode="numeric"
                       pattern="\d*"
@@ -241,7 +242,7 @@
                       id="ord_s_cellphone3"
                       name="ord_s_cellphone3"
                       class="form_text"
-                      placeholder=""
+                      placeholder="<%=user[0].tel.slice(7, 11)%>"
                       type="number"
                       inputmode="numeric"
                       pattern="\d*"
@@ -261,7 +262,7 @@
                         id="ord_s_email1"
                         name="ord_s_email1"
                         class="form_text"
-                        placeholder=""
+                        placeholder="<%=user[0].emailFirst%>"
                         type="text"
                         value=""
                       />
@@ -270,7 +271,7 @@
                         id="ord_s_email2"
                         name="ord_s_email2"
                         class="form_text"
-                        placeholder=""
+                        placeholder="<%=user[0].emailLast%>"
                         type="text"
                         value=""
                       />
@@ -287,6 +288,7 @@
                   </div>
                 </div>
               </div>
+              <% } %>
               <div class="area_title not_first">수취인 정보</div>
               <div class="form_row form_set_bottom">
                 <div class="form_row_content form_check_list">
