@@ -1,6 +1,6 @@
 const express = require('express');
 
-const{ getAllUsers, getUser, adminCheck } = require('../controllers/userController');
+const{ getAllUsers, getUser, adminCheck, deleteUser} = require('../controllers/userController');
 const{getAllProducts, getProduct, registerProduct} = require('../controllers/productController');
 
 const multer = require('multer');
@@ -30,7 +30,8 @@ router.get('/', adminCheck ,(req, res) => {
 })
 
 router.get('/users', adminCheck ,getAllUsers);
-router.get('/users/detail/:id', getUser);
+router.get('/users/detail/:id', adminCheck ,getUser);
+router.post('/users/delete/:id',adminCheck, deleteUser);
 
 router.get('/products',adminCheck ,getAllProducts);
 router.get('/products/register', (req, res) => {
