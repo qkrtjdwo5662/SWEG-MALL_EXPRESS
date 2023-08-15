@@ -52,8 +52,31 @@ body{
             margin: 0 auto;
           }
         }
-        .table_area {
+        .btn{
+          display: flex;
+          justify-content: end;
           margin-top: 80px;
+          margin-right: 400px;
+          a {
+            width: 100px;
+            height: 50px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+          
+            margin: 0 5px;
+            overflow: hidden;
+            background-color: #ffffff;
+            border: 1px solid #000000;
+            color: #000000;
+            transition: all 0.3s ease-in-out;
+            margin-left: 0;
+            text-decoration: none;
+          }
+        }
+        .table_area {
           .container_fixed {
             max-width: 1200px;
             margin: 0 auto;
@@ -101,7 +124,7 @@ body{
                     justify-content: center;
                     align-items: center;
                     .area{
-                      width: 33.3%;
+                      width: 25%;
                       text-align: center;
                     }
                   }
@@ -135,14 +158,35 @@ body{
                         justify-content: center;
                         align-items: center;
                         text-align: center;
-                        .user_id{
-                          width: 33.3%;
+                        .pro_info{
+                          width: 25%;
+                          display: flex;
+                          // justify-content: start;
+                          align-items: center;
+                          
+                            .image_area{
+                              position: relative;
+                              margin-left: 40px;
+                              img{
+                                width: 94px;
+                                height: 94px;
+                                -o-object-fit: cover;
+                                object-fit: cover;
+                              }
+                            }
+                            .contents_area{
+                              // margin-left: 20px;
+                            }
+                          
                         }
-                        .user_name{
-                          width: 33.3%;
+                        .pro_category{
+                          width: 25%;
                         }
-                        .user_email{
-                          width: 33.3%;
+                        .pro_price{
+                          width: 25%;
+                        }
+                        .pro_count{
+                          width: 25%;
                         }
                       }
                     }

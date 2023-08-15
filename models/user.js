@@ -48,6 +48,11 @@ const userSchema = new Schema(
       cart: {
         type: Array,
         required: true,
+      },
+      status: {
+        type: String,
+        required: true,
+        default: "user",
       }
   },
   {

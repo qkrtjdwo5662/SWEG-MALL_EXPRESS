@@ -1,0 +1,107 @@
+body{
+  .wrap{
+    .contents_area_wrap{
+      // min-height: 500px;
+      margin-top: 80px;
+        .page_title_area {
+          margin-top: 80px;
+          transition: 0.3s;
+          .page_title_wrap {
+            display: flex;
+            justify-content: center;
+            font-size: 5rem;
+            font-weight: 300;
+            transition: 0.3s;
+          }
+          .container_fixed {
+            max-width: 1200px;
+            margin: 0 auto;
+          }
+      }
+      .btn{
+        display: flex;
+        justify-content: end;
+        margin-top: 80px;
+        margin-right: 400px;
+        a {
+          width: 100px;
+          height: 50px;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+        
+          margin: 0 5px;
+          overflow: hidden;
+          background-color: #ffffff;
+          border: 1px solid #000000;
+          color: #000000;
+          transition: all 0.3s ease-in-out;
+          margin-left: 0;
+          text-decoration: none;
+        }
+      }
+      .info_area{
+        
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        .info_wrap{
+          width: 700px;
+          .info_row{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            max-width: 780px;
+            padding: 10px 0;
+            .info_title{
+              width: 140px;
+            }
+            .info_content{
+              // margin-left: 100px;
+              position: relative;
+              display: flex;
+              align-items: center;
+              width: calc(100% - 140px);
+              min-height: 40px;
+              .form_text{
+                width: 80%;
+                height: 40px;
+                padding: 0 15px;
+                border: 1px solid #dfdfdf;
+                border-radius: 5px;
+              }
+            }
+          } 
+        }
+      }
+      .btn_area{
+        margin-top: 60px;
+        margin-bottom: 150px;
+        .btn_wrap{
+          max-width: 1200px;
+          margin: 0 auto;
+          .btn_set{
+            display: flex;
+            justify-content: center;
+            
+            .btn_basic{
+              position: relative;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 265px;
+              height: 60px;
+              margin: 0 5px;
+              overflow: hidden;
+              background-color: #fff;
+              border: 1px solid #000;
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+}

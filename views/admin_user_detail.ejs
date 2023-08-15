@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- css 초기화 -->
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+  />
+  <link rel="stylesheet" href="/css/admin_user_detail.css" />
+  <!-- 구글폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet"
+  /> 
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrap">
+    <%-include('./include/admin_menu.ejs')%>
+    <div class="contents_area_wrap">
+      <div class="container_full page_title_area">
+        <div class="container_fixed page_title_wrap">
+            상세 정보
+        </div>
+      </div>
+      <div class="btn">
+        <a href="/admin/users" class="btn_basic positive">돌아가기</a>
+      </div>  
+    <div class="info_area">
+      <div class="info_wrap">
+        <div class="info_row">
+          <div class="info_title">
+            <span>아이디</span>
+          </div>
+          <div class="info_content">
+            <span><%=selectedUser.user_id%></span>
+          </div>
+        </div>
+
+        <div class="info_row">
+          <div class="info_title">
+            <span>이름</span>
+          </div>
+          <div class="info_content">
+            <span><%=selectedUser.user_name%></span>
+          </div>
+        </div>
+
+        <div class="info_row">
+          <div class="info_title">
+            <span>이메일</span>
+          </div>
+          <div class="info_content">
+            <span><%=selectedUser.user_email%></span>
+          </div>
+        </div>
+
+        <div class="info_row">
+          <div class="info_title">
+            <span>성별</span>
+          </div>
+          <div class="info_content">
+            <span><%=selectedUser.user_gender%></span>
+          </div>
+        </div>
+
+        <div class="info_row">
+          <div class="info_title">
+            <span>생년월일</span>
+          </div>
+          <div class="info_content">
+            <span><%=selectedUser.user_birth%></span>
+          </div>
+        </div>
+
+        <div class="info_row">
+          <div class="info_title">
+            <span>휴대폰</span>
+          </div>
+          <div class="info_content">
+            <span><%=selectedUser.user_tel%></span>
+          </div>
+        </div>
+
+        <div class="info_row">
+          <div class="info_title">
+            <span>주소</span>
+          </div>
+          <div class="info_content">
+            <span><%=selectedUser.user_address%></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -28,25 +28,27 @@
             상품 관리
         </div>
       </div>
+      <div class="btn">
+        <a href="/admin/products/register" class="btn_basic positive">상품등록</a>
+      </div>
       <div class="container_full table_area">
         <div class="container_fixed">
             <div class="table">
               <div class="header">
-                    <div class="check_box_area">
-                        <div class="check_box">
-                            <input id="cartAll1" class="form_check cart_select cart1_seq" type="checkbox"> 
-                        </div>
-                    </div>
+                    
                     <div class="info_wrap">
                         <div class="info_set">
                             <div class="area">
-                                아이디
+                                상품정보
                             </div>
                             <div class="area">
-                                이름
+                                분류
                             </div>
                             <div class="area">
-                                이메일
+                                가격
+                            </div>
+                            <div class="area">
+                                수량
                             </div>
                         </div>
                     </div>
@@ -57,38 +59,50 @@
                 <div class="table_body">
 
                   <!-- 회원 수 만큼 -->
+                  <%if(products.length > 0) {%>
+                    <% products.map((product, idx) => { %>
                     <div class="item_wrap">
                         <div class="item">
-                          <div class="check_box_area">
-                              <div class="check_box">
-                                  <input type="checkbox" name="cart1_seq" class="form_check cart_select cart_item" value="79551" data-cseq="79551" data-cpseq="3001" data-cgroup="">
-                              </div>
-                          </div>
+                          
     
                           <div class="info_wrap"> 
                               <div class="info_set">
-                                  <div class="user_id">
-                                      qkrtjdwo5662
+                                  <div class="pro_info">
+                                      <div class="image_area">
+                                        <img src="<%=product.img%>" alt="FAB28RCR5">
+                                      </div>
+                                      <div class="contents_area">
+                                        <div class="pro_name">
+                                            <%=product.name%>
+                                        </div>
+                                        <div class="model_name">
+                                          <%=product.model%>
+                                        </div>
+                                      </div>
                                   </div>
                                    
-                                  <div class="user_name">
-                                      박성재
+                                  <div class="pro_category">
+                                    <%=product.category%>
                                   </div>
-                                  <div class="user_email">
-                                      qkrtjdwo5662@naver.com
+                                  <div class="pro_price">
+                                    <%=product.price%>
+                                  </div>
+                                  <div class="pro_count">
+                                    <%=product.count%>
                                   </div>
                               </div>
                           </div>
     
                           <div class="func_area">
                               <div class="btn_set">
-                                <a href="javascript:;" class="btn_basic positive">상세 정보</a>
+                                <a href="/admin/products/modify/<%=product.model%>" class="btn_basic positive">수정</a>
                                 <a href="javascript:;" class="btn_basic negative">삭제</a>
                               </div>
                           </div>
                         </div>
                       </div>
-                  
+                      <% }) %>
+                      <% } %>
                   <!-- 회원 수 만큼 -->
 
                 </div>

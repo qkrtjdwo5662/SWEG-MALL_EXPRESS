@@ -1,16 +1,42 @@
 const express = require('express');
 
-const{ getAllUsers } = require('../controllers/userController');
+const{ getAllUsers, getUser, adminCheck } = require('../controllers/userController');
+const{getAllProducts, getProduct, registerProduct} = require('../controllers/productController');
+
+const multer = require('multer');
+const fs = require('fs');
+
+const dir = '../public/img';
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, dir);
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname);
+  },
+});
+
+const limits = {
+  fileSize: 1024 * 1028 * 2,
+};
+
+const upload = multer({ storage, limits });
+
 const router = express.Router();
 
-router.get('/', (req, res) => {
+
+router.get('/', adminCheck ,(req, res) => {
   res.render('admin_index.ejs');
 })
 
-router.get('/users', getAllUsers);
+router.get('/users', adminCheck ,getAllUsers);
+router.get('/users/detail/:id', getUser);
 
-router.get('/products', (req, res) => {
-  res.render('admin_proInfo.ejs');
+router.get('/products',adminCheck ,getAllProducts);
+router.get('/products/register', (req, res) => {
+  res.render('admin_products_register');
 })
+router.post('/products/register',adminCheck, upload.single('img'), registerProduct);
 
+router.get('/products/modify/:model',adminCheck ,getProduct);
 module.exports = router;

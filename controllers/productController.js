@@ -253,4 +253,60 @@ const findProductOrder = async (req,res)=>{
     }
 }
 
-module.exports = {init, findProductOne, findProductFromCookieOrUserDB, findProductAll, compareProducts, findProductOrder};
+// -----------------------------------------------------------------
+// admin
+
+const getAllProducts = async(req, res) => {
+    let products = [];
+
+    const findAllProducts = await Product.find({});
+
+    findAllProducts.map((findProduct, idx) =>{
+        let info = {};
+        info.category = findProduct.category;
+        info.name = findProduct.name;
+        info.model = findProduct.model;
+        info.color = findProduct.color;
+        info.price = findProduct.price;
+        info.img = findProduct.img;
+        info.count = findProduct.count;
+
+        products.push(info);
+        if(idx == findAllProducts.length-1){
+            res.render('admin_proInfo.ejs', {products})
+        }
+    })
+}
+
+const getProduct = async(req, res) => {
+    const selectedProduct = await Product.findOne({
+        model : req.params.model
+    });
+    if(!selectedProduct) return res.status(200).json("해당 상품은 없어요");
+
+    res.render("admin_products_modify", {selectedProduct});
+}
+
+const registerProduct = async(req, res) => {
+    try{
+        const {category, name, model, color, price, img, count} = req.body;
+
+        const PRODUCT = await Product.create({
+            category,
+            name,
+            model,
+            color,
+            price,
+            img,
+            count
+        });
+
+        return res.status(200).json('상품등록 성공');
+    }catch(err){
+        console.log(err);
+        res.status(500).json("오류 발생");
+    }
+    
+}
+
+module.exports = {init, findProductOne, findProductFromCookieOrUserDB, findProductAll, compareProducts, findProductOrder, getAllProducts, getProduct, registerProduct};

@@ -1,0 +1,97 @@
+body .wrap .contents_area_wrap {
+  margin-top: 80px;
+}
+body .wrap .contents_area_wrap .page_title_area {
+  margin-top: 80px;
+  transition: 0.3s;
+}
+body .wrap .contents_area_wrap .page_title_area .page_title_wrap {
+  display: flex;
+  justify-content: center;
+  font-size: 5rem;
+  font-weight: 300;
+  transition: 0.3s;
+}
+body .wrap .contents_area_wrap .page_title_area .container_fixed {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+body .wrap .contents_area_wrap .btn {
+  display: flex;
+  justify-content: end;
+  margin-top: 80px;
+  margin-right: 400px;
+}
+body .wrap .contents_area_wrap .btn a {
+  width: 100px;
+  height: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  overflow: hidden;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  color: #000000;
+  transition: all 0.3s ease-in-out;
+  margin-left: 0;
+  text-decoration: none;
+}
+body .wrap .contents_area_wrap .info_area {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+body .wrap .contents_area_wrap .info_area .info_wrap {
+  width: 700px;
+}
+body .wrap .contents_area_wrap .info_area .info_wrap .info_row {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  max-width: 780px;
+  padding: 10px 0;
+}
+body .wrap .contents_area_wrap .info_area .info_wrap .info_row .info_title {
+  width: 140px;
+}
+body .wrap .contents_area_wrap .info_area .info_wrap .info_row .info_content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: calc(100% - 140px);
+  min-height: 40px;
+}
+body .wrap .contents_area_wrap .info_area .info_wrap .info_row .info_content .form_text {
+  width: 80%;
+  height: 40px;
+  padding: 0 15px;
+  border: 1px solid #dfdfdf;
+  border-radius: 5px;
+}
+body .wrap .contents_area_wrap .btn_area {
+  margin-top: 60px;
+  margin-bottom: 150px;
+}
+body .wrap .contents_area_wrap .btn_area .btn_wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+body .wrap .contents_area_wrap .btn_area .btn_wrap .btn_set {
+  display: flex;
+  justify-content: center;
+}
+body .wrap .contents_area_wrap .btn_area .btn_wrap .btn_set .btn_basic {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 265px;
+  height: 60px;
+  margin: 0 5px;
+  overflow: hidden;
+  background-color: #fff;
+  border: 1px solid #000;
+  color: #000;
+}/*# sourceMappingURL=admin_products_modify.css.map */

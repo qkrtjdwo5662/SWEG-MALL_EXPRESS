@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- css 초기화 -->
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+  />
+  <link rel="stylesheet" href="/css/admin_products_modify.css" />
+  <!-- 구글폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet"
+  /> 
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrap">
+    <%-include('./include/admin_menu.ejs')%>
+    <div class="contents_area_wrap">
+      <div class="container_full page_title_area">
+        <div class="container_fixed page_title_wrap">
+            상품 등록
+        </div>
+      </div>
+      <div class="btn">
+        <a href="/admin/products" class="btn_basic positive">돌아가기</a>
+      </div>  
+    <div class="info_area">
+      <div class="info_wrap">
+        <div class="info_row">
+          <div class="info_title">
+            <span>상품 명</span>
+          </div>
+          <div class="info_content">
+              <input type="text" placeholder="상품 이름을 입력해주세요" class="form_text" id="pro_name" >
+          </div>
+        </div>
+
+        <div class="info_row">
+          <div class="info_title">
+            <span>모델 명</span>
+          </div>
+          <div class="info_content">
+            <input type="text" placeholder="상품 모델명을 입력해주세요" class="form_text" id="pro_model" >
+          </div>
+        </div>
+
+        <div class="info_row">
+          <div class="info_title">
+            <span>색깔</span>
+          </div>
+          <div class="info_content">
+            <input type="text" placeholder="상품 색깔을 입력해주세요" class="form_text" id="pro_color">
+          </div>
+        </div>
+
+        <div class="info_row">
+          <div class="info_title">
+            <span>카테고리</span>
+          </div>
+          <div class="info_content">
+            <input type="text" placeholder="상품 가격을 입력해주세요" class="form_text" id="pro_category" >
+          </div>
+        </div>
+
+        <div class="info_row">
+          <div class="info_title">
+            <span>가격</span>
+          </div>
+          <div class="info_content">
+            <input type="text" placeholder="상품 가격을 입력해주세요" class="form_text" id="pro_price">
+          </div>
+        </div>
+
+        <div class="info_row">
+          <div class="info_title">
+            <span>수량</span>
+          </div>
+          <div class="info_content">
+            <input type="text" placeholder="상품 수량을 입력해주세요" class="form_text" id="pro_count">
+          </div>
+        </div>
+
+        <div class="info_row">
+          <div class="info_title">
+            <span>이미지</span>
+          </div>
+          <div class="info_content">
+            <input type="file" placeholder="상품 가격을 입력해주세요" id="pro_img" >
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="btn_area">
+      <div class="btn_wrap">
+        <div class="btn_set">
+          <a href="#" class="btn_basic" onclick=registerProduct()>상품 등록</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</body>
+</html>
+
+<script defer>
+  async function registerProduct(){
+    const productName = document.getElementById('pro_name');
+    const productModel = document.getElementById('pro_model');
+    const productColor = document.getElementById('pro_color');
+    const productCategory = document.getElementById('pro_category');
+    const productPrice = document.getElementById('pro_price');
+    const productImg = document.getElementById('pro_img');
+    const productCount = document.getElementById('pro_count');
+    // console.log(productName.value);
+    const res = await fetch(`http://localhost:4000/admin/products/register`, { 
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json',
+        'enctype' : 'multipart/form-data'
+      },
+      body: JSON.stringify({
+        category: productCategory.value,
+        name: productName.value,
+        model: productModel.value,
+        color: productColor.value,
+        price: productPrice.value,
+        img: productImg.value,
+        count: productCount.value
+      }),
+    });
+
+    if(res.status == 200) console.log('정상등록');
+  }
+
+</script>
