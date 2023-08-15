@@ -288,17 +288,25 @@ const getProduct = async(req, res) => {
 }
 
 const registerProduct = async(req, res) => {
-    const {category, name, model, color, price, img, count} = req.body;
+    try{
+        const {category, name, model, color, price, img, count} = req.body;
 
-    const PRODUCT = await Product.create({
-        category,
-        name,
-        model,
-        color,
-        price,
-        img,
-        count
-    })
+        const PRODUCT = await Product.create({
+            category,
+            name,
+            model,
+            color,
+            price,
+            img,
+            count
+        });
+
+        return res.status(200).json('상품등록 성공');
+    }catch(err){
+        console.log(err);
+        res.status(500).json("오류 발생");
+    }
+    
 }
 
-module.exports = {init, findProductOne, findProductFromCookieOrUserDB, findProductAll, compareProducts, findProductOrder, getAllProducts, getProduct};
+module.exports = {init, findProductOne, findProductFromCookieOrUserDB, findProductAll, compareProducts, findProductOrder, getAllProducts, getProduct, registerProduct};

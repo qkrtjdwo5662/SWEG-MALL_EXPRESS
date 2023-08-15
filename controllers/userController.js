@@ -60,6 +60,7 @@ const signUp = async (req, res) => {
           }
         },  
         cart:[],
+        // status:'admin',
       });
       req.session.login = true; // 로그인 유무
       req.session.uid = user_id; 
@@ -89,6 +90,10 @@ const login = async (req, res) => {
     const verified = await verifyPW(user_pw, findUser.salt, findUser.user_pw);
     if(user_id !== findUser.user_id || !verified) return res.status(401).json('회원 정보 오류');
     
+    if(findUser.status === "admin"){
+      req.session.admin = true;
+      return res.status(220).json('관리자 로그인 성공');
+    }
     // if(findUser.user_id == "admin"){
     //   res.render("관리자페이지");
     //   return;
@@ -175,6 +180,15 @@ const getUser = async(req, res) => {
   res.render('admin_user_detail', {selectedUser});
 
 }
+
+const adminCheck = async(req, res, next) => { // 로그인 여부 확인 미들웨어
+  if(req.session.admin){
+      next();
+  } else{
+      return res.render('admin_alert');
+  }
+}
+
 module.exports = {
     idDuplicateCheck,
     signUp,
@@ -183,5 +197,6 @@ module.exports = {
     loginCheck,
     addCart,
     getAllUsers,
-    getUser
+    getUser,
+    adminCheck,
 }

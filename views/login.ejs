@@ -140,6 +140,8 @@
         location.href = "/";
       }
       userData();
+    }else if(res.status == 220){
+      location.href = "/admin"
     }else if(res.status === 400){ // id X
       alert("회원정보가 존재하지 않습니다."); // id !== db ID || pw ! == db PW
       location.reload();

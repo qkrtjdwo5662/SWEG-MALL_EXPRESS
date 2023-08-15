@@ -1,7 +1,7 @@
 const express = require('express');
 
-const{ getAllUsers, getUser } = require('../controllers/userController');
-const{getAllProducts, getProduct} = require('../controllers/productController');
+const{ getAllUsers, getUser, adminCheck } = require('../controllers/userController');
+const{getAllProducts, getProduct, registerProduct} = require('../controllers/productController');
 
 const multer = require('multer');
 const fs = require('fs');
@@ -24,16 +24,19 @@ const upload = multer({ storage, limits });
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+
+router.get('/', adminCheck ,(req, res) => {
   res.render('admin_index.ejs');
 })
 
-router.get('/users', getAllUsers);
+router.get('/users', adminCheck ,getAllUsers);
 router.get('/users/detail/:id', getUser);
 
-router.get('/products', getAllProducts);
+router.get('/products',adminCheck ,getAllProducts);
 router.get('/products/register', (req, res) => {
   res.render('admin_products_register');
 })
-router.get('/products/modify/:model', getProduct);
+router.post('/products/register',adminCheck, upload.single('img'), registerProduct);
+
+router.get('/products/modify/:model',adminCheck ,getProduct);
 module.exports = router;
