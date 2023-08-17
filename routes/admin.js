@@ -25,19 +25,35 @@ const upload = multer({ storage, limits });
 const router = express.Router();
 
 
-router.get('/', adminCheck ,(req, res) => {
+// router.get('/', adminCheck ,(req, res) => {
+//   res.render('admin_index.ejs');
+// })
+
+// router.get('/users', adminCheck ,getAllUsers);
+// router.get('/users/detail/:id', adminCheck ,getUser);
+// router.post('/users/delete/:id',adminCheck, deleteUser);
+
+// router.get('/products',adminCheck ,getAllProducts);
+// router.get('/products/register',adminCheck,  (req, res) => {
+//   res.render('admin_products_register');
+// })
+// router.post('/products/register',adminCheck, upload.single('img'), registerProduct);
+
+// router.get('/products/modify/:model',adminCheck ,getProduct);
+
+router.get('/',(req, res) => {
   res.render('admin_index.ejs');
 })
 
-router.get('/users', adminCheck ,getAllUsers);
-router.get('/users/detail/:id', adminCheck ,getUser);
-router.post('/users/delete/:id',adminCheck, deleteUser);
+router.get('/users' ,getAllUsers);
+router.get('/users/detail/:id' ,getUser);
+router.post('/users/delete/:id', deleteUser);
 
-router.get('/products',adminCheck ,getAllProducts);
-router.get('/products/register', (req, res) => {
+router.get('/products' ,getAllProducts);
+router.get('/products/register',  (req, res) => {
   res.render('admin_products_register');
 })
-router.post('/products/register',adminCheck, upload.single('img'), registerProduct);
+router.post('/products/register', upload.single('img'), registerProduct);
 
-router.get('/products/modify/:model',adminCheck ,getProduct);
+router.get('/products/modify/:model' ,getProduct);
 module.exports = router;

@@ -289,7 +289,7 @@ const getProduct = async(req, res) => {
 
 const registerProduct = async(req, res) => {
     try{
-        const {category, name, model, color, price, img, count} = req.body;
+        const {category, name, model, color, price, count} = req.body;
 
         const PRODUCT = await Product.create({
             category,
@@ -297,10 +297,10 @@ const registerProduct = async(req, res) => {
             model,
             color,
             price,
-            img,
+            img : req.file ? req.file.filename : null,
             count
         });
-
+        console.log(PRODUCT);
         return res.status(200).json('상품등록 성공');
     }catch(err){
         console.log(err);
