@@ -291,13 +291,14 @@ const registerProduct = async(req, res) => {
     try{
         const {category, name, model, color, price, count} = req.body;
 
+        console.log(req.file);
         const PRODUCT = await Product.create({
             category,
             name,
             model,
             color,
             price,
-            img : req.file ? req.file.filename : null,
+            img : req.file ? "/uploads/" + req.file.filename : null,
             count
         });
         console.log(PRODUCT);

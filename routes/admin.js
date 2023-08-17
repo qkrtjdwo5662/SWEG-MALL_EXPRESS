@@ -6,13 +6,13 @@ const{getAllProducts, getProduct, registerProduct} = require('../controllers/pro
 const multer = require('multer');
 const fs = require('fs');
 
-const dir = '../public/img';
+const dir = './uploads';
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, dir);
   },
   filename: (req, file, cb) => {
-    cb(null, file.fieldname);
+    cb(null, file.originalname);
   },
 });
 
@@ -21,6 +21,8 @@ const limits = {
 };
 
 const upload = multer({ storage, limits });
+
+if (!fs.existsSync(dir)) fs.mkdirSync(dir);
 
 const router = express.Router();
 
