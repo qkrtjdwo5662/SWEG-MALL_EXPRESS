@@ -89,7 +89,7 @@
                         <div class="item">
                           <div class="check_box_area">
                               <div class="check_box">
-                                  <input type="checkbox" name="cart1_seq" class="form_check cart_select cart_item" value="79551" data-cseq="79551" data-cpseq="3001" data-cgroup="">
+                                  <input type="checkbox" data-model="<%=cart[i].model%>" name="cart1_seq" class="form_check cart_select cart_item" value="79551">
                               </div>
                           </div>
     
@@ -151,7 +151,7 @@
     
                           <div class="func_area">
                               <div class="btn_set">
-                                <a href="/order/order/<%=cart[i].model%>" class="btn_basic positive">바로구매</a>
+                                <a href="/order/order/<%=cart[i].model%>" class="btn_basic positive" >바로구매</a>
                                 <a href="javascript:;" class="btn_basic negative">삭제</a>
                               </div>
                           </div>
@@ -182,7 +182,7 @@
       <div class="container_full btn_area">
         <div class="container_fixed btn_wrap">
             <div class="btn_set">
-                <a href="javascript:;" class="btn_basic positive" onclick="order('n')"><span id="order_cnt">0</span>건 주문하기</a>
+                <a href="javascript:;" class="btn_basic positive orderBtn"><span id="order_cnt">0</span>건 주문하기</a>
             </div>
         </div>
       </div>
@@ -211,12 +211,71 @@
     // 버튼에 대한 기능도 장바구니 개수 만큼 class 명 혹은 id명을 다르게해서 독립적으로 기능될 수 있도록 수정필요
 
 
-    const cartAllCheckBox = document.querySelector('#cartAll1');
-    // console.log(cartAllCheckBox);
-    cartAllCheckBox.addEventListener("change", (e) => {
-        const inputChecked = cartAllCheckBox.checked;
-        console.log(inputChecked);
-        const cartItemCheckBox = document.querySelectorAll('.form_check');
-        console.log(cartItemCheckBox);
+    // const cartAllCheckBox = document.querySelector('#cartAll1');
+    // // console.log(cartAllCheckBox);
+    // cartAllCheckBox.addEventListener("change", (e) => {
+    //     const inputChecked = cartAllCheckBox.checked;
+    //     console.log(inputChecked);
+    //     const cartItemCheckBox = document.querySelectorAll('.form_check');
+    //     console.log(cartItemCheckBox);
+    // })
+
+  const cartCheckBoxAll = document.querySelector("#cartAll1")
+  const cartItemCheckBox = document.querySelectorAll(".cart_table .item .cart_select")
+  const orderLength = document.querySelector("#order_cnt")
+  const orderBtn = document.querySelector(".orderBtn")
+  
+  //전체 체크박스
+  function checkedAll(){
+    cartItemCheckBox.forEach((checkBox)=>{
+      checkBox.checked = cartCheckBoxAll.checked
     })
+    updateOrderLength()
+  }
+  //체크박스 선택 시 카운트
+  function updateOrderLength() {
+    let checkedCount = 0;
+
+    cartItemCheckBox.forEach(checkBox => {
+        if (checkBox.checked) {
+            checkedCount++;
+        }
+    });
+    orderLength.innerText = checkedCount;
+  } 
+
+  
+  cartCheckBoxAll.addEventListener("change",checkedAll)
+  cartItemCheckBox.forEach((checkBox) => {
+      checkBox.addEventListener("change", updateOrderLength);
+  });
+
+  //구매하기 버튼
+  orderBtn.addEventListener("click", () => {
+    let queryArr = [];
+    productChecked  = 0;
+
+    cartItemCheckBox.forEach((checkBox, index) => {
+      if(checkBox.checked){
+        productChecked++;
+        
+        const productModel = checkBox.dataset.model;
+        let item = "";
+        if (queryArr.length === 0) {
+          item = "?product";
+        } else {
+          item = "&product";
+        }
+        queryArr.push(`${item}${index}=${productModel}`);
+      }
+    })
+
+    const query = queryArr.join("")
+    console.log(query)
+    location.href = "/order/order" + query;
+
+    if (productChecked === 0) {
+      return alert("결제하실 상품을 선택해주세요.");
+    }
+  });  
   </script>
