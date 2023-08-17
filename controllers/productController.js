@@ -2,8 +2,6 @@ require('./mongoConnect');
 const Product = require('../models/product');
 const User = require('../models/user');
 
-const {findCartFromUser} = require('../controllers/userController');
-
 const init = async(req, res) => {
     try{
         const PRODUCT = await Product.insertMany(
@@ -147,7 +145,7 @@ const findProductFromCookieOrUserDB = async (req, res) => {
             const findUser = await User.findOne({user_id: req.session.uid});
             const cartArr = findUser.cart;
             // console.log(cartArr);
-            const map = () => {
+            const map = async() => {
                 let cart = [];
                 
                 cartArr.map(async (item, idx) => {
@@ -164,15 +162,15 @@ const findProductFromCookieOrUserDB = async (req, res) => {
                         count : findProduct.count,
                     };
                     
-                    await cart.push(obj);
+                    cart.push(obj);
                     
                     if(idx == cartArr.length-1){
-                        res.render('cart.ejs', {login : req.session.login, cart});
+                        await res.render('cart.ejs', {login : req.session.login, cart});
                         // console.log(cart);
                     }
                 })
             }
-            map();
+            await map();
         }else{
             if(Object.keys(req.cookies).length == 0){
                 res.render('cart.ejs', {login : req.session.login, cart:[]});
