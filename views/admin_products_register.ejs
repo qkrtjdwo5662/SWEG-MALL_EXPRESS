@@ -33,12 +33,13 @@
       </div>  
     <div class="info_area">
       <div class="info_wrap">
+        <form action="/admin/products/register" method="post" enctype="multipart/form-data" class="products_form" name="products_form">
         <div class="info_row">
           <div class="info_title">
             <span>상품 명</span>
           </div>
           <div class="info_content">
-              <input type="text" placeholder="상품 이름을 입력해주세요" class="form_text" id="pro_name" >
+              <input type="text" placeholder="상품 이름을 입력해주세요" class="form_text" id="pro_name" name="name">
           </div>
         </div>
 
@@ -47,7 +48,7 @@
             <span>모델 명</span>
           </div>
           <div class="info_content">
-            <input type="text" placeholder="상품 모델명을 입력해주세요" class="form_text" id="pro_model" >
+            <input type="text" placeholder="상품 모델명을 입력해주세요" class="form_text" id="pro_model" name="model">
           </div>
         </div>
 
@@ -56,7 +57,7 @@
             <span>색깔</span>
           </div>
           <div class="info_content">
-            <input type="text" placeholder="상품 색깔을 입력해주세요" class="form_text" id="pro_color">
+            <input type="text" placeholder="상품 색깔을 입력해주세요" class="form_text" id="pro_color" name="color">
           </div>
         </div>
 
@@ -65,7 +66,7 @@
             <span>카테고리</span>
           </div>
           <div class="info_content">
-            <input type="text" placeholder="상품 가격을 입력해주세요" class="form_text" id="pro_category" >
+            <input type="text" placeholder="상품 카테고리를 입력해주세요" class="form_text" id="pro_category" name="category" >
           </div>
         </div>
 
@@ -74,7 +75,7 @@
             <span>가격</span>
           </div>
           <div class="info_content">
-            <input type="text" placeholder="상품 가격을 입력해주세요" class="form_text" id="pro_price">
+            <input type="text" placeholder="상품 가격을 입력해주세요" class="form_text" id="pro_price" name="price">
           </div>
         </div>
 
@@ -83,7 +84,7 @@
             <span>수량</span>
           </div>
           <div class="info_content">
-            <input type="text" placeholder="상품 수량을 입력해주세요" class="form_text" id="pro_count">
+            <input type="text" placeholder="상품 수량을 입력해주세요" class="form_text" id="pro_count" name="count">
           </div>
         </div>
 
@@ -92,19 +93,21 @@
             <span>이미지</span>
           </div>
           <div class="info_content">
-            <input type="file" placeholder="상품 가격을 입력해주세요" id="pro_img" >
+            <input type="file" id="pro_img" name="img" >
           </div>
         </div>
+        <div class="btn_area">
+          <div class="btn_wrap">
+            <div class="btn_set">
+              <a href="javascript:void(0);" onclick="document.forms['products_form'].submit();" class="btn_basic">상품 등록</a>
+            </div>
+          </div>
+        </div>
+        </form>
       </div>
 
     </div>
-    <div class="btn_area">
-      <div class="btn_wrap">
-        <div class="btn_set">
-          <a href="#" class="btn_basic" onclick=registerProduct()>상품 등록</a>
-        </div>
-      </div>
-    </div>
+    
     </div>
   </div>
 </body>
@@ -123,8 +126,7 @@
     const res = await fetch(`http://localhost:4000/admin/products/register`, { 
       method: 'post',
       headers: {
-        'Content-type': 'application/json',
-        'enctype' : 'multipart/form-data'
+        // 'Content-type': 'multipart/form-data',
       },
       body: JSON.stringify({
         category: productCategory.value,
@@ -132,12 +134,15 @@
         model: productModel.value,
         color: productColor.value,
         price: productPrice.value,
-        img: productImg.value,
+        img: productImg,
         count: productCount.value
       }),
     });
 
-    if(res.status == 200) console.log('정상등록');
+    if(res.status == 200) {
+      console.log('정상등록');
+      location.href="/admin/products";
+    }
   }
 
 </script>

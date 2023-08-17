@@ -181,6 +181,21 @@ const getUser = async(req, res) => {
 
 }
 
+const deleteUser = async(req, res) => {
+  try{
+    const deleteUser = await User.deleteOne({
+      user_id : req.params.id
+    })
+    if(!deleteUser) return res.status(400).json('삭제 오류');
+    console.log(deleteUser);
+    res.redirect('/admin/users');
+  }catch(err){
+    console.log(err);
+    res.status(500).json('오류 발생');
+  }
+  
+}
+
 const adminCheck = async(req, res, next) => { // 로그인 여부 확인 미들웨어
   if(req.session.admin){
       next();
@@ -198,5 +213,6 @@ module.exports = {
     addCart,
     getAllUsers,
     getUser,
+    deleteUser,
     adminCheck,
 }
