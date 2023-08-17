@@ -321,4 +321,30 @@ const registerProduct = async(req, res) => {
     
 }
 
-module.exports = {init, findProductOne, findProductFromCookieOrUserDB, findProductAll, compareProducts, findProductOrder, getAllProducts, getProduct, registerProduct};
+const deleteProduct = async(req, res) => {
+    try{
+        const deleteProductOne = await Product.deleteOne({
+            model : req.params.model,
+        })
+        if(!deleteProductOne) return res.status(400).json("삭제 오류");
+        console.log(deleteProductOne);
+        return res.status(200).json("삭제 성공");
+
+    }catch(err){
+        console.log(err);
+        res.status(500).json("오류 발생");
+    }
+}
+
+module.exports = {
+    init, 
+    findProductOne, 
+    findProductFromCookieOrUserDB, 
+    findProductAll, 
+    compareProducts, 
+    findProductOrder, 
+    getAllProducts, 
+    getProduct, 
+    registerProduct,
+    deleteProduct
+};

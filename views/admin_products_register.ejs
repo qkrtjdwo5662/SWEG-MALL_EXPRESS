@@ -96,24 +96,27 @@
             <input type="file" id="pro_img" name="img" >
           </div>
         </div>
-        <div class="btn_area">
-          <div class="btn_wrap">
-            <div class="btn_set">
-              <a href="javascript:void(0);" onclick="document.forms['products_form'].submit();" class="btn_basic">상품 등록</a>
-            </div>
-          </div>
-        </div>
+        
         </form>
       </div>
 
     </div>
-    
+    <div class="btn_area">
+      <div class="btn_wrap">
+        <div class="btn_set">
+          <a href="javascript:void(0);" onclick="document.forms['products_form'].submit();" class="btn_basic">상품 등록</a>
+        </div>
+      </div>
+    </div>
     </div>
   </div>
 </body>
 </html>
 
-<script defer>
+<!-- javascript:void(0) -> 현재 페이지의 아무런 변화없이 코드 실행 -->
+<!-- onclick="document.forms['products_form'].submit();" -> a 태그로 submit과 같은 수행 -->
+
+<!-- <script defer>
   async function registerProduct(){
     const productName = document.getElementById('pro_name');
     const productModel = document.getElementById('pro_model');
@@ -145,4 +148,4 @@
     }
   }
 
-</script>
+</script> -->
