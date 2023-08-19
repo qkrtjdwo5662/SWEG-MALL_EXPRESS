@@ -33,12 +33,13 @@
       </div>  
     <div class="info_area">
       <div class="info_wrap">
+        <form action="/admin/products/modify/<%=selectedProduct.model%>" method="post" enctype="multipart/form-data" class="products_form" name="products_form">
         <div class="info_row">
           <div class="info_title">
             <span>상품 명</span>
           </div>
           <div class="info_content">
-              <input type="text" placeholder="상품 이름을 입력해주세요" class="form_text" id="pro_name" value="<%=selectedProduct.name%>">
+              <input type="text" placeholder="상품 이름을 입력해주세요" class="form_text" id="pro_name" name="name" value="<%=selectedProduct.name%>">
           </div>
         </div>
 
@@ -47,7 +48,7 @@
             <span>모델 명</span>
           </div>
           <div class="info_content">
-            <input type="text" placeholder="상품 모델명을 입력해주세요" class="form_text" id="pro_model" value="<%=selectedProduct.model%>">
+            <input type="text" placeholder="상품 모델명을 입력해주세요" class="form_text" id="pro_model" name="model" value="<%=selectedProduct.model%>">
           </div>
         </div>
 
@@ -56,7 +57,7 @@
             <span>색깔</span>
           </div>
           <div class="info_content">
-            <input type="text" placeholder="상품 색깔을 입력해주세요" class="form_text" id="pro_color" value="<%=selectedProduct.color%>">
+            <input type="text" placeholder="상품 색깔을 입력해주세요" class="form_text" id="pro_color" name="color" value="<%=selectedProduct.color%>">
           </div>
         </div>
 
@@ -65,7 +66,7 @@
             <span>카테고리</span>
           </div>
           <div class="info_content">
-            <input type="text" placeholder="상품 가격을 입력해주세요" class="form_text" id="pro_category" value="<%=selectedProduct.category%>">
+            <input type="text" placeholder="상품 가격을 입력해주세요" class="form_text" id="pro_category" name="category" value="<%=selectedProduct.category%>">
           </div>
         </div>
 
@@ -74,7 +75,7 @@
             <span>가격</span>
           </div>
           <div class="info_content">
-            <input type="text" placeholder="상품 가격을 입력해주세요" class="form_text" id="pro_model" value="<%=selectedProduct.price%>">
+            <input type="text" placeholder="상품 가격을 입력해주세요" class="form_text" id="pro_price" name="price" value="<%=selectedProduct.price%>">
           </div>
         </div>
 
@@ -83,7 +84,7 @@
             <span>수량</span>
           </div>
           <div class="info_content">
-            <input type="text" placeholder="상품 수량을 입력해주세요" class="form_text" id="pro_model" value="<%=selectedProduct.count%>">
+            <input type="text" placeholder="상품 수량을 입력해주세요" class="form_text" id="pro_count" name="count" value="<%=selectedProduct.count%>">
           </div>
         </div>
 
@@ -94,16 +95,18 @@
           <div class="info_content">
             <% if (selectedProduct.img !== null && selectedProduct.img !== undefined) { %> <img src="<%= selectedProduct.img %>" width="90" height="90">
             <% } %>
-            <input type="file" placeholder="이미지 넣기" id="pro_img" >
+            <input type="file" placeholder="이미지 넣기" id="pro_img" name="img">
           </div>
         </div>
+
+        </form>
       </div>
 
     </div>
     <div class="btn_area">
       <div class="btn_wrap">
         <div class="btn_set">
-          <a href="#" class="btn_basic">수정 등록</a>
+          <a href="javascript:void(0)" onclick="document.forms['products_form'].submit();" class="btn_basic">수정 등록</a>
         </div>
       </div>
     </div>
@@ -111,3 +114,8 @@
   </div>
 </body>
 </html>
+
+<script defer>
+
+  
+</script>

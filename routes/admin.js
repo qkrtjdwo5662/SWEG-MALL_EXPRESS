@@ -1,7 +1,7 @@
 const express = require('express');
 
 const{ getAllUsers, getUser, adminCheck, deleteUser} = require('../controllers/userController');
-const{getAllProducts, getProduct, registerProduct, deleteProduct} = require('../controllers/productController');
+const{getAllProducts, getProduct, registerProduct, deleteProduct, modifyProduct} = require('../controllers/productController');
 
 const multer = require('multer');
 const fs = require('fs');
@@ -58,7 +58,7 @@ router.get('/products/register',  (req, res) => {
 router.post('/products/register', upload.single('img'), registerProduct);
 
 router.get('/products/modify/:model' ,getProduct);
-// router.post('//products/modify/:model')
+router.post('/products/modify/:model', upload.single('img'), modifyProduct);
 
 router.post('/products/delete/:model', deleteProduct);
 module.exports = router;
