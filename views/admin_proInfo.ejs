@@ -96,7 +96,7 @@
                           <div class="func_area">
                               <div class="btn_set">
                                 <a href="/admin/products/modify/<%=product.model%>" class="btn_basic positive">수정</a>
-                                <a href="javascript:;" class="btn_basic negative">삭제</a>
+                                <a href="javascript:;" class="btn_basic negative" onclick="deleteProduct('<%=product.model%>')">삭제</a>
                               </div>
                           </div>
                         </div>
@@ -129,3 +129,17 @@
   </div> 
 </body>
 </html>
+
+<script defer>
+  async function deleteProduct(model){
+    const res = await fetch(`http://localhost:4000/admin/products/delete/${model}`, {
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json'
+      },
+    });
+    console.log(res);
+    if(res.status !== 200) return alert("삭제 실패");
+    location.reload();
+  }
+</script>

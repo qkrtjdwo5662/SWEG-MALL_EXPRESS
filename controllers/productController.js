@@ -268,34 +268,46 @@ const findProductOrder = async (req,res)=>{
 // admin
 
 const getAllProducts = async(req, res) => {
-    let products = [];
+    try{
+        let products = [];
 
-    const findAllProducts = await Product.find({});
+        const findAllProducts = await Product.find({});
 
-    findAllProducts.map((findProduct, idx) =>{
-        let info = {};
-        info.category = findProduct.category;
-        info.name = findProduct.name;
-        info.model = findProduct.model;
-        info.color = findProduct.color;
-        info.price = findProduct.price;
-        info.img = findProduct.img;
-        info.count = findProduct.count;
+        findAllProducts.map((findProduct, idx) =>{
+            let info = {};
+            info.category = findProduct.category;
+            info.name = findProduct.name;
+            info.model = findProduct.model;
+            info.color = findProduct.color;
+            info.price = findProduct.price;
+            info.img = findProduct.img;
+            info.count = findProduct.count;
 
-        products.push(info);
-        if(idx == findAllProducts.length-1){
-            res.render('admin_proInfo.ejs', {products})
-        }
+            products.push(info);
+            if(idx == findAllProducts.length-1){
+                res.render('admin_proInfo.ejs', { products })
+            }
     })
+    }catch(err){
+        console.log(err);
+        res.status(500).json("오류 발생");
+    }
+    
 }
 
 const getProduct = async(req, res) => {
-    const selectedProduct = await Product.findOne({
-        model : req.params.model
-    });
-    if(!selectedProduct) return res.status(200).json("해당 상품은 없어요");
-
-    res.render("admin_products_modify", {selectedProduct});
+    try{
+        const selectedProduct = await Product.findOne({
+            model : req.params.model
+        });
+        if(!selectedProduct) return res.status(200).json("해당 상품은 없어요");
+    
+        res.render("admin_products_modify", {selectedProduct});
+    }catch(err){
+        console.log(err);
+        res.status(500).json("오류 발생");
+    }
+    
 }
 
 const registerProduct = async(req, res) => {
@@ -313,7 +325,7 @@ const registerProduct = async(req, res) => {
             count
         });
         console.log(PRODUCT);
-        return res.status(200).json('상품등록 성공');
+        return res.redirect('/admin/products');
     }catch(err){
         console.log(err);
         res.status(500).json("오류 발생");
@@ -321,4 +333,58 @@ const registerProduct = async(req, res) => {
     
 }
 
-module.exports = {init, findProductOne, findProductFromCookieOrUserDB, findProductAll, compareProducts, findProductOrder, getAllProducts, getProduct, registerProduct};
+const deleteProduct = async(req, res) => {
+    try{
+        const deleteProductOne = await Product.deleteOne({
+            model : req.params.model,
+        })
+        if(!deleteProductOne) return res.status(400).json("삭제 오류");
+        console.log(deleteProductOne);
+        return res.status(200).json("삭제 성공");
+
+    }catch(err){
+        console.log(err);
+        res.status(500).json("오류 발생");
+    }
+}
+
+const modifyProduct = async(req, res) => {
+    try{
+        const {category, name, model, color, price, count} = req.body;
+        const updateProduct = await Product.updateOne(
+            {
+                model : req.params.model,
+            },
+            {
+                $set: {
+                    category : category,
+                    name : name,
+                    model : model,
+                    color : color,
+                    price : price,
+                    img : req.file ? "/uploads/" + req.file.filename : null,
+                    count : count
+                }
+            }
+        )
+        console.log(updateProduct);
+        return res.redirect('/admin/products');
+
+    }catch(err){
+        console.log(err);
+        res.status(500).json("오류 발생");
+    }
+}
+module.exports = {
+    init, 
+    findProductOne, 
+    findProductFromCookieOrUserDB, 
+    findProductAll, 
+    compareProducts, 
+    findProductOrder, 
+    getAllProducts, 
+    getProduct, 
+    registerProduct,
+    deleteProduct,
+    modifyProduct
+};
