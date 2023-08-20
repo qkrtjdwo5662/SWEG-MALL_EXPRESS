@@ -150,6 +150,73 @@ const addCart = async(req, res) => {
 
 }
 
+const addCoupon = async(req, res) => {
+  try{
+    const findUser = await User.findOne({
+      user_id : req.session.uid
+    })
+    console.log(findUser);
+    if(!user) return res.status(400).json("사용자 오류");
+    const couponid = req.params.couponid;
+
+    let obj = {};
+    if(couponid === "coupon1"){
+      obj = {
+        coupon1 : {
+          category : "minus",
+          content : "20000"
+        }
+      }
+    }else if(couponid === "coupon2"){
+      obj = {
+        coupon2 : {
+          category : "percent",
+          content : "30"
+        }
+      }
+    }else if(couponid === "coupon3"){
+      obj = {
+        coupon3 : {
+          category : "minus",
+          content : "100"
+        }
+      }
+    }else if(couponid === "coupon4"){
+      obj = {
+        coupon4 : {
+          category : "percent",
+          content : "20"
+        }
+      }
+    }
+            
+    const value = obj[couponid];
+    // console.log("v" + "     " + value);
+
+    const updateUser = await User.updateOne(
+      {
+        user_id : req.session.uid
+      },
+      {
+        $set : {
+          coupon : {
+            ...findUser.coupon,
+            [couponid] : value
+          }
+        }
+      }  
+    )
+    
+    if(!updateUser) return res.status(400).json("업데이트 오류");
+    res.status(200).json("good");
+  }catch(err){
+    console.log(err);
+    res.status(500).json("오류 발생");
+  }
+  
+}
+
+
 // -----------------------------------------------------------------
 // admin
 
@@ -211,6 +278,7 @@ module.exports = {
     logout,
     loginCheck,
     addCart,
+    addCoupon,
     getAllUsers,
     getUser,
     deleteUser,

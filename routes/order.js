@@ -1,6 +1,6 @@
 const express = require('express');
 
-const {addCart, loginCheck } = require("../controllers/userController");
+const {addCart, loginCheck , addCoupon} = require("../controllers/userController");
 
 const {findProductFromCookieOrUserDB,findProductOrder} = require('../controllers/productController');
 const router = express.Router();
@@ -8,11 +8,17 @@ const router = express.Router();
 
 
 router.get('/cart', findProductFromCookieOrUserDB);
+
 router.get('/addcart/:model', addCart);
+
 router.get('/order/:model', findProductOrder)
-router.get('/coupon', (req, res) => {
+
+router.get('/coupon', loginCheck, (req, res) => {
   res.render('coupon', {login:req.session.login});
 });
+
+router.post('/coupon/:couponid', loginCheck, addCoupon);
+
 router.get('/order', (req, res) => {
   res.render('test.ejs');
   //로그인 여부 확인

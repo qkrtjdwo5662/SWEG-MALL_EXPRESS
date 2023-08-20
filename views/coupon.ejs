@@ -42,19 +42,19 @@
   </div>
   <hr class="line">
   <div class="coupon_wrap">
-    <div class="coupon">
+    <div class="coupon" id="coupon1">
       쿠폰 1
       <a href="#">다운</a>
     </div>
-    <div class="coupon">
+    <div class="coupon" id="coupon2">
       쿠폰 2
       <a href="#">다운</a>
     </div>
-    <div class="coupon">
+    <div class="coupon" id="coupon3">
       쿠폰 3
       <a href="#">다운</a>
     </div>
-    <div class="coupon">
+    <div class="coupon" id="coupon4">
       쿠폰 4
       <a href="#">다운</a>
     </div>
@@ -62,3 +62,32 @@
   
 </body>
 </html>
+
+
+
+<script defer>
+  const coupons = document.querySelectorAll(".coupon a");
+  
+  coupons.forEach(item => {
+    item.addEventListener("click", (e) => {
+      const couponid = e.target.parentNode.getAttribute("id");
+      addCoupon(couponid);
+    })
+  });
+
+  async function addCoupon(couponid){
+    console.log(couponid);
+
+    const res = await fetch(`http://localhost:4000/order/coupon/${couponid}`, { 
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json'
+      },
+    });
+
+    if(res.status == 200){
+      return alert("쿠폰 다운완료");
+    }else alert("잠시 후 다시 시도해주세요");
+    
+  }
+</script>
