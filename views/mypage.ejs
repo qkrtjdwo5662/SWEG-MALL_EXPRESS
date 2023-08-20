@@ -176,7 +176,7 @@
                   </div>
                   <div class="item_title_text">쿠폰</div>
                 </div>
-                <div class="item_value"><%=user.coupon.length%></div>
+                <div class="item_value"><%=Object.keys(user.coupon).length%></div>
               </div>
             </div>
             <div class="mp_menu_item">
@@ -392,7 +392,7 @@
                     style="padding-bottom: 0; border-bottom: initial"
                   >
                     <div class="item board_count_area">
-                      사용가능한 쿠폰이 <span class="board_count">0</span>장
+                      사용가능한 쿠폰이 &nbsp<span class="board_count"><%=Object.keys(user.coupon).length%></span>장
                       있습니다.
                     </div>
                     <div class="item"></div>
@@ -410,7 +410,11 @@
                     <div class="date">만료일</div>
                     <div class="date">사용일</div>
                   </li>
-                  <li class="item no_item">등록된 쿠폰이 없습니다.</li>
+                  <%if( Object.keys(user.coupon).length > 0) {%>
+                  <li class="item no_item">등록된 쿠폰이 있어요.</li>
+                  <%} else {%>
+                  <li class="item no_item">등록된 쿠폰이 없어요.</li>
+                  <%}%>
                 </ul>
               </div>
             </div>
@@ -435,4 +439,6 @@
       mypageCouponDetail.style.display = "block";
     }
   }
+
+
 </script>
