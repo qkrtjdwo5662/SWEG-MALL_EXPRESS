@@ -2,7 +2,7 @@ const express = require('express');
 
 const {addCart, loginCheck , addCoupon} = require("../controllers/userController");
 
-const {findProductFromCookieOrUserDB,findProductOrder} = require('../controllers/productController');
+const {findProductFromCookieOrUserDB, findProductOrder} = require('../controllers/productController');
 const router = express.Router();
 
 

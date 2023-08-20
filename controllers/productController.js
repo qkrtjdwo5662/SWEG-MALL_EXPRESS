@@ -138,39 +138,49 @@ const findProductOne = async (req, res) => {
 
 const findProductFromCookieOrUserDB = async (req, res) => {
     try{
-        if(req.session.login){
+        // 로그인 여부
+
+        // 로그인 했으면 
+            // session.id로 findUser
+            // findUser.cart(모델명만 담긴)로 findProduct
+        if(req.session.login){ // 로그인 여부에 따른 처리
             if(!req.session.uid){
                 res.status(400).json("로그인 정보 오류");
             }
             const findUser = await User.findOne({user_id: req.session.uid});
             const cartArr = findUser.cart;
+            // console.log(findUser.cart.length);
             // console.log(cartArr);
-            const map = async() => {
-                let cart = [];
-                
-                cartArr.map(async (item, idx) => {
+            if(cartArr.length > 0){
+                const map = async() => {
+                    let cart = [];
                     
-                    const findProduct = await Product.findOne({
-                        model: item
+                    cartArr.map(async (item, idx) => {
+                        
+                        const findProduct = await Product.findOne({
+                            model: item
+                        })
+                        const obj = {
+                            name : findProduct.name,
+                            model : findProduct.model,
+                            color : findProduct.color,
+                            img : findProduct.img,
+                            price : findProduct.price,
+                            count : findProduct.count,
+                        };
+                        
+                        cart.push(obj);
+                        
+                        if(cart.length === cartArr.length){
+                            await res.render('cart.ejs', {login : req.session.login, cart});
+                            // console.log(cart.length);
+                        }
                     })
-                    const obj = {
-                        name : findProduct.name,
-                        model : findProduct.model,
-                        color : findProduct.color,
-                        img : findProduct.img,
-                        price : findProduct.price,
-                        count : findProduct.count,
-                    };
-                    
-                    cart.push(obj);
-                    
-                    if(idx == cartArr.length-1){
-                        await res.render('cart.ejs', {login : req.session.login, cart});
-                        // console.log(cart);
-                    }
-                })
+                }
+                map();
+            }else {
+                await res.render('cart.ejs', {login : req.session.login, cart:[]});
             }
-            await map();
         }else{
             if(Object.keys(req.cookies).length == 0){
                 res.render('cart.ejs', {login : req.session.login, cart:[]});
@@ -197,9 +207,9 @@ const findProductFromCookieOrUserDB = async (req, res) => {
                         count : findProduct.count,
                     };
                     
-                    await cart.push(obj);
+                    cart.push(obj);
                     
-                    if(idx == cartCookieArr.length-1){
+                    if(cart.length === cartCookieArr.length){
                         res.render('cart.ejs', {login : req.session.login, cart});
                         // console.log(cart);
                     }
