@@ -251,31 +251,46 @@
   });
 
   //구매하기 버튼
-  orderBtn.addEventListener("click", () => {
-    let queryArr = [];
-    productChecked  = 0;
+  // orderBtn.addEventListener("click", () => {
+  //   let queryArr = [];
+  //   productChecked  = 0;
 
-    cartItemCheckBox.forEach((checkBox, index) => {
-      if(checkBox.checked){
-        productChecked++;
+  //   cartItemCheckBox.forEach((checkBox, index) => {
+  //     if(checkBox.checked){
+  //       productChecked++;
         
-        const productModel = checkBox.dataset.model;
-        let item = "";
-        if (queryArr.length === 0) {
-          item = "?product";
-        } else {
-          item = "&product";
-        }
-        queryArr.push(`${item}${index}=${productModel}`);
-      }
-    })
+  //       const productModel = checkBox.dataset.model;
+  //       let item = "";
+  //       if (queryArr.length === 0) {
+  //         item = "?product";
+  //       } else {
+  //         item = "&product";
+  //       }
+  //       queryArr.push(`${item}${index}=${productModel}`);
+  //     }
+  //   })
 
-    const query = queryArr.join("")
-    console.log(query)
-    location.href = "/order/order" + query;
+  //   const query = queryArr.join("")
+  //   console.log(query)
+  //   location.href = "/order/order" + query;
 
-    if (productChecked === 0) {
-      return alert("결제하실 상품을 선택해주세요.");
-    }
-  });  
-  </script>
+  //   if (productChecked === 0) {
+  //     return alert("결제하실 상품을 선택해주세요.");
+  //   }
+  // });  
+
+
+  orderBtn.addEventListener("click", () => {
+    let query = "";
+    '<%for(let i=0; i < cart.length; i++){ %>'
+      '<%  if(i==0){ %>'
+        query = query + "?" +  '<%=cart[i].model;%>'
+      '<% }else{ %>'
+        query = query + "&" + '<%=cart[i].model;%>'
+      '<%}%>'
+    '<%}%>'
+    console.log(query);
+    location.href="/order/order"+query;
+  })
+
+</script>

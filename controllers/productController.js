@@ -267,6 +267,14 @@ const findProductOrder = async (req,res)=>{
             if (!productOrder) return res.status(400).json('해당 상품은 없어요');
     
             res.render('order.ejs', { login : req.session.login, product : productOrder, user:userInfo});
+        }else{
+            ///////////////
+            // 내가 넣은 부분
+            const productOrder = await Product.findOne({ model: req.params.model });
+            if (!productOrder) return res.status(400).json('해당 상품은 없어요');
+            res.render('order2.ejs', { login : req.session.login, product : productOrder});
+            // 내가 넣은 부분
+            //////////////
         }
 
     }catch(err){
@@ -274,6 +282,110 @@ const findProductOrder = async (req,res)=>{
         res.status(500).json("오류 발생");
     }
 }
+
+///////////////
+// 내가 넣은 부분
+const findProductOrderMany = async (req, res) => {
+    try{    
+        // 로그인 여부 판단
+        if(req.session.login){ 
+            // 로그인 했다면
+            // session에 담긴 유저 id를 먼저 찾고 user 정보를 가공해준다.
+            const loginData = req.session.uid
+
+            const findUser = await User.findOne({user_id: loginData})
+            console.log(findUser);
+            const userInfo = {
+                name: findUser.user_name,
+                address : findUser.user_address,
+                tel : findUser.user_tel,
+                emailFirst: findUser.user_email.split('@')[0],
+                emailLast: findUser.user_email.split('@')[1],
+                coupon : findUser.coupon
+            }
+
+            // 유저 db에 있는 cart를 변수를 선언하고 옮겨 담아서
+            const cartArr = findUser.cart;
+
+            // map 함수를 통해 cart에 담긴 모든 product를 찾는다.
+            if(cartArr.length > 0){
+                const map = async() => {
+                    let productsOrder = [];
+                    
+                    cartArr.map(async (item, idx) => {
+                        
+                        const findProduct = await Product.findOne({
+                            model: item
+                        })
+                        const obj = {
+                            name : findProduct.name,
+                            model : findProduct.model,
+                            color : findProduct.color,
+                            img : findProduct.img,
+                            price : findProduct.price,
+                            count : findProduct.count,
+                        };
+                        
+                        productsOrder.push(obj);
+                        
+                        if(productsOrder.length === cartArr.length){
+                            await res.render('order.ejs', {login : req.session.login, product : productsOrder, user:userInfo});
+                        }
+                    })
+                }
+                map();
+            }else { 
+                // product를 제대로 못찾아서 못담을수도 있는 경우도 예외처리를 해준다.
+                await res.render('cart.ejs', {login : req.session.login, product:[], user:userInfo});
+            }
+        }else{ 
+            // 비 로그인 유저라면 
+            if(Object.keys(req.cookies).length == 0){
+                // 쿠키에 정보가 담겼는지 먼저 판단을 하고
+                return res.status(400).json("쿠키 정보 없음");
+            }
+
+            // 쿠키에 있는 정보를 옮겨 담아서
+            const allCookies = req.cookies;
+            const cartCookie = allCookies.cart;
+            const cartCookieArr = cartCookie.split('/');
+            
+            // map 함수를 통해 쿠키에 담긴 모든 produc를 찾는다.
+            const map = () => {
+                let productsOrder = [];
+                
+                cartCookieArr.map(async (item, idx) => {
+                    
+                    const findProduct = await Product.findOne({
+                        model: item
+                    })
+                    const obj = {
+                        name : findProduct.name,
+                        model : findProduct.model,
+                        color : findProduct.color,
+                        img : findProduct.img,
+                        price : findProduct.price,
+                        count : findProduct.count,
+                    };
+                    
+                    productsOrder.push(obj);
+                    
+                    if(productsOrder.length === cartCookieArr.length){
+                        res.render('order2.ejs', {login : req.session.login, product : productsOrder});
+                    }
+                })
+            }
+            map();
+        
+        }
+    
+    }catch(err){
+        console.log(err);
+        res.status(500).json('오류 발생');
+    }
+}
+// 내가 넣은 부분
+//////////////
 
 // -----------------------------------------------------------------
 // admin
@@ -393,6 +505,7 @@ module.exports = {
     findProductAll, 
     compareProducts, 
     findProductOrder, 
+    findProductOrderMany,
     getAllProducts, 
     getProduct, 
     registerProduct,

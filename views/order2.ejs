@@ -45,9 +45,6 @@
         <div class="page_title_wrap">주문/결제</div>
       </div>
       <div class="container login_induce">
-        <% if(login) {%>
-          <div></div>
-          <% } else { %>
           <div class="login_wrap">
             <div class="btn_area">
               <span>스메그코리아의 회원이시면 로그인을 해주세요.</span>
@@ -66,7 +63,6 @@
               </div>
             </div>
           </div>
-          <% } %>
         </div>
       </div>
       <div class="container cart_table_area">
@@ -184,7 +180,6 @@
           <div class="order_sheet">
             <div class="sheet_item">
               <div class="area_title">주문자 정보</div>
-              <% if (user) { %>
               <div class="table_area">
                 <div class="form_row">
                   <div class="form_row_title">
@@ -195,7 +190,7 @@
                       id="ord_s_name"
                       name="ord_s_name"
                       class="form_text"
-                      placeholder="<%=user.name%>"
+                      placeholder=""
                       type="text"
                       value=""
                     />
@@ -234,7 +229,7 @@
                       id="ord_s_address1"
                       name="ord_s_address1"
                       class="form_text"
-                      placeholder="<%=user.address%>"
+                      placeholder=""
                       type="text"
                       value=""
                     />
@@ -264,7 +259,7 @@
                       id="ord_s_cellphone1"
                       name="ord_s_cellphone1"
                       class="form_text"
-                      placeholder="<%=user.tel.slice(0, 3)%>"
+                      placeholder=""
                       type="number"
                       inputmode="numeric"
                       pattern="\d*"
@@ -276,7 +271,7 @@
                       id="ord_s_cellphone2"
                       name="ord_s_cellphone2"
                       class="form_text"
-                      placeholder="<%=user.tel.slice(3, 7)%>"
+                      placeholder=""
                       type="number"
                       inputmode="numeric"
                       pattern="\d*"
@@ -288,7 +283,7 @@
                       id="ord_s_cellphone3"
                       name="ord_s_cellphone3"
                       class="form_text"
-                      placeholder="<%=user.tel.slice(7, 11)%>"
+                      placeholder=""
                       type="number"
                       inputmode="numeric"
                       pattern="\d*"
@@ -308,7 +303,7 @@
                         id="ord_s_email1"
                         name="ord_s_email1"
                         class="form_text"
-                        placeholder="<%=user.emailFirst%>"
+                        placeholder=""
                         type="text"
                         value=""
                       />
@@ -317,7 +312,7 @@
                         id="ord_s_email2"
                         name="ord_s_email2"
                         class="form_text"
-                        placeholder="<%=user.emailLast%>"
+                        placeholder=""
                         type="text"
                         value=""
                       />
@@ -334,7 +329,6 @@
                   </div>
                 </div>
               </div>
-              <% } %>
               <div class="area_title not_first">수취인 정보</div>
               <div class="form_row form_set_bottom">
                 <div class="form_row_content form_check_list">
@@ -514,23 +508,7 @@
               <div class="table_area">
                 <!-- [S] 주문쿠폰 -->
                 <!-- [E] 주문쿠폰 -->
-                <%if(Object.keys(user.coupon).length > 0) {%>
-                  <%for(let i=0; i<Object.keys(user.coupon).length; i++) {%>
-                    <br/>
-                    <div>
-                      <input type="radio" name="coupon_type" /> 
-                      <span><%=Object.keys(user.coupon)[i]%></span>
-                      <span> : </span>
-                      <%if(user.coupon[Object.keys(user.coupon)[i]].category === 'minus'){%>
-                        <span> <%=user.coupon[Object.keys(user.coupon)[i]].content%>원 할인쿠폰 </span>
-                      <%}else if(user.coupon[Object.keys(user.coupon)[i]].category === 'percent'){%>
-                        <span> <%=user.coupon[Object.keys(user.coupon)[i]].content%>% 할인쿠폰 </span>
-                      <%}%> 
-                    </div>
-                    <br/>
-                  <%}%>
-                  
-                <%}%>
+                
                 <!-- [S] 상품쿠폰 -->
 
                 <!-- [E] 상품쿠폰 -->
