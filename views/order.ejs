@@ -334,7 +334,157 @@
                   </div>
                 </div>
               </div>
-              <% } %>
+              <% } else {%>
+                <div class="table_area">
+                  <div class="form_row">
+                    <div class="form_row_title">
+                      <span> 이름 </span>
+                    </div>
+                    <div class="form_row_content">
+                      <input
+                        id="ord_s_name"
+                        name="ord_s_name"
+                        class="form_text"
+                        placeholder=""
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div class="form_row">
+                    <div class="form_row_title">
+                      <span> 주소 </span>
+                    </div>
+                    <div class="form_row_content form_post">
+                      <input
+                        id="ord_s_zipcode"
+                        name="ord_s_zipcode"
+                        class="form_text"
+                        placeholder=""
+                        type="number"
+                        inputmode="numeric"
+                        pattern="\d*"
+                        value=""
+                      />
+                      <a
+                        href="#none"
+                        class="form_inner_btn"
+                        onclick="search_s_zipcode();"
+                      >
+                        우편번호 검색
+                      </a>
+                    </div>
+                  </div>
+                  <div class="form_row form_set">
+                    <div class="form_row_title">
+                      <span> </span>
+                    </div>
+                    <div class="form_row_content">
+                      <input
+                        id="ord_s_address1"
+                        name="ord_s_address1"
+                        class="form_text"
+                        placeholder=""
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div class="form_row form_set">
+                    <div class="form_row_title">
+                      <span> </span>
+                    </div>
+                    <div class="form_row_content">
+                      <input
+                        id="ord_s_address2"
+                        name="ord_s_address2"
+                        class="form_text"
+                        placeholder=""
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div class="form_row">
+                    <div class="form_row_title">
+                      <span> 휴대폰 번호 </span>
+                    </div>
+                    <div class="form_row_content form_phone">
+                      <input
+                        id="ord_s_cellphone1"
+                        name="ord_s_cellphone1"
+                        class="form_text"
+                        placeholder=""
+                        type="number"
+                        inputmode="numeric"
+                        pattern="\d*"
+                        value=""
+                        maxlength="3"
+                        oninput="maxLengthCheck(this)"
+                      />
+                      <input
+                        id="ord_s_cellphone2"
+                        name="ord_s_cellphone2"
+                        class="form_text"
+                        placeholder=""
+                        type="number"
+                        inputmode="numeric"
+                        pattern="\d*"
+                        value=""
+                        maxlength="4"
+                        oninput="maxLengthCheck(this)"
+                      />
+                      <input
+                        id="ord_s_cellphone3"
+                        name="ord_s_cellphone3"
+                        class="form_text"
+                        placeholder=""
+                        type="number"
+                        inputmode="numeric"
+                        pattern="\d*"
+                        value=""
+                        maxlength="4"
+                        oninput="maxLengthCheck(this)"
+                      />
+                    </div>
+                  </div>
+                  <div class="form_row">
+                    <div class="form_row_title">
+                      <span> 이메일 </span>
+                    </div>
+                    <div class="form_row_content form_mail mobile_block">
+                      <div class="form_row_inner">
+                        <input
+                          id="ord_s_email1"
+                          name="ord_s_email1"
+                          class="form_text"
+                          placeholder=""
+                          type="text"
+                          value=""
+                        />
+                        <span class="mark">@</span>
+                        <input
+                          id="ord_s_email2"
+                          name="ord_s_email2"
+                          class="form_text"
+                          placeholder=""
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                      <div class="form_row_inner">
+                        <select id="select_s_mail" class="form_text">
+                          <option value="" selected="">직접입력</option>
+                          <option value="naver.com">naver.com</option>
+                          <option value="gmail.com">gmail.com</option>
+                          <option value="hanmail.net">hanmail.net</option>
+                          <option value="nate.com">nate.com</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <%} %>
               <div class="area_title not_first">수취인 정보</div>
               <div class="form_row form_set_bottom">
                 <div class="form_row_content form_check_list">
@@ -514,22 +664,23 @@
               <div class="table_area">
                 <!-- [S] 주문쿠폰 -->
                 <!-- [E] 주문쿠폰 -->
-                <%if(Object.keys(user.coupon).length > 0) {%>
-                  <%for(let i=0; i<Object.keys(user.coupon).length; i++) {%>
-                    <br/>
-                    <div>
-                      <input type="radio" name="coupon_type" /> 
-                      <span><%=Object.keys(user.coupon)[i]%></span>
-                      <span> : </span>
-                      <%if(user.coupon[Object.keys(user.coupon)[i]].category === 'minus'){%>
-                        <span> <%=user.coupon[Object.keys(user.coupon)[i]].content%>원 할인쿠폰 </span>
-                      <%}else if(user.coupon[Object.keys(user.coupon)[i]].category === 'percent'){%>
-                        <span> <%=user.coupon[Object.keys(user.coupon)[i]].content%>% 할인쿠폰 </span>
-                      <%}%> 
-                    </div>
-                    <br/>
+                <%if(user){%>
+                  <%if(Object.keys(user.coupon).length > 0) {%>
+                    <%for(let i=0; i<Object.keys(user.coupon).length; i++) {%>
+                      <br/>
+                      <div>
+                        <input type="radio" name="coupon_type" /> 
+                        <span><%=Object.keys(user.coupon)[i]%></span>
+                        <span> : </span>
+                        <%if(user.coupon[Object.keys(user.coupon)[i]].category === 'minus'){%>
+                          <span> <%=user.coupon[Object.keys(user.coupon)[i]].content%>원 할인쿠폰 </span>
+                        <%}else if(user.coupon[Object.keys(user.coupon)[i]].category === 'percent'){%>
+                          <span> <%=user.coupon[Object.keys(user.coupon)[i]].content%>% 할인쿠폰 </span>
+                        <%}%> 
+                      </div>
+                      <br/>
+                    <%}%>
                   <%}%>
-                  
                 <%}%>
                 <!-- [S] 상품쿠폰 -->
 

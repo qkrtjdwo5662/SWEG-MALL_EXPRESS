@@ -272,7 +272,7 @@ const findProductOrder = async (req,res)=>{
             // 내가 넣은 부분
             const productOrder = await Product.findOne({ model: req.params.model });
             if (!productOrder) return res.status(400).json('해당 상품은 없어요');
-            res.render('order2.ejs', { login : req.session.login, product : productOrder});
+            res.render('order.ejs', { login : req.session.login, product : productOrder, user:null});
             // 내가 넣은 부분
             //////////////
         }
@@ -371,7 +371,7 @@ const findProductOrderMany = async (req, res) => {
                     productsOrder.push(obj);
                     
                     if(productsOrder.length === cartCookieArr.length){
-                        res.render('order2.ejs', {login : req.session.login, product : productsOrder});
+                        res.render('order2.ejs', {login : req.session.login, product : productsOrder,  user:null});
                     }
                 })
             }
