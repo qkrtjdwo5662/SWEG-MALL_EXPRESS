@@ -411,9 +411,41 @@
                     <div class="date">사용일</div>
                   </li>
                   <%if( Object.keys(user.coupon).length > 0) {%>
-                  <li class="item no_item">등록된 쿠폰이 있어요.</li>
+                    <!-- <li class="item">
+                      <div class="num">1</div>
+                      <div class="title">쿠폰명</div>
+                      <div class="date">2100-12-31</div>
+                      <div class="date">2100-12-31</div>
+                      <div class="date">2100-12-31</div>
+                    </li>
+                    <li class="item">
+                      <div class="num">1</div>
+                      <div class="title">쿠폰명</div>
+                      <div class="date">2100-12-31</div>
+                      <div class="date">2100-12-31</div>
+                      <div class="date">2100-12-31</div>
+                    </li> -->
+                    <%for(let i=0; i<Object.keys(user.coupon).length; i++) {%>
+                      <li class="item">
+                        <div class="num"><%=i+1%></div>
+                        <div class="title">
+                          <div class="coupon_title"><%=Object.keys(user.coupon)[i]%></div>
+                          <div class="content" style="color:#9A9A9A;">
+                            <%if(user.coupon[Object.keys(user.coupon)[i]].category === 'minus'){%>
+                              <%=user.coupon[Object.keys(user.coupon)[i]].content%>원 할인쿠폰
+                            <%}else if(user.coupon[Object.keys(user.coupon)[i]].category === 'percent'){%>
+                              <%=user.coupon[Object.keys(user.coupon)[i]].content%>% 할인쿠폰
+                            <%}%>
+                          </div>
+                        </div>
+                        
+                        <div class="date">2100-12-31</div>
+                        <div class="date">2100-12-31</div>
+                        <div class="date">2100-12-31</div>
+                      </li>
+                    <%}%>
                   <%} else {%>
-                  <li class="item no_item">등록된 쿠폰이 없어요.</li>
+                    <li class="item no_item">등록된 쿠폰이 없어요.</li>
                   <%}%>
                 </ul>
               </div>

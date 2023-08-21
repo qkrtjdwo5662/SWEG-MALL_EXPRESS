@@ -378,6 +378,7 @@
 }
 .mypage_contents_area .mp_contents_wrap .mp_contents .mp_content2 .mp_board .mp_coupon_list .item .title {
   text-align: center;
+  width: calc(100% - 350px);
 }
 .mypage_contents_area .mp_contents_wrap .mp_contents .mp_content2 .mp_board .mp_coupon_list .item .date {
   width: 120px;
