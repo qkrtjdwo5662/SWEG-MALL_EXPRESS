@@ -371,7 +371,7 @@ const findProductOrderMany = async (req, res) => {
                     productsOrder.push(obj);
                     
                     if(productsOrder.length === cartCookieArr.length){
-                        res.render('order2.ejs', {login : req.session.login, product : productsOrder,  user:null});
+                        res.render('order.ejs', {login : req.session.login, product : productsOrder,  user:null});
                     }
                 })
             }
