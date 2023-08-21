@@ -9,4 +9,7 @@ let obj = {
 }
 
 console.log(obj);
-console.log(Object.keys(obj).length);
+console.log(Object.values(Object.keys(obj)[0]));
+// console.log(obj[Object.keys(obj)[1]]);
+console.log(obj.coupon["join-complete"].category);
+console.log(obj.coupon["join-complete"].content);

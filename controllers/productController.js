@@ -260,6 +260,7 @@ const findProductOrder = async (req,res)=>{
                 tel : findUser.user_tel,
                 emailFirst: findUser.user_email.split('@')[0],
                 emailLast: findUser.user_email.split('@')[1],
+                coupon : findUser.coupon
             }
 
             const productOrder = await Product.findOne({ model: req.params.model });

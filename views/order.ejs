@@ -468,7 +468,23 @@
               <div class="table_area">
                 <!-- [S] 주문쿠폰 -->
                 <!-- [E] 주문쿠폰 -->
-
+                <%if(Object.keys(user.coupon).length > 0) {%>
+                  <%for(let i=0; i<Object.keys(user.coupon).length; i++) {%>
+                    <br/>
+                    <div>
+                      <input type="radio" name="coupon_type" /> 
+                      <span><%=Object.keys(user.coupon)[i]%></span>
+                      <span> : </span>
+                      <%if(user.coupon[Object.keys(user.coupon)[i]].category === 'minus'){%>
+                        <span> <%=user.coupon[Object.keys(user.coupon)[i]].content%>원 할인쿠폰 </span>
+                      <%}else if(user.coupon[Object.keys(user.coupon)[i]].category === 'percent'){%>
+                        <span> <%=user.coupon[Object.keys(user.coupon)[i]].content%>% 할인쿠폰 </span>
+                      <%}%> 
+                    </div>
+                    <br/>
+                  <%}%>
+                  
+                <%}%>
                 <!-- [S] 상품쿠폰 -->
 
                 <!-- [E] 상품쿠폰 -->
