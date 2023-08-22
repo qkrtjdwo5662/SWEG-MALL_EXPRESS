@@ -2,6 +2,7 @@ require('./mongoConnect');
 
 const Order = require('../models/order');
 const User = require('../models/user');
+const Product = require('../models/product');
 
 const orderRequest = async(req, res) => {
   try{
@@ -21,8 +22,8 @@ const orderRequest = async(req, res) => {
       }
 
       let products = [];
-      let ogp;
-      let odp;
+      let ogp = 0;
+      let odp = 0;
       const data = req.query;
       const models = Object.values(data);
       console.log(data);
@@ -30,10 +31,11 @@ const orderRequest = async(req, res) => {
         const product = await Product.findOne({ model: models[i] });
         
         products.push(product);
-        ogp = ogp + product.price;
-        odp = odp + product.price;
+        ogp = ogp + parseInt(product.price);
+        odp = odp + parseInt(product.price);
       }
-
+      console.log(ogp);
+      console.log(odp);
 
       const ORDER = await Order.create({
         order_model : models,
@@ -58,17 +60,17 @@ const orderRequest = async(req, res) => {
       }
 
       let products = [];
-      let ogp;
+      let ogp = 0;
       const data = req.query;
       const models = Object.values(data);
       console.log(data);
-
+      console.log(models);
 
       for (let i = 0; i < models.length; i++) {
         const product = await Product.findOne({ model: models[i] });
         
         products.push(product);
-        ogp = ogp + product.price;
+        ogp = ogp + parseInt(product.price);
       }
 
       const ORDER = await Order.create({

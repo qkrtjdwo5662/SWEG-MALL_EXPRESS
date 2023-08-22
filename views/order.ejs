@@ -680,7 +680,7 @@
                 <a
                   href="#none"
                   class="btn_basic positive"
-                  onclick="cart_check();"
+                  onclick=""
                   >결제하기</a
                 >
               </div>
@@ -697,3 +697,35 @@
     <%-include('./include/footer.ejs')%>
   </body>
 </html>
+
+<script defer>
+  const orderRequestBtn = document.querySelector('#order_start a');
+  console.log(orderRequestBtn);
+  orderRequestBtn.addEventListener("click", () => {
+    let query = "";
+    '<%if(product.length >= 1) {%>'
+      '<%for(let i=0; i<product.length; i++) {%>'
+        '<%if(i==0){%>'
+          query = query + "?model" +'<%=i%>' +"=" + '<%=product[i].model;%>'
+        '<%}else{%>'
+          query = query + "&model" +'<%=i%>'+ "=" + '<%=product[i].model;%>'
+        '<%}%>'
+      '<%}%>'
+    '<%} else {%>'
+    query = query + "?model0" + "=" + '<%=product.model;%>'
+    '<%}%>'
+    orderRequest(query);
+  })
+  async function orderRequest(query){
+    const res = await fetch(`http://localhost:4000/order/order-request${query}`, { 
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json'
+      },
+    });
+
+    if(res.status == 200){
+      return alert("주문 요청 완료");
+    }else alert("잠시 후 다시 시도해주세요");
+  }
+</script>
