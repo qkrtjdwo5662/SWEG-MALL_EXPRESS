@@ -84,12 +84,14 @@
           </div>
           <div class="table_body">
             <div class="item_wrap">
+              <%if(product.length >= 1) {%>
+              <%product.map((product)=> {%>
               <div class="item">
                 <div class="info_wrap order_wrap">
                   <div class="info_set">
                     <div class="pro_info_area">
                       <div class="cart_pro_info">
-                        <a href="#" data-cart_seq="82654">
+                        <a href="/products/detail/<%=product.model%>" data-cart_seq="82654">
                           <div class="image_area">
                             <img src="<%=product.img%>" alt="" />
                           </div>
@@ -129,6 +131,54 @@
                   </div>
                 </div>
               </div>
+              <%})%>
+              <%}else{%>
+                <div class="item">
+                  <div class="info_wrap order_wrap">
+                    <div class="info_set">
+                      <div class="pro_info_area">
+                        <div class="cart_pro_info">
+                          <a href="/products/detail/<%=product.model%>" data-cart_seq="82654">
+                            <div class="image_area">
+                              <img src="<%=product.img%>" alt="" />
+                            </div>
+                          </a>
+                          <div class="contents_area">
+                            <div class="pro_name">
+                              <a href="/products/detail/<%=product.model%>">
+                                <%=product.name%> <%=product.color%>
+                              </a>
+                            </div>
+                            <div class="model_name"><%=product.model%></div>
+                            <div class="pro_price">￦ <%=product.price%></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="quantity_area">
+                        <div class="cart_mobile_unit_title">수량 옵션</div>
+                        <div class="con_info quantity_ui">
+                          <div class="count_num">1</div>
+                        </div>
+                      </div>
+                      <div class="price_area">
+                        <div class="additional_area">
+                          <div class="discount d-none">- ￦ 0</div>
+                        </div>
+                        <div class="price_inner_area">
+                          <div class="cart_mobile_unit_title">금액</div>
+                          <div class="price">￦ <%=product.price%></div>
+                        </div>
+                      </div>
+                      <div class="delivery_fee_area">
+                        <div class="cart_mobile_unit_title">배송비</div>
+                        <div class="fee">
+                          <div>무료</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <%}%>
             </div>
           </div>
         </div>
@@ -468,6 +518,7 @@
               <div class="table_area">
                 <!-- [S] 주문쿠폰 -->
                 <!-- [E] 주문쿠폰 -->
+              <%if(user){%>
                 <%if(Object.keys(user.coupon).length > 0) {%>
                   <%for(let i=0; i<Object.keys(user.coupon).length; i++) {%>
                     <br/>
@@ -485,6 +536,7 @@
                   <%}%>
                   
                 <%}%>
+              <%}%>
                 <!-- [S] 상품쿠폰 -->
 
                 <!-- [E] 상품쿠폰 -->
@@ -570,7 +622,7 @@
               <div class="item_top">
                 <div class="item">
                   <div class="title">총 상품금액</div>
-                  <div class="contents" id="sum_price"><%=product.price%> 원</div>
+                  <div class="contents" id="sum_price">원</div>
                 </div>
                 <div class="item">
                   <div class="title">배송비</div>
@@ -598,7 +650,7 @@
               <div class="item_total">
                 <div class="item">
                   <div class="title">최종결제 금액</div>
-                  <div class="contents" id="total_price"><%=product.price%>  원</div>
+                  <div class="contents" id="total_price">원</div>
                 </div>
               </div>
 
