@@ -250,10 +250,9 @@ const compareProducts = async(req, res) => {
 const findProductOrder = async (req,res)=>{
     try{
         if(req.session.login){
+            //로그인 했을때
             const loginData = req.session.uid
-
             const findUser = await User.findOne({user_id: loginData})
-            console.log(findUser)
             const userInfo = {
                 name: findUser.user_name,
                 address : findUser.user_address,
@@ -267,9 +266,102 @@ const findProductOrder = async (req,res)=>{
             if (!productOrder) return res.status(400).json('해당 상품은 없어요');
     
             res.render('order.ejs', { login : req.session.login, product : productOrder, user:userInfo});
+        }else{
+            //로그인 안했을때
+            const productOrder = await Product.findOne({ model: req.params.model });
+            if (!productOrder) return res.status(400).json('해당 상품은 없어요');
+            res.render('order.ejs', { login : req.session.login, product : productOrder, user:null});
         }
 
     }catch(err){
+        console.log(err);
+        res.status(500).json("오류 발생");
+    }
+}
+const findProductOrderMany = async (req,res)=>{
+    try {
+      if(req.session.login){
+          //로그인 유저
+          const loginData = req.session.uid
+          const findUser = await User.findOne({user_id:loginData})          
+          const userInfo = {
+            name: findUser.user_name,
+            address : findUser.user_address,
+            tel : findUser.user_tel,
+            emailFirst: findUser.user_email.split('@')[0],
+            emailLast: findUser.user_email.split('@')[1],
+            coupon : findUser.coupon
+          }
+          const cartArr = findUser.cart
+
+          if(cartArr.length>0){
+            const map = async() =>{
+
+              let productsOrder = [];
+              
+              cartArr.map(async(item)=>{
+                const findProduct = await Product.findOne({model:item})
+                const obj = {
+                  name : findProduct.name,
+                  model : findProduct.model,
+                  color : findProduct.color,
+                  img : findProduct.img,
+                  price : findProduct.price,
+                  count : findProduct.count,
+                }
+                productsOrder.push(obj)
+  
+                if(productsOrder.length === cartArr.length){
+                  await res.render("order.ejs", {login: req.session.login, user:userInfo, product:productsOrder})
+                }
+              })
+            }
+          map();
+          }else{
+            res.render('order.ejs', { login : req.session.login, user:userInfo, product:[]});
+          }
+        }else{
+          //로그인 유저 아니면
+          if(Object.keys(req.cookies).length == 0){
+          // 쿠키에 정보가 담겼는지 먼저 판단을 하고
+          return res.status(400).json("쿠키 정보 없음");
+          }
+
+          const allCookies = req.cookies;
+          const cartCookie = allCookies.cart;
+          const cartCookieArr = cartCookie.split('/');
+          // console.log("req.cookies",req.cookies)
+          // console.log("cartCookie:",cartCookie)
+          // console.log("cartCookieArr:",cartCookieArr)
+          
+          const map = () => {
+              let productsOrder = [];
+              
+              cartCookieArr.map(async (item, idx) => {
+                  
+                  const findProduct = await Product.findOne({
+                      model: item
+                  })
+                  const obj = {
+                      name : findProduct.name,
+                      model : findProduct.model,
+                      color : findProduct.color,
+                      img : findProduct.img,
+                      price : findProduct.price,
+                      count : findProduct.count,
+                  };
+                  
+                  productsOrder.push(obj);
+                  console.log(productsOrder)
+                  
+                  if(productsOrder.length === cartCookieArr.length){
+                      res.render('order.ejs', {login : req.session.login, product : productsOrder, user:null});
+                  }
+              })
+            }
+            map();
+     }
+    } catch (err) {
         console.log(err);
         res.status(500).json("오류 발생");
     }
@@ -397,5 +489,6 @@ module.exports = {
     getProduct, 
     registerProduct,
     deleteProduct,
-    modifyProduct
+    modifyProduct,
+    findProductOrderMany
 };
