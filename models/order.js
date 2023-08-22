@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const orderSchema = new Schema(
   {
     order_model:{
-      type: String,
+      type: Array,
       required : true,
     },
     orginal_price : {
@@ -16,12 +16,15 @@ const orderSchema = new Schema(
       type: String,
       requried : true,
     },
+    used_coupon: {
+      type: String,
+    },
     order_userInfo : {
       type: Object,
       required: true,
     },
     order_proInfo : {
-      type: Object, 
+      type: Array, 
       required: true,
     }
   },
