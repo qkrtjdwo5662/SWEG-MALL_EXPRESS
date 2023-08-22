@@ -3,6 +3,8 @@ const express = require('express');
 const {addCart, loginCheck , addCoupon} = require("../controllers/userController");
 
 const {findProductFromCookieOrUserDB, findProductOrder,findProductOrderMany} = require('../controllers/productController');
+
+const {orderRequest} = require('../controllers/orderControllder')
 const router = express.Router();
 
 
@@ -14,6 +16,7 @@ router.get('/addcart/:model', addCart);
 router.get('/order/:model', findProductOrder)
 router.get('/order', findProductOrderMany)
 
+router.post('/order-request', orderRequest);
 router.get('/coupon', loginCheck, (req, res) => {
   res.render('coupon', {login:req.session.login});
 });

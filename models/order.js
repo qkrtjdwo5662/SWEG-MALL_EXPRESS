@@ -8,7 +8,7 @@ const orderSchema = new Schema(
       type: Array,
       required : true,
     },
-    orginal_price : {
+    original_price : {
       type: String,
       required : true,
     },
