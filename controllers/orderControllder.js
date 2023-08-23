@@ -125,8 +125,22 @@ const confirmOrder = async(req, res) => {
     res.status(500).json("오류 발생");
   }
 }
+
+const cancleOrder = async(req, res) => {
+  try{
+    const deleteOrder = await Order.deleteOne({
+      _id : new ObjectId(req.params.id)
+    })
+    console.log(deleteOrder);
+    return res.status(200).json("주문 취소 정상처리");
+  }catch(err){
+    console.log(err);
+    res.status(500).json("오류 발생");
+  }
+}
 module.exports = {
   orderRequest,
   getAllOrders,
-  confirmOrder
+  confirmOrder,
+  cancleOrder
 }

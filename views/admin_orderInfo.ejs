@@ -112,7 +112,7 @@
                         <div class="btn_set">
                           <a href="javascript:;" class="btn_basic positive">주문 상세</a>
                           <a href="javascript:;" class="btn_basic negative" onclick="confirmOrder('<%=order._id%>')">주문 확정</a>
-                          <a href="javascript:;" class="btn_basic negative" onclick="">주문 취소</a>
+                          <a href="javascript:;" class="btn_basic negative" onclick="cancleOrder('<%=order._id%>')">주문 취소</a>
                         </div>
                     </div>
                   </div>
@@ -149,7 +149,7 @@
 
 <script defer>
   async function confirmOrder(id){
-    if(confirm("주문을 확정하시겠습니까?")){
+    if(confirm("주문요청을 확정하시겠습니까?")){
       const res = await fetch(`http://localhost:4000/admin/orders/confirm/${id}`, {
       method: 'post',
       headers: {
@@ -158,11 +158,27 @@
       });
       console.log(res);
       if(res.status !== 200) return alert("주문 확정 오류");
-      alert("주문이 확정되었습니다.");
+      alert("주문요청이 확정되었습니다.");
       location.reload();
     }else{
       return;
     }
   }
 
+  async function cancleOrder(id){
+    if(confirm("주문요청을 취소하시겠습니까?")){
+      const res = await fetch(`http://localhost:4000/admin/orders/cancle/${id}`, {
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json'
+        },
+      });
+      console.log(res);
+      if(res.status !== 200) return alert("주문요청 취소 오류");
+      alert("주문요청이 취소되었습니다.");
+      location.reload();
+    }else{
+      return;
+    }
+  }
 </script>
