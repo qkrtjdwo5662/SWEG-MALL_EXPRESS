@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- css 초기화 -->
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+  />
+  <link rel="stylesheet" href="/css/admin_orderInfo.css" />
+  <!-- 구글폰트 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet"
+  /> 
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrap">
+    <%-include('./include/admin_menu.ejs')%>
+    <div class="contents_area_wrap">
+      <div class="container_full page_title_area">
+        <div class="container_fixed page_title_wrap">
+            주문 관리
+        </div>
+      </div>
+      <div class="btn">
+        <!-- <a href="/admin/products/register" class="btn_basic positive">상품등록</a> -->
+      </div>
+      <div class="container_full table_area">
+        <div class="container_fixed">
+            <div class="table">
+              <div class="header">
+                    
+                    <div class="info_wrap">
+                        <div class="info_set">
+                            <div class="area">
+                                주문 상품정보
+                            </div>
+                            <div class="area">
+                                구매 수량
+                            </div>
+                            <div class="area">
+                                구매자
+                            </div>
+                            <div class="area">
+                                결제 가격
+                            </div>
+                            <div class="area">
+                                주문 상태
+                          </div>
+                        </div>
+                    </div>
+                    <div class="func_area">
+                        선택
+                    </div>
+                </div>
+                <div class="table_body">
+
+                  <!-- 회원 수 만큼 -->
+                  <div class="item_wrap">
+                    <div class="item">
+                      <div class="info_wrap"> 
+                        <div class="info_set">
+                            <div class="order_pro_info">
+                              <!-- 주문 상품 모델 개수 만큼 -->
+                                <div class="contents_area">
+                                  <div class="pro_name">
+                                    FAB28
+                                  </div>
+                                  <div class="model_name">
+                                    FAB28RBL5
+                                  </div>
+                                </div> 
+                              <!-- 주문 상품 모델 개수 만큼 -->
+                            </div>
+                             
+                            <div class="order_pro_count">
+                              <!-- 주문 상품 종류 개수 만큼 -->
+                              <div class="count">
+                                0
+                              </div>
+
+                              <!-- 주문 상품 종류 개수 만큼 -->
+                            </div>
+                            <div class="order_user">
+                              <div>
+                                qkrtjdwo5662
+                              </div>
+                              <div>
+                                member
+                              </div>
+                            </div>
+                            <div class="order_total_price">
+                              3350000
+                            </div>
+                            <div class="order_status">
+                              request
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="func_area">
+                        <div class="btn_set">
+                          <a href="javascript:;" class="btn_basic positive">주문 상세</a>
+                          <a href="javascript:;" class="btn_basic negative" onclick="">주문 확정</a>
+                          <a href="javascript:;" class="btn_basic negative" onclick="">주문 취소</a>
+                        </div>
+                    </div>
+                  </div>
+                  
+                </div>
+                  <!-- 회원 수 만큼 -->
+
+                </div>
+            </div>
+          </div>
+      </div>
+      <div class="container_full cart_check_area">
+        <div class="container_fixed">
+            <div class="item_wrap">
+                <div class="check_box" style="display:none;">
+                    <input id="cartAll0" name="cartAll0" class="form_check cart_all" type="checkbox"> 
+                    <label for="cartAll0" class="">전체선택</label>
+                </div>
+         
+            </div>
+        </div>
+      </div>
+      <div class="container_full btn_area">
+        <div class="container_fixed btn_wrap">
+        </div>
+      </div>
+
+    </div>
+  </div> 
+</body>
+</html>

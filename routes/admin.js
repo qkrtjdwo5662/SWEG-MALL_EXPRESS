@@ -61,4 +61,8 @@ router.get('/products/modify/:model' ,getProduct);
 router.post('/products/modify/:model', upload.single('img'), modifyProduct);
 
 router.post('/products/delete/:model', deleteProduct);
+
+router.get('/orders', (req, res) => {
+  res.render('admin_orderInfo');
+})
 module.exports = router;

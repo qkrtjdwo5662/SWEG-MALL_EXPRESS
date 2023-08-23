@@ -26,6 +26,11 @@ const orderSchema = new Schema(
     order_proInfo : {
       type: Array, 
       required: true,
+    },
+    order_status: {
+      type: String,
+      required: true,
+      default: "request"
     }
   },
   {
