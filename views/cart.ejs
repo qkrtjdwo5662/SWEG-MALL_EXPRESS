@@ -152,8 +152,9 @@
                           <div class="func_area">
                               <div class="btn_set">
                                 <a href="/order/order/<%=cart[i].model%>" class="btn_basic positive" >바로구매</a>
-                                <a href="javascript:;" class="btn_basic negative">삭제</a>
-                              </div>
+                                <form action="/order/cart/delete/<%=cart[i].model%>" method="post">
+                                  <button type="submit" class="btn_basic negative">삭제</button>
+                              </form>
                           </div>
                         </div>
                       </div>
@@ -186,39 +187,26 @@
             </div>
         </div>
       </div>
-
     </div>
   </div>
 </body>
 
 <script defer>
-    // const count_minus_btn = document.querySelector('.count_minus_main');
-    // const count_plus_btn = document.querySelector('.count_plus_main');
-    // const count_num = document.querySelector('.count_num');
-    // const total_cost = document.querySelector('.total_cost');
-    // let total = 1;
-    // count_minus_btn.addEventListener("click", (e) => {
-    //   if(total !== 1){
-    //     total = total - 1;
-    //     count_num.textContent = total;
-    //   }
-    // })
-    // count_plus_btn.addEventListener("click", (e) => {
-    //   total = total +1;
-    //   count_num.textContent = total;
-    // })
-  
-    // 버튼에 대한 기능도 장바구니 개수 만큼 class 명 혹은 id명을 다르게해서 독립적으로 기능될 수 있도록 수정필요
+    const count_minus_btn = document.querySelector('.count_minus_main');
+    const count_plus_btn = document.querySelector('.count_plus_main');
+    const count_num = document.querySelector('.count_num');
 
-
-    // const cartAllCheckBox = document.querySelector('#cartAll1');
-    // // console.log(cartAllCheckBox);
-    // cartAllCheckBox.addEventListener("change", (e) => {
-    //     const inputChecked = cartAllCheckBox.checked;
-    //     console.log(inputChecked);
-    //     const cartItemCheckBox = document.querySelectorAll('.form_check');
-    //     console.log(cartItemCheckBox);
-    // })
+    let total = 1;
+    count_minus_btn.addEventListener("click", (e) => {
+      if(total !== 1){
+        total = total - 1;
+        count_num.textContent = total;
+      }
+    })
+    count_plus_btn.addEventListener("click", (e) => {
+      total = total +1;
+      count_num.textContent = total;
+    })
 
   const cartCheckBoxAll = document.querySelector("#cartAll1")
   const cartItemCheckBox = document.querySelectorAll(".cart_table .item .cart_select")
@@ -279,3 +267,21 @@
     }
   });  
   </script>
+  <style>
+    .negative{
+    width: 107px;
+    height: 49px;
+    font-size: 15px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    color: #000000;
+    transition: all 0.3s ease-in-out;
+    margin-left: 0;
+    }
+  </style>

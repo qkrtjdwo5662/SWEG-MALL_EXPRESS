@@ -312,7 +312,9 @@ const findProductOrderMany = async (req,res)=>{
                 productsOrder.push(obj);
             }
           } 
-          res.render('order.ejs', { login : req.session.login, user:userInfo, product:productsOrder});
+          //금액 토탈
+          const total = productsOrder.reduce((acc, curr) => {return acc + Number(curr.price)}, 0);
+          res.render('order.ejs', { login : req.session.login, user:userInfo, product:productsOrder,total});
         }else{
           //로그인 유저 아니면
           if(Object.keys(req.cookies).length == 0){
@@ -341,8 +343,10 @@ const findProductOrderMany = async (req,res)=>{
                 productsOrder.push(obj);
             }
           }
+          //금액 토탈
+          const total = productsOrder.reduce((acc, curr) => {return acc + Number(curr.price)}, 0);
         
-          res.render('order.ejs', { login : req.session.login, user:null, product:productsOrder});
+          res.render('order.ejs', { login : req.session.login, user:null, product:productsOrder, total});
         }
     } catch (err) {
         console.log(err);
