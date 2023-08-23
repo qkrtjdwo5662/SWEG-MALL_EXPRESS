@@ -4,6 +4,8 @@ const Order = require('../models/order');
 const User = require('../models/user');
 const Product = require('../models/product');
 
+const { ObjectId } = require('mongodb');
+
 const orderRequest = async(req, res) => {
   try{
     if(req.session.login){
@@ -89,6 +91,56 @@ const orderRequest = async(req, res) => {
   }
 }
 
+const getAllOrders = async(req, res) => {
+  try{
+    const findAllOrders = await Order.find({});
+    if(!findAllOrders) res.status(400).json('주문 내역 불러오기 실패');
+    console.log(findAllOrders);
+    res.render('admin_orderInfo', {orders : findAllOrders});
+  }catch(err){
+    console.log(err);
+    res.status(500).json("오류 발생");
+  }
+}
+
+const confirmOrder = async(req, res) => {
+  try{
+    console.log(req.params.id);
+    // console.log(ObjectId(req.params.id));
+    const updateOrder = await Order.updateOne(
+      {
+        _id : new ObjectId(req.params.id)
+      },
+      { 
+        $set: {
+          order_status : "confirm"
+        }
+      }
+    )
+    console.log(updateOrder);
+    return res.status(200).json("주문 확정 정상처리");
+    
+  }catch(err){
+    console.log(err);
+    res.status(500).json("오류 발생");
+  }
+}
+
+const cancleOrder = async(req, res) => {
+  try{
+    const deleteOrder = await Order.deleteOne({
+      _id : new ObjectId(req.params.id)
+    })
+    console.log(deleteOrder);
+    return res.status(200).json("주문 취소 정상처리");
+  }catch(err){
+    console.log(err);
+    res.status(500).json("오류 발생");
+  }
+}
 module.exports = {
-  orderRequest
+  orderRequest,
+  getAllOrders,
+  confirmOrder,
+  cancleOrder
 }

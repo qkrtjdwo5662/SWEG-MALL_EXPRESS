@@ -2,6 +2,7 @@ const express = require('express');
 
 const{ getAllUsers, getUser, adminCheck, deleteUser} = require('../controllers/userController');
 const{getAllProducts, getProduct, registerProduct, deleteProduct, modifyProduct} = require('../controllers/productController');
+const { getAllOrders, confirmOrder,cancleOrder} = require('../controllers/orderControllder');
 
 const multer = require('multer');
 const fs = require('fs');
@@ -62,7 +63,7 @@ router.post('/products/modify/:model', upload.single('img'), modifyProduct);
 
 router.post('/products/delete/:model', deleteProduct);
 
-router.get('/orders', (req, res) => {
-  res.render('admin_orderInfo');
-})
+router.get('/orders', getAllOrders);
+router.post('/orders/confirm/:id', confirmOrder);
+router.post('/orders/cancle/:id', cancleOrder);
 module.exports = router;
