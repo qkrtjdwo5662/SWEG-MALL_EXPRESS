@@ -61,45 +61,48 @@
                 </div>
                 <div class="table_body">
 
-                  <!-- 회원 수 만큼 -->
+                  <!-- 주문 수 만큼 -->
+                  <%if(orders.length >0) {%>
+                    <%orders.map((order, idx) => {%>
                   <div class="item_wrap">
                     <div class="item">
                       <div class="info_wrap"> 
                         <div class="info_set">
                             <div class="order_pro_info">
                               <!-- 주문 상품 모델 개수 만큼 -->
-                                <div class="contents_area">
-                                  <div class="pro_name">
-                                    FAB28
-                                  </div>
+                                <%order.order_model.map((item, idx) => {%>
                                   <div class="model_name">
-                                    FAB28RBL5
+                                    <%=item%>
                                   </div>
-                                </div> 
+                                <%})%>
                               <!-- 주문 상품 모델 개수 만큼 -->
                             </div>
                              
                             <div class="order_pro_count">
                               <!-- 주문 상품 종류 개수 만큼 -->
-                              <div class="count">
-                                0
-                              </div>
-
+                              <%order.order_proInfo.map((item, idx) => {%>
+                                <div class="count">
+                                  <%=item.count%>
+                                </div>
+                              <%})%>
                               <!-- 주문 상품 종류 개수 만큼 -->
                             </div>
                             <div class="order_user">
                               <div>
-                                qkrtjdwo5662
+                                <%=order.order_userInfo.user_id%>
                               </div>
-                              <div>
-                                member
-                              </div>
+                              <%if(order.order_userInfo.member === true){%>
+                                <div>member</div>
+                              <%} else{%>
+                                <div>non-member</div>
+                              <%}%>
+                            
                             </div>
                             <div class="order_total_price">
-                              3350000
+                              <%=order.order_price%>
                             </div>
                             <div class="order_status">
-                              request
+                              <%=order.order_status%>
                             </div>
                             
                         </div>
@@ -108,15 +111,17 @@
                     <div class="func_area">
                         <div class="btn_set">
                           <a href="javascript:;" class="btn_basic positive">주문 상세</a>
-                          <a href="javascript:;" class="btn_basic negative" onclick="">주문 확정</a>
+                          <a href="javascript:;" class="btn_basic negative" onclick="confirmOrder('<%=order._id%>')">주문 확정</a>
                           <a href="javascript:;" class="btn_basic negative" onclick="">주문 취소</a>
                         </div>
                     </div>
                   </div>
                   
                 </div>
-                  <!-- 회원 수 만큼 -->
-
+                <%})%>
+                <%}%>
+                  <!-- 주문 수 만큼 -->
+                
                 </div>
             </div>
           </div>
@@ -141,3 +146,23 @@
   </div> 
 </body>
 </html>
+
+<script defer>
+  async function confirmOrder(id){
+    if(confirm("주문을 확정하시겠습니까?")){
+      const res = await fetch(`http://localhost:4000/admin/orders/confirm/${id}`, {
+      method: 'post',
+      headers: {
+        'Content-type': 'application/json'
+        },
+      });
+      console.log(res);
+      if(res.status !== 200) return alert("주문 확정 오류");
+      alert("주문이 확정되었습니다.");
+      location.reload();
+    }else{
+      return;
+    }
+  }
+
+</script>

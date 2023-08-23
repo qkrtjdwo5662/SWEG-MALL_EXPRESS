@@ -148,7 +148,7 @@ body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .
 body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .item_wrap .item .info_wrap .info_set .order_pro_info {
   width: 20%;
 }
-body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .item_wrap .item .info_wrap .info_set .order_pro_info .contents_area {
+body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .item_wrap .item .info_wrap .info_set .order_pro_info .model_name {
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -156,8 +156,8 @@ body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .
   width: 20%;
 }
 body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .item_wrap .item .info_wrap .info_set .order_pro_count .count {
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 body .wrap .contents_area_wrap .table_area .container_fixed .table .table_body .item_wrap .item .info_wrap .info_set .order_user {
   width: 20%;
