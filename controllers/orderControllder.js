@@ -103,6 +103,23 @@ const getAllOrders = async(req, res) => {
   }
 }
 
+const getOrder = async(req, res) => {
+  try{
+    console.log(req.params.id)
+    const findOrder = await Order.findOne({
+      _id : new ObjectId(req.params.id)
+    })
+    if(!findOrder) res.status(400).json("주문 상세 불러오기 실패");
+    //console.log(findOrder);
+    console.log(findOrder);
+    res.render('admin_order_detail.ejs', {order : findOrder});
+    
+  }catch(err){
+    console.log(err);
+    res.status(500).json("오류 발생");
+  }
+}
+
 const confirmOrder = async(req, res) => {
   try{
     console.log(req.params.id);
@@ -128,6 +145,7 @@ const confirmOrder = async(req, res) => {
 
 const cancleOrder = async(req, res) => {
   try{
+    console.log(req.params.id)
     const deleteOrder = await Order.deleteOne({
       _id : new ObjectId(req.params.id)
     })
@@ -141,6 +159,7 @@ const cancleOrder = async(req, res) => {
 module.exports = {
   orderRequest,
   getAllOrders,
+  getOrder,
   confirmOrder,
   cancleOrder
 }
