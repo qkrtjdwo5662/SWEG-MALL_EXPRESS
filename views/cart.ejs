@@ -81,11 +81,10 @@
                     </div>
                 </div>
                 <div class="table_body">
-
-                  <!-- 여기가 이제 그 장바구니 담은 만큼 -->
-                  <%if(cart.length>0){%>
-                    <% for(let i=0; i<cart.length; i++) {%>
-                    <div class="item_wrap">
+                  <div class="item_wrap">
+                    <!-- 여기가 이제 그 장바구니 담은 만큼 -->
+                      <%if(cart.length>0){%>
+                      <% for(let i=0; i<cart.length; i++) {%>
                         <div class="item">
                           <div class="check_box_area">
                               <div class="check_box">
@@ -195,8 +194,10 @@
     const count_minus_btn = document.querySelector('.count_minus_main');
     const count_plus_btn = document.querySelector('.count_plus_main');
     const count_num = document.querySelector('.count_num');
+    const count_price = document.querySelector('.price_main');
 
     let total = 1;
+    
     count_minus_btn.addEventListener("click", (e) => {
       if(total !== 1){
         total = total - 1;
