@@ -25,76 +25,66 @@
     <div class="contents_area_wrap">
       <div class="container_full page_title_area">
         <div class="container_fixed page_title_wrap">
-            사용자 상세 정보
+            주문 상세 정보
         </div>
       </div>
       <div class="btn">
-        <a href="/admin/users" class="btn_basic positive">돌아가기</a>
+        <a href="/admin/orders" class="btn_basic positive">돌아가기</a>
       </div>  
     <div class="info_area">
       <div class="info_wrap">
         <div class="info_row">
           <div class="info_title">
-            <span>아이디</span>
+            <span>주문 모델</span>
           </div>
           <div class="info_content">
-            <span><%=selectedUser.user_id%></span>
+            <%order.order_model.map((item, idx) => {%>
+              <span><%=item%></span>
+            <%})%>
           </div>
         </div>
 
         <div class="info_row">
           <div class="info_title">
-            <span>이름</span>
+            <span>원 가격</span>
           </div>
           <div class="info_content">
-            <span><%=selectedUser.user_name%></span>
+            <span><%=order.original_price%></span>
           </div>
         </div>
 
         <div class="info_row">
           <div class="info_title">
-            <span>이메일</span>
+            <span>주문 가격</span>
           </div>
           <div class="info_content">
-            <span><%=selectedUser.user_email%></span>
+            <span><%=order.order_price%></span>
           </div>
         </div>
 
         <div class="info_row">
           <div class="info_title">
-            <span>성별</span>
+            <span>사용된 쿠폰</span>
           </div>
           <div class="info_content">
-            <span><%=selectedUser.user_gender%></span>
+            <%if(!order.used_coupon){%>
+              <span>없음</span>
+            <%}else{%>
+              <span><%=order.used_coupon%></span>
+            <%}%>
           </div>
         </div>
 
         <div class="info_row">
           <div class="info_title">
-            <span>생년월일</span>
+            <span>주문 상태</span>
           </div>
           <div class="info_content">
-            <span><%=selectedUser.user_birth%></span>
+            <span><%=order.order_status%></span>
           </div>
         </div>
 
-        <div class="info_row">
-          <div class="info_title">
-            <span>휴대폰</span>
-          </div>
-          <div class="info_content">
-            <span><%=selectedUser.user_tel%></span>
-          </div>
-        </div>
-
-        <div class="info_row">
-          <div class="info_title">
-            <span>주소</span>
-          </div>
-          <div class="info_content">
-            <span><%=selectedUser.user_address%></span>
-          </div>
-        </div>
+        
       </div>
 
     </div>
