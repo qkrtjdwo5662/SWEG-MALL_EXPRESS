@@ -772,7 +772,12 @@
                 <div class="item">
                   <div class="title">총 상품금액</div>
                   <div class="contents" id="sum_price">
-                      <%=total%>원</div>
+                    <%if(product.length > 1){%>
+                      <%=total%>원
+                    <%}else{%>
+                      <%=product.price%>
+                    <%}%>
+                  </div>
                 </div>
                 <div class="item">
                   <div class="title">배송비</div>
@@ -800,7 +805,13 @@
               <div class="item_total">
                 <div class="item">
                   <div class="title">최종결제 금액</div>
-                  <div class="contents" id="total_price"><%=total%>원</div>
+                  <div class="contents" id="total_price">
+                    <%if(product.length > 1){%>
+                      <%=total%>원
+                    <%}else{%>
+                      <%=product.price%>
+                    <%}%>
+                  </div>
                 </div>
               </div>
 
