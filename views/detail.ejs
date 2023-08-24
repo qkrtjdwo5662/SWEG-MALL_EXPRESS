@@ -232,7 +232,7 @@
   
     if(cartIndex == -1){ // 쿠키 없으면
       console.log('cart 쿠키 생성');
-      document.cookie = `cart=<%=product.model%>; path=/`
+      document.cookie = `cart=/<%=product.model%>; path=/`
     }else{ // 쿠키 존재하면
       console.log('cart 쿠키에 추가');
       // console.log(document.cookie.split('; ')[cartIndex].split('=')); // cart 쿠키 key, value로 분리

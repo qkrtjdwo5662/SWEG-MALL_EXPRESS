@@ -188,9 +188,16 @@ const findProductFromCookieOrUserDB = async (req, res) => {
                 return;
             }
             const allCookies = req.cookies;
-            const cartCookie = allCookies.cart;
+            let cartCookie = allCookies.cart;
+            if(cartCookie[0] === '/'){
+                cartCookie = cartCookie.substring(1);
+                console.log(cartCookie);
+            }
             const cartCookieArr = cartCookie.split('/');
             
+            console.log(allCookies);
+            console.log(cartCookie);
+            console.log(cartCookieArr);
             const map = () => {
                 let cart = [];
                 
@@ -323,8 +330,11 @@ const findProductOrderMany = async (req,res)=>{
           }
           //전체 선택 카트 쿠키
           const allCookies = req.cookies;
+          console.log(allCookies);
           const cartCookie = allCookies.cart;
+          console.log(cartCookie);
           const cartCookieArr = cartCookie.split('/');
+          console.log(cartCookieArr);
           //선택한 카트 쿼리
           const selectProduct = Object.values(req.query)
 
