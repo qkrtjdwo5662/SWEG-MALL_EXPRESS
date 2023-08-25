@@ -2,7 +2,7 @@ const express = require('express');
 
 const {addCart, loginCheck , addCoupon} = require("../controllers/userController");
 
-const {findProductFromCookieOrUserDB, findProductOrder,findProductOrderMany} = require('../controllers/productController');
+const {findProductFromCookieOrUserDB, findProductOrder,findProductOrderMany, deleteCart} = require('../controllers/productController');
 
 const {orderRequest} = require('../controllers/orderControllder')
 const router = express.Router();
@@ -10,6 +10,7 @@ const router = express.Router();
 
 
 router.get('/cart', findProductFromCookieOrUserDB);
+router.post('/cart/delete/:model', deleteCart);
 
 router.get('/addcart/:model', addCart);
 

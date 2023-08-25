@@ -191,7 +191,7 @@ const findProductFromCookieOrUserDB = async (req, res) => {
             let cartCookie = allCookies.cart;
             if(cartCookie[0] === '/'){
                 cartCookie = cartCookie.substring(1);
-                console.log(cartCookie);
+                console.log("cartCookie**",cartCookie);
             }
             const cartCookieArr = cartCookie.split('/');
             
@@ -330,11 +330,11 @@ const findProductOrderMany = async (req,res)=>{
           }
           //전체 선택 카트 쿠키
           const allCookies = req.cookies;
-          console.log(allCookies);
+          console.log("allCookies:",allCookies);
           const cartCookie = allCookies.cart;
-          console.log(cartCookie);
+          console.log("cartCookie:",cartCookie);
           const cartCookieArr = cartCookie.split('/');
-          console.log(cartCookieArr);
+          console.log("cartCookieArr",cartCookieArr);
           //선택한 카트 쿼리
           const selectProduct = Object.values(req.query)
 
@@ -363,6 +363,54 @@ const findProductOrderMany = async (req,res)=>{
         res.status(500).json("오류 발생");
     }
 }
+const deleteCart = async(req,res)=>{
+  try {
+    //로그인했을때
+    if(req.session.login){
+      const paramsModel = req.params.model;
+      const findUser = await User.findOne({user_id: req.session.uid});
+      const cartArr = findUser.cart;
+      //파라미터 인덱스 값
+      const paramsModelIndex = cartArr.indexOf(paramsModel)
+      //인덱스 삭제
+      cartArr.splice(paramsModelIndex, 1)
+      findUser.save();
+
+      res.status(200).json("삭제 성공");
+    }
+    else{
+      //로그인안했을때(쿠키)
+      if(Object.keys(req.cookies).length == 0){
+        // 쿠키에 정보가 담겼는지 먼저 판단을 하고
+        return res.status(400).json("쿠키 정보 없음");
+      }
+      //전체 쿠키
+      const allCookies = req.cookies;
+      let cartCookie = allCookies.cart;
+      if(cartCookie[0] === '/'){
+        cartCookie = cartCookie.substring(1);
+        console.log("cartCookie:",cartCookie);
+      }
+      const cartCookieArr = cartCookie.split('/');
+
+      //파라미터 모델
+      const paramsModel = req.params.model;
+      //파라미터 인덱스값
+      const cartCookieIndex = cartCookieArr.indexOf(paramsModel)
+      //인덱스 삭제
+      cartCookieArr.splice(cartCookieIndex, 1);
+
+      const updatedCookieValue = cartCookieArr.join('/');
+
+      res.cookie("cart", updatedCookieValue);
+      res.status(200).json("삭제 성공");
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json("오류 발생");
+  }
+}
+
 
 // -----------------------------------------------------------------
 // admin
@@ -487,5 +535,6 @@ module.exports = {
     registerProduct,
     deleteProduct,
     modifyProduct,
-    findProductOrderMany
+    findProductOrderMany,
+    deleteCart
 };
