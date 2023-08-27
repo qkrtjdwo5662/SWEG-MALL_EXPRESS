@@ -191,13 +191,13 @@ const findProductFromCookieOrUserDB = async (req, res) => {
             let cartCookie = allCookies.cart;
             if(cartCookie[0] === '/'){
                 cartCookie = cartCookie.substring(1);
-                console.log("cartCookie**",cartCookie);
+                // console.log("cartCookie**",cartCookie);
             }
             const cartCookieArr = cartCookie.split('/');
             
-            console.log(allCookies);
-            console.log(cartCookie);
-            console.log(cartCookieArr);
+            // console.log(allCookies);
+            // console.log(cartCookie);
+            // console.log(cartCookieArr);
             const map = () => {
                 let cart = [];
                 
@@ -330,11 +330,11 @@ const findProductOrderMany = async (req,res)=>{
           }
           //전체 선택 카트 쿠키
           const allCookies = req.cookies;
-          console.log("allCookies:",allCookies);
+        //   console.log("allCookies:",allCookies);
           const cartCookie = allCookies.cart;
-          console.log("cartCookie:",cartCookie);
+        //   console.log("cartCookie:",cartCookie);
           const cartCookieArr = cartCookie.split('/');
-          console.log("cartCookieArr",cartCookieArr);
+        //   console.log("cartCookieArr",cartCookieArr);
           //선택한 카트 쿼리
           const selectProduct = Object.values(req.query)
 
@@ -387,11 +387,8 @@ const deleteCart = async(req,res)=>{
       //전체 쿠키
       const allCookies = req.cookies;
       let cartCookie = allCookies.cart;
-      if(cartCookie[0] === '/'){
-        cartCookie = cartCookie.substring(1);
-        console.log("cartCookie:",cartCookie);
-      }
       const cartCookieArr = cartCookie.split('/');
+      console.log("cartCookieArr",cartCookieArr)
 
       //파라미터 모델
       const paramsModel = req.params.model;
@@ -399,10 +396,17 @@ const deleteCart = async(req,res)=>{
       const cartCookieIndex = cartCookieArr.indexOf(paramsModel)
       //인덱스 삭제
       cartCookieArr.splice(cartCookieIndex, 1);
-
+      //인덱스 업데이트
       const updatedCookieValue = cartCookieArr.join('/');
+      console.log("updatedCookieValue",updatedCookieValue)
 
-      res.cookie("cart", updatedCookieValue);
+      if(updatedCookieValue.length === 0) {
+        //카트에 아무것도 없을 때
+        res.clearCookie("cart");//쿠키삭제
+    } else {
+        //카트에 물건이 담겼을때
+        res.cookie("cart", updatedCookieValue);//쿠키업데이트
+    }
       res.status(200).json("삭제 성공");
     }
   } catch (err) {
