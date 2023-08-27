@@ -85,7 +85,7 @@
                     <!-- 여기가 이제 그 장바구니 담은 만큼 -->
                       <%if(cart.length>0){%>
                       <% for(let i=0; i<cart.length; i++) {%>
-                        <div class="item">
+                        <div class="item" data-price="<%=cart[i].price%>">
                           <div class="check_box_area">
                               <div class="check_box">
                                   <input type="checkbox" data-model="<%=cart[i].model%>" name="cart1_seq" class="form_check cart_select cart_item" value="79551">
@@ -135,8 +135,8 @@
                                       
                                       <div class="price_inner_area">
                                           
-                                          <div class="price price_main">
-                                              <%=cart[i].price%>                                        
+                                          <div class="price price_main" data-price="<%=cart[i].price%>">
+                                            ￦<%=cart[i].price%>                                        
                                           </div>
                                       </div>
                                   </div>
@@ -191,23 +191,31 @@
 </body>
 
 <script defer>
-    const count_minus_btn = document.querySelector('.count_minus_main');
-    const count_plus_btn = document.querySelector('.count_plus_main');
-    const count_num = document.querySelector('.count_num');
-    const count_price = document.querySelector('.price_main');
+    const productCartItems = document.querySelectorAll(".item");
 
-    let total = 1;
-    
-    count_minus_btn.addEventListener("click", (e) => {
-      if(total !== 1){
-        total = total - 1;
-        count_num.textContent = total;
-      }
-    })
-    count_plus_btn.addEventListener("click", (e) => {
-      total = total +1;
-      count_num.textContent = total;
-    })
+    productCartItems.forEach((item) => {
+        let total = 1; 
+
+        const count_minus_btn = item.querySelector('.count_minus_main');
+        const count_plus_btn = item.querySelector('.count_plus_main');
+        const count_num = item.querySelector('.count_num');
+        const count_price = item.querySelector('.price_main');
+        const itemPrice = item.dataset.price;
+
+        count_plus_btn.addEventListener("click", (e) => {
+            total = total + 1;
+            count_num.textContent = total;
+            count_price.textContent = `￦` + total * itemPrice;
+        });
+
+        count_minus_btn.addEventListener("click", (e) => {
+          if(total !== 1){
+            total = total - 1;
+            count_num.textContent = total;
+            count_price.textContent = `￦` + total * itemPrice;
+          }
+        });
+    });
 
   const cartCheckBoxAll = document.querySelector("#cartAll1")
   const cartItemCheckBox = document.querySelectorAll(".cart_table .item .cart_select")
