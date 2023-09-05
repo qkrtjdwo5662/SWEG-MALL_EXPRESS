@@ -17,7 +17,8 @@ const orderSchema = new Schema(
       requried : true,
     },
     used_coupon: {
-      type: String,
+      type: Object,
+      default: null
     },
     order_userInfo : {
       type: Object,

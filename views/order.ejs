@@ -672,7 +672,7 @@
                   <%for(let i=0; i<Object.keys(user.coupon).length; i++) {%>
                     <br/>
                     <div>
-                      <input type="radio" name="coupon_type" id="<%=user.coupon[Object.keys(user.coupon)[i]].category%> <%=user.coupon[Object.keys(user.coupon)[i]].content%>"/> 
+                      <input type="radio" name="coupon_type" id="<%=Object.keys(user.coupon)[i]%>" class="<%=user.coupon[Object.keys(user.coupon)[i]].category%> <%=user.coupon[Object.keys(user.coupon)[i]].content%>"/> 
                       <span><%=Object.keys(user.coupon)[i]%></span>
                       <span> : </span>
                       <%if(user.coupon[Object.keys(user.coupon)[i]].category === 'minus'){%>
@@ -865,20 +865,23 @@
 <script defer>
   const orderRequestBtn = document.querySelector('#order_start a');
   console.log(orderRequestBtn);
+
   orderRequestBtn.addEventListener("click", () => {
-    let query = "";
-    '<%if(product.length >= 1) {%>'
-      '<%for(let i=0; i<product.length; i++) {%>'
-        '<%if(i==0){%>'
-          query = query + "?model" +'<%=i%>' +"=" + '<%=product[i].model;%>'
-        '<%}else{%>'
-          query = query + "&model" +'<%=i%>'+ "=" + '<%=product[i].model;%>'
+    if(confirm("주문 하시겠습니까?")){
+      let query = "";
+      '<%if(product.length >= 1) {%>'
+        '<%for(let i=0; i<product.length; i++) {%>'
+          '<%if(i==0){%>'
+            query = query + "?model" +'<%=i%>' +"=" + '<%=product[i].model;%>'
+          '<%}else{%>'
+            query = query + "&model" +'<%=i%>'+ "=" + '<%=product[i].model;%>'
+          '<%}%>'
         '<%}%>'
+      '<%} else {%>'
+      query = query + "?model0" + "=" + '<%=product.model;%>'
       '<%}%>'
-    '<%} else {%>'
-    query = query + "?model0" + "=" + '<%=product.model;%>'
-    '<%}%>'
-    orderRequest(query);
+      orderRequest(query);
+    }
   })
   async function orderRequest(query){
     const res = await fetch(`http://localhost:4000/order/order-request${query}`, { 
@@ -886,10 +889,15 @@
       headers: {
         'Content-type': 'application/json'
       },
+      body: JSON.stringify({
+        totalDiscount,
+        selectedCoupon
+      }),
     });
 
     if(res.status == 200){
-      return alert("주문 요청 완료");
+      alert("주문 요청 완료");
+      return location.href='/';
     }else alert("잠시 후 다시 시도해주세요");
   }
 
@@ -926,16 +934,20 @@ const total_price = document.querySelector("#total_price");
 const order_price = sum_price.innerText.replace("원", "");
 console.log(order_price);
 
+
+let totalDiscount = 0;
 let radioCheck = false;
+let couponDiscount = 0;
+let selectedCoupon = "";
+
 order_coupon_btn.addEventListener("click", () => {
   coupon_list.forEach((node) => {
     if(node.checked){
       console.log(node);
       radioCheck = true;
       
-      const coupon_contentsArr = node.id.split(" ");
+      const coupon_contentsArr = node.className.split(" ");
       console.log(coupon_contentsArr);
-      let couponDiscount;
       if(coupon_contentsArr[0] == 'minus'){
         couponDiscount = coupon_contentsArr[1];
         sum_coupon_discount.innerText = `-${couponDiscount}원`;
@@ -943,8 +955,9 @@ order_coupon_btn.addEventListener("click", () => {
         couponDiscount = order_price * coupon_contentsArr[1] / 100;
         sum_coupon_discount.innerText = `-${couponDiscount}원`;
       }
+      selectedCoupon = node.id;
+      totalDiscount = parseInt(totalDiscount + couponDiscount);
       total_price.innerText = `${order_price - couponDiscount}원`;
-      
       alert("선택된 쿠폰이 적용되었습니다");
     }
   })
