@@ -23,9 +23,11 @@ const orderRequest = async(req, res) => {
         member : true
       }
 
+
       let products = [];
       let ogp = 0;
       let odp = 0;
+    
       const data = req.query;
       const models = Object.values(data);
       console.log(data);
@@ -38,17 +40,20 @@ const orderRequest = async(req, res) => {
       }
       console.log(ogp);
       console.log(odp);
+      
 
       const ORDER = await Order.create({
         order_model : models,
         original_price : ogp,
-        order_price : odp,
-        used_coupon : null,
+        order_price : odp - req.body.totalDiscount,
+        used_coupon : 
+        (req.body.selectedCoupon==="") ? null :{
+          [req.body.selectedCoupon] : findUser.coupon[req.body.selectedCoupon]
+        },
         order_userInfo : userInfo,
         order_proInfo : products,
       })
       console.log(ORDER);
-  
       return res.status(200).json('주문 성공');
     }else{
 
