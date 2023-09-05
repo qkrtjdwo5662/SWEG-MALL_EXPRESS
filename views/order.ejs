@@ -664,7 +664,7 @@
                   <label class="">사용하실 쿠폰을 체크해주세요.</label>
                 </div>
               </div>
-              <div class="table_area">
+              <div class="table_area coupon_list">
                 <!-- [S] 주문쿠폰 -->
                 <!-- [E] 주문쿠폰 -->
               <%if(user){%>
@@ -672,7 +672,7 @@
                   <%for(let i=0; i<Object.keys(user.coupon).length; i++) {%>
                     <br/>
                     <div>
-                      <input type="radio" name="coupon_type" /> 
+                      <input type="radio" name="coupon_type" id="<%=user.coupon[Object.keys(user.coupon)[i]].category%> <%=user.coupon[Object.keys(user.coupon)[i]].content%>"/> 
                       <span><%=Object.keys(user.coupon)[i]%></span>
                       <span> : </span>
                       <%if(user.coupon[Object.keys(user.coupon)[i]].category === 'minus'){%>
@@ -686,6 +686,7 @@
                   
                 <%}%>
               <%}%>
+              
                 <!-- [S] 상품쿠폰 -->
 
                 <!-- [E] 상품쿠폰 -->
@@ -694,7 +695,9 @@
 
                 <!-- [E] 스메그 패밀리 쿠폰 -->
               </div>
-
+              <a href="#none" class="order_coupon_btn">
+                  쿠폰 적용
+              </a>
               <div class="area_title not_first">결제 정보</div>
               <div class="table_area">
                 <div class="form_row">
@@ -914,4 +917,38 @@ userCheck.addEventListener('change', function() {
  `<%}%>`
 });
 
+const coupon_list = document.getElementsByName('coupon_type');
+const order_coupon_btn = document.querySelector(".order_coupon_btn");
+const sum_price = document.querySelector("#sum_price");
+const sum_coupon_discount = document.querySelector("#sum_coupon_discount");
+const total_price = document.querySelector("#total_price");
+
+const order_price = sum_price.innerText.replace("원", "");
+console.log(order_price);
+
+let radioCheck = false;
+order_coupon_btn.addEventListener("click", () => {
+  coupon_list.forEach((node) => {
+    if(node.checked){
+      console.log(node);
+      radioCheck = true;
+      
+      const coupon_contentsArr = node.id.split(" ");
+      console.log(coupon_contentsArr);
+      let couponDiscount;
+      if(coupon_contentsArr[0] == 'minus'){
+        couponDiscount = coupon_contentsArr[1];
+        sum_coupon_discount.innerText = `-${couponDiscount}원`;
+      }else if(coupon_contentsArr[0] == 'percent'){
+        couponDiscount = order_price * coupon_contentsArr[1] / 100;
+        sum_coupon_discount.innerText = `-${couponDiscount}원`;
+      }
+      total_price.innerText = `${order_price - couponDiscount}원`;
+      
+      alert("선택된 쿠폰이 적용되었습니다");
+    }
+  })
+
+  if(!radioCheck) alert("쿠폰을 체크하세요");
+})
 </script>
