@@ -132,7 +132,7 @@
 
 <script defer>
   async function deleteProduct(model){
-    const res = await fetch(`http://localhost:4000/admin/products/delete/${model}`, {
+    const res = await fetch(`/admin/products/delete/${model}`, {
       method: 'post',
       headers: {
         'Content-type': 'application/json'

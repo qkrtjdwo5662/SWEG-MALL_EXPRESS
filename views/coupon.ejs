@@ -78,7 +78,7 @@
   async function addCoupon(couponid){
     console.log(couponid);
 
-    const res = await fetch(`http://localhost:4000/order/coupon/${couponid}`, { 
+    const res = await fetch(`/order/coupon/${couponid}`, { 
       method: 'post',
       headers: {
         'Content-type': 'application/json'

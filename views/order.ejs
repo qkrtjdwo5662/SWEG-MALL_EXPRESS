@@ -884,7 +884,7 @@
     }
   })
   async function orderRequest(query){
-    const res = await fetch(`http://localhost:4000/order/order-request${query}`, { 
+    const res = await fetch(`/order/order-request${query}`, { 
       method: 'post',
       headers: {
         'Content-type': 'application/json'
